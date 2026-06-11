@@ -1,0 +1,61 @@
+# GitHub Action: WK26 Poule Dashboard automatisch bijwerken.
+# Kopieer dit bestand in de repo naar .github/workflows/update-dashboard.yml
+#
+# Tijden (UTC; NL = UTC+2 in juni/juli):
+#   21:30 UTC = 23:30 NL  — na het vroege wedstrijdblok
+#   00:30 UTC = 02:30 NL  — na het middenblok
+#   05:30 UTC = 07:30 NL  — na het nachtblok (laatste wedstrijden VS-westkust)
+# Pas de cron-regels per toernooifase aan als het speelschema daar om vraagt.
+
+name: Update dashboard
+
+on:
+  schedule:
+    - cron: "30 21 * * *"
+    - cron: "30 0 * * *"
+    - cron: "30 5 * * *"
+  workflow_dispatch: {}        # handmatige trigger via de Actions-tab
+  push:
+    paths:
+      - "formulieren/**"       # nieuw formulier = direct herbouwen
+      - "data/uitslagen.json"  # handmatige uitslag-invoer = direct herbouwen
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dashboard
+  cancel-in-progress: false
+
+jobs:
+  bouw:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Dependencies
+        run: pip install openpyxl
+
+      - name: Formulieren parsen
+        run: python3 parser.py formulieren data/deelnemers.json
+
+      - name: Uitslagen ophalen (API)
+        env:
+          FOOTBALL_DATA_KEY: ${{ secrets.FOOTBALL_DATA_KEY }}
+          FD_COMPETITIE: ${{ vars.FD_COMPETITIE || 'WC' }}
+        run: python3 github/fetch_resultaten.py
+
+      - name: Dashboard genereren
+        run: python3 generate.py data/deelnemers.json data/uitslagen.json docs
+
+      - name: Wijzigingen committen
+        run: |
+          git config user.name "wk26-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data docs
+          git diff --cached --quiet || git commit -m "Automatische update $(date -u +%FT%TZ)"
+          git push
