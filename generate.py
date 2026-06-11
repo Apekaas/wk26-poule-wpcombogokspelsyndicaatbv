@@ -66,8 +66,9 @@ def nl_bonusmeter(data, uitslagen):
             "max": max(waarden) if waarden else None,
             "mediaan": statistics.median(waarden) if waarden else None,
         })
-    topscorers = Counter(d["bonus"].get("topscorer") for d in data["deelnemers"]
-                         if d["bonus"].get("topscorer"))
+    topscorers = Counter(
+        scoring.topscorer_canoniek(d["bonus"].get("topscorer"))
+        for d in data["deelnemers"] if d["bonus"].get("topscorer"))
     return {"vragen": meter,
             "topscorer_actueel": tussen.get("topscorer"),
             "topscorer_keuzes": [{"naam": n, "aantal": a}

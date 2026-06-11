@@ -232,6 +232,31 @@ class TestBonus(unittest.TestCase):
         self.assertEqual((pt, pot), (0, scoring.MAX_BONUS))
 
 
+class TestTopscorerCanoniek(unittest.TestCase):
+    def test_varianten_mbappe(self):
+        for v in ("Mbappe", "Mbappé", "Kylian Mbappé", "mbappe", "MBAPPE",
+                  "kylian mbappe"):
+            self.assertEqual(scoring.topscorer_canoniek(v), "Kylian Mbappé", v)
+
+    def test_achternaam_en_haakjes(self):
+        self.assertEqual(scoring.topscorer_canoniek("yamal"), "Lamine Yamal")
+        self.assertEqual(scoring.topscorer_canoniek("martinez (arg)"),
+                         "Lautaro Martínez")
+        self.assertEqual(scoring.topscorer_canoniek("Harry Kane"), "Harry Kane")
+
+    def test_onbekende_naam_blijft(self):
+        self.assertEqual(scoring.topscorer_canoniek("Jan Jansen"), "Jan Jansen")
+        self.assertIsNone(scoring.topscorer_canoniek(None))
+
+    def test_punten_via_canonieke_naam(self):
+        d = deelnemer(bonus={"nl_doelpunten_voor": None, "nl_doelpunten_tegen": None,
+                             "nl_geel": None, "toernooi_doelpunten": None,
+                             "toernooi_rood": None, "topscorer": "mbappe"})
+        u = uitslagen(bonus={"topscorer": "Kylian Mbappé"})
+        pt, _ = scoring.score_bonus(d, u)
+        self.assertEqual(pt, 5)
+
+
 class TestStandIntegraal(unittest.TestCase):
     def test_posities_gedeeld_bij_gelijke_stand(self):
         d1 = deelnemer(naam="A", groepswedstrijden=[wedstrijd("X", "Y", 1, 0)])

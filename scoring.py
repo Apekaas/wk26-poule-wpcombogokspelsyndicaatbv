@@ -31,6 +31,51 @@ def norm(s):
     return re.sub(r"\s+", " ", s).strip().casefold()
 
 
+# Canonieke topscorernamen. Varianten ("mbappe", "Kylian Mbappé", "yamal")
+# worden op de volledige naam gemapt via exacte of achternaam-match.
+# Achternamen moeten uniek zijn binnen deze lijst.
+TOPSCORERS = [
+    "Kylian Mbappé", "Erling Haaland", "Harry Kane", "Lamine Yamal",
+    "Lautaro Martínez", "Lionel Messi", "Cristiano Ronaldo",
+    "Vinícius Júnior", "Jude Bellingham", "Julián Álvarez",
+    "Antoine Griezmann", "Bukayo Saka", "Jamal Musiala", "Florian Wirtz",
+    "Memphis Depay", "Cody Gakpo", "Romelu Lukaku", "Richarlison",
+    "Marcus Rashford", "Phil Foden", "Álvaro Morata", "Serhou Guirassy",
+]
+_TS_INDEX = None
+
+
+def _ts_index():
+    global _TS_INDEX
+    if _TS_INDEX is None:
+        idx = {}
+        for vol in TOPSCORERS:
+            idx[norm(vol)] = vol
+            idx.setdefault(norm(vol).split()[-1], vol)
+        _TS_INDEX = idx
+    return _TS_INDEX
+
+
+def topscorer_canoniek(naam):
+    """Map een ingevulde topscorernaam op de volledige spelersnaam.
+
+    Onbekende namen blijven ongewijzigd staan (origineel, getrimd)."""
+    if not naam:
+        return None
+    kaal = re.sub(r"\(.*?\)", " ", str(naam))       # '(arg)' en dergelijke weg
+    kaal = re.sub(r"[^a-z ]", " ", norm(kaal))      # leestekens weg
+    kaal = re.sub(r"\s+", " ", kaal).strip()
+    if not kaal:
+        return str(naam).strip()
+    idx = _ts_index()
+    if kaal in idx:
+        return idx[kaal]
+    for woord in kaal.split():                       # achternaam-match
+        if woord in idx:
+            return idx[woord]
+    return str(naam).strip()
+
+
 def _toto(a, b):
     return "T" if a > b else ("U" if a < b else "G")
 
@@ -149,12 +194,10 @@ def score_bonus(deelnemer, uitslagen):
             potentieel += schaal[0][1]  # werkelijke waarde nog onbekend
         else:
             punten += s
-    # Topscorer: naam juist (achternaam volstaat, accentongevoelig)
+    # Topscorer: vergelijk op canonieke volledige naam (accentongevoelig)
     pred, act_naam = b.get("topscorer"), act.get("topscorer")
     if act_naam:
-        woorden_act = set(norm(act_naam).split())
-        woorden_pred = set(norm(pred).split()) if pred else set()
-        if woorden_pred and (woorden_pred & woorden_act):
+        if pred and norm(topscorer_canoniek(pred)) == norm(topscorer_canoniek(act_naam)):
             punten += PT_TOPSCORER
     elif pred:
         potentieel += PT_TOPSCORER
@@ -218,7 +261,7 @@ def bereken_stand(data, uitslagen):
             "categorien": categorien,
             "max_haalbaar": totaal + potentieel,
             "kampioen": d["kampioen"],
-            "topscorer": d["bonus"].get("topscorer"),
+            "topscorer": topscorer_canoniek(d["bonus"].get("topscorer")),
         })
     stand.sort(key=lambda s: (-s["totaal"], s["naam"]))
     vorige, plek = None, 0

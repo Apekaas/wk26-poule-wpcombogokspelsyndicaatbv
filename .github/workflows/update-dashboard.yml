@@ -19,6 +19,9 @@ on:
     paths:
       - "formulieren/**"       # nieuw formulier = direct herbouwen
       - "data/uitslagen.json"  # handmatige uitslag-invoer = direct herbouwen
+      - "*.py"                 # codewijziging = direct herbouwen
+      - "template.html"
+      - "github/**"
 
 permissions:
   contents: write
