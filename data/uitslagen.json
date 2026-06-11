@@ -1,19 +1,110 @@
 {
-  "laatste_update": null,
+  "laatste_update": "2026-06-11T19:25:17+00:00",
   "groepswedstrijden": [
-    {"datum": "2026-06-11", "thuis": "Mexico", "uit": "Zuid-Afrika", "thuis_score": null, "uit_score": null, "ronde": "groep-1"},
-    {"datum": "2026-06-12", "thuis": "Verenigde Staten", "uit": "Paraguay", "thuis_score": null, "uit_score": null, "ronde": "groep-1"},
-    {"datum": "2026-06-13", "thuis": "Australië", "uit": "Turkije", "thuis_score": null, "uit_score": null, "ronde": "groep-1"},
-    {"datum": "2026-06-14", "thuis": "Nederland", "uit": "Japan", "thuis_score": null, "uit_score": null, "ronde": "groep-1"},
-    {"datum": "2026-06-14", "thuis": "Duitsland", "uit": "Curaçao", "thuis_score": null, "uit_score": null, "ronde": "groep-1"},
-    {"datum": "2026-06-16", "thuis": "Argentinië", "uit": "Algerije", "thuis_score": null, "uit_score": null, "ronde": "groep-1"},
-    {"datum": "2026-06-17", "thuis": "Engeland", "uit": "Kroatië", "thuis_score": null, "uit_score": null, "ronde": "groep-1"},
-    {"datum": "2026-06-20", "thuis": "Nederland", "uit": "Zweden", "thuis_score": null, "uit_score": null, "ronde": "groep-2"},
-    {"datum": "2026-06-21", "thuis": "België", "uit": "Iran", "thuis_score": null, "uit_score": null, "ronde": "groep-2"},
-    {"datum": "2026-06-22", "thuis": "Frankrijk", "uit": "Irak", "thuis_score": null, "uit_score": null, "ronde": "groep-2"},
-    {"datum": "2026-06-25", "thuis": "Tunesië", "uit": "Nederland", "thuis_score": null, "uit_score": null, "ronde": "groep-3"},
-    {"datum": "2026-06-25", "thuis": "Curaçao", "uit": "Ivoorkust", "thuis_score": null, "uit_score": null, "ronde": "groep-3"},
-    {"datum": "2026-06-27", "thuis": "Colombia", "uit": "Portugal", "thuis_score": null, "uit_score": null, "ronde": "groep-3"}
+    {
+      "datum": "2026-06-11",
+      "thuis": "Mexico",
+      "uit": "Zuid-Afrika",
+      "thuis_score": null,
+      "uit_score": null,
+      "ronde": "groep-1"
+    },
+    {
+      "datum": "2026-06-12",
+      "thuis": "Verenigde Staten",
+      "uit": "Paraguay",
+      "thuis_score": null,
+      "uit_score": null,
+      "ronde": "groep-1"
+    },
+    {
+      "datum": "2026-06-13",
+      "thuis": "Australië",
+      "uit": "Turkije",
+      "thuis_score": null,
+      "uit_score": null,
+      "ronde": "groep-1"
+    },
+    {
+      "datum": "2026-06-14",
+      "thuis": "Nederland",
+      "uit": "Japan",
+      "thuis_score": null,
+      "uit_score": null,
+      "ronde": "groep-1"
+    },
+    {
+      "datum": "2026-06-14",
+      "thuis": "Duitsland",
+      "uit": "Curaçao",
+      "thuis_score": null,
+      "uit_score": null,
+      "ronde": "groep-1"
+    },
+    {
+      "datum": "2026-06-16",
+      "thuis": "Argentinië",
+      "uit": "Algerije",
+      "thuis_score": null,
+      "uit_score": null,
+      "ronde": "groep-1"
+    },
+    {
+      "datum": "2026-06-17",
+      "thuis": "Engeland",
+      "uit": "Kroatië",
+      "thuis_score": null,
+      "uit_score": null,
+      "ronde": "groep-1"
+    },
+    {
+      "datum": "2026-06-20",
+      "thuis": "Nederland",
+      "uit": "Zweden",
+      "thuis_score": null,
+      "uit_score": null,
+      "ronde": "groep-2"
+    },
+    {
+      "datum": "2026-06-21",
+      "thuis": "België",
+      "uit": "Iran",
+      "thuis_score": null,
+      "uit_score": null,
+      "ronde": "groep-2"
+    },
+    {
+      "datum": "2026-06-22",
+      "thuis": "Frankrijk",
+      "uit": "Irak",
+      "thuis_score": null,
+      "uit_score": null,
+      "ronde": "groep-2"
+    },
+    {
+      "datum": "2026-06-25",
+      "thuis": "Tunesië",
+      "uit": "Nederland",
+      "thuis_score": null,
+      "uit_score": null,
+      "ronde": "groep-3"
+    },
+    {
+      "datum": "2026-06-25",
+      "thuis": "Curaçao",
+      "uit": "Ivoorkust",
+      "thuis_score": null,
+      "uit_score": null,
+      "ronde": "groep-3"
+    },
+    {
+      "datum": "2026-06-27",
+      "thuis": "Colombia",
+      "uit": "Portugal",
+      "thuis_score": null,
+      "uit_score": null,
+      "ronde": "groep-3"
+    }
   ],
   "groepseindstand": {},
   "achtste_finalisten": [],
@@ -34,10 +125,10 @@
     "topscorer": null
   },
   "bonus_tussenstand": {
-    "nl_doelpunten_voor": null,
-    "nl_doelpunten_tegen": null,
+    "nl_doelpunten_voor": 0,
+    "nl_doelpunten_tegen": 0,
     "nl_geel": null,
-    "toernooi_doelpunten": null,
+    "toernooi_doelpunten": 0,
     "toernooi_rood": null,
     "topscorer": null
   }
