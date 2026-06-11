@@ -1,12 +1,12 @@
 {
-  "laatste_update": "2026-06-11T21:15:43+00:00",
+  "laatste_update": "2026-06-11T21:48:11+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
       "thuis": "Mexico",
       "uit": "Zuid-Afrika",
-      "thuis_score": null,
-      "uit_score": null,
+      "thuis_score": 2,
+      "uit_score": 0,
       "ronde": "groep-1"
     },
     {
@@ -128,7 +128,7 @@
     "nl_doelpunten_voor": 0,
     "nl_doelpunten_tegen": 0,
     "nl_geel": null,
-    "toernooi_doelpunten": 0,
+    "toernooi_doelpunten": 2,
     "toernooi_rood": null,
     "topscorer": null
   }
