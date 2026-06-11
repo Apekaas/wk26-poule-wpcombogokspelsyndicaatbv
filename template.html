@@ -11,7 +11,7 @@
   --void:#000000; --bone:#ffffff; --ash:#bdbdbd; --smoke:#9a9a9a;
   --plum:#8052ff; --amber:#ffb829; --lichen:#15846e;
   --hairline:rgba(255,255,255,.12);
-  --paneel:rgba(0,0,0,.62);
+  --paneel:rgba(2,2,4,.87);
   --font:'Inter',ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -111,7 +111,7 @@ h2{font-weight:200;font-size:clamp(32px,5vw,48px);letter-spacing:-.04em;
 .verrassing{border:1px solid var(--amber);border-radius:24px;padding:24px;
   margin-top:24px;background:var(--paneel)}
 footer{border-top:1px solid var(--hairline);padding:24px 0 60px;margin-top:96px;
-  color:var(--smoke);font-size:12px;letter-spacing:.05em}
+  color:var(--smoke);font-size:12px;letter-spacing:.05em;text-align:center}
 .valwaarschuwing{border:1px solid var(--amber);border-radius:24px;padding:14px 24px;
   color:var(--amber);font-size:13px;margin:24px 0;background:var(--paneel)}
 </style>
@@ -159,7 +159,7 @@ footer{border-top:1px solid var(--hairline);padding:24px 0 60px;margin-top:96px;
   </div>
 </section>
 
-<section id="maxhaalbaar" data-vorm="stadion">
+<section id="maxhaalbaar" data-vorm="bal">
   <div class="kicker">Prognose</div>
   <h2>Wie kan nog winnen?</h2>
   <p class="muted">Behaalde punten plus alles wat met de eigen voorspellingen nog te verdienen valt.</p>
@@ -190,7 +190,6 @@ footer{border-top:1px solid var(--hairline);padding:24px 0 60px;margin-top:96px;
 <footer>
   <div id="valmeldingen"></div>
   WK26 Poule — automatisch bijgewerkt na elk wedstrijdblok ·
-  Captie-teksten zijn parodie op de toernooi-communicatie, geen echte citaten ·
   Puntentelling volgens het poulereglement
 </footer>
 
@@ -347,36 +346,57 @@ const SCHAAL = 1.55;                  // vormen groter dan v2
 function rnd(a,b){return a+Math.random()*(b-a)}
 
 function vormBeker(){
+  // wereldbeker met ingebakken belichting (licht van linksvoor-boven),
+  // rijker goud en een halve eenheid lager geplaatst
   const p=new Float32Array(N*3), c=new Float32Array(N*3);
-  const goud=new THREE.Color(0xffb829), wit=new THREE.Color(0xffffff),
-        plum=new THREE.Color(0x8052ff);
+  const schaduw=new THREE.Color(0x7a5200), goud=new THREE.Color(0xffb829),
+        glans=new THREE.Color(0xffe9a8), plum=new THREE.Color(0x8052ff);
+  const kl=new THREE.Color(), L={x:-0.45,y:0.5,z:0.74};
   for(let i=0;i<N;i++){
-    const r=Math.random(); let x,y,z,kl=goud;
-    if(r<0.22){
+    const r=Math.random(); let x,y,z,nx,ny,nz;
+    if(r<0.22){ // wereldbol
       const u=Math.random()*6.283, v=Math.acos(rnd(-1,1)), R=0.52;
-      x=R*Math.sin(v)*Math.cos(u); y=1.45+R*Math.cos(v); z=R*Math.sin(v)*Math.sin(u);
-      if(Math.random()<0.18) kl=wit;
-    } else if(r<0.62){
+      nx=Math.sin(v)*Math.cos(u); ny=Math.cos(v); nz=Math.sin(v)*Math.sin(u);
+      x=R*nx; y=1.45+R*ny; z=R*nz;
+    } else if(r<0.62){ // kelk
       const t=Math.random(), a=Math.random()*6.283;
       const rad=0.18+0.55*Math.pow(t,1.5);
       x=rad*Math.cos(a); y=0.25+t*0.85; z=rad*Math.sin(a);
-    } else if(r<0.80){
+      nx=Math.cos(a); ny=0.3; nz=Math.sin(a);
+    } else if(r<0.80){ // taille
       const t=Math.random(), a=Math.random()*6.283;
       const rad=0.16+0.05*Math.sin(t*3.14);
       x=rad*Math.cos(a); y=-0.45+t*0.7; z=rad*Math.sin(a);
-    } else {
+      nx=Math.cos(a); ny=0; nz=Math.sin(a);
+    } else { // sokkel
       const t=Math.random(), a=Math.random()*6.283;
       const rad=0.62-0.25*t;
       x=rad*Math.cos(a); y=-0.95+t*0.5; z=rad*Math.sin(a);
-      if(Math.random()<0.12) kl=plum;
+      nx=Math.cos(a); ny=0.2; nz=Math.sin(a);
     }
-    p.set([x*1.15*SCHAAL,y*SCHAAL,z*1.15*SCHAAL],i*3); c.set([kl.r,kl.g,kl.b],i*3);
+    const shade=Math.max(0,nx*L.x+ny*L.y+nz*L.z);
+    kl.copy(schaduw).lerp(goud,0.3+0.7*Math.min(1,shade*1.25));
+    if(shade>0.72) kl.lerp(glans,(shade-0.72)*1.8);
+    if(r>=0.80&&Math.random()<0.12) kl.copy(plum);
+    p.set([x*1.15*SCHAAL,(y-0.5)*SCHAAL,z*1.15*SCHAAL],i*3);
+    c.set([kl.r,kl.g,kl.b],i*3);
   }
   return {p,c};
 }
 function vormBal(){
+  // multicolor bol naar Dala-voorbeeld: amber-clusters op een gemengd palet
   const p=new Float32Array(N*3), c=new Float32Array(N*3);
-  const wit=new THREE.Color(0xffffff), vlak=new THREE.Color(0x8052ff);
+  const amber=new THREE.Color(0xffb829);
+  const mix=[[new THREE.Color(0xffffff),30],[new THREE.Color(0x8052ff),22],
+             [new THREE.Color(0x15846e),12],[new THREE.Color(0xbdbdbd),12],
+             [new THREE.Color(0xff9efa),9],[new THREE.Color(0x4f9cff),8],
+             [new THREE.Color(0xffb829),7]];
+  const totaal=mix.reduce((s,m)=>s+m[1],0);
+  function kies(){
+    let r=Math.random()*totaal;
+    for(const [kl,w] of mix){ if((r-=w)<0) return kl; }
+    return mix[0][0];
+  }
   const centra=[];
   for(let k=0;k<14;k++){
     const u=Math.random()*6.283, v=Math.acos(rnd(-1,1));
@@ -385,38 +405,13 @@ function vormBal(){
   for(let i=0;i<N;i++){
     const u=Math.random()*6.283, v=Math.acos(rnd(-1,1)), R=1.25*SCHAAL;
     const x=Math.sin(v)*Math.cos(u), y=Math.cos(v), z=Math.sin(v)*Math.sin(u);
-    let donker=false;
+    let cluster=false;
     for(const ce of centra){
       const d=x*ce[0]+y*ce[1]+z*ce[2];
-      if(d>0.93){donker=true;break;}
+      if(d>0.93){cluster=true;break;}
     }
-    const kl=donker?vlak:wit;
+    const kl=cluster?amber:kies();
     p.set([x*R,y*R,z*R],i*3); c.set([kl.r,kl.g,kl.b],i*3);
-  }
-  return {p,c};
-}
-function vormStadion(){
-  const p=new Float32Array(N*3), c=new Float32Array(N*3);
-  const gras=new THREE.Color(0x15846e), tribune=new THREE.Color(0xbdbdbd),
-        wit=new THREE.Color(0xffffff), plum=new THREE.Color(0x8052ff);
-  for(let i=0;i<N;i++){
-    const r=Math.random(); let x,y,z,kl;
-    if(r<0.5){
-      const a=Math.random()*6.283, t=Math.random();
-      const rx=1.35+t*0.55, rz=0.95+t*0.5;
-      x=rx*Math.cos(a); y=-0.45+t*0.75+rnd(-0.03,0.03); z=rz*Math.sin(a);
-      kl=Math.random()<0.1?plum:tribune;
-    } else if(r<0.9){
-      x=rnd(-1.15,1.15); y=-0.5+rnd(-0.02,0.02); z=rnd(-0.72,0.72);
-      kl=gras;
-    } else {
-      kl=wit; y=-0.49;
-      const w=Math.random();
-      if(w<0.3){x=0;z=rnd(-0.72,0.72);}
-      else if(w<0.6){const a=Math.random()*6.283;x=0.28*Math.cos(a);z=0.28*Math.sin(a);}
-      else {x=rnd(-1.15,1.15);z=Math.random()<0.5?-0.72:0.72;}
-    }
-    p.set([x*SCHAAL,y*SCHAAL,z*SCHAAL],i*3); c.set([kl.r,kl.g,kl.b],i*3);
   }
   return {p,c};
 }
@@ -426,13 +421,17 @@ function vormTrump(){
         das=new THREE.Color(0x8052ff), pak=new THREE.Color(0xbdbdbd);
   const wolk=Array.isArray(TRUMP_PUNTEN)?TRUMP_PUNTEN:null;
   if(wolk&&wolk.length>100){
-    const S=2.5;
+    // dieper reliëf + schaduwwerking uit de tekening zelf (donkere partijen
+    // liggen dieper én zijn donkerder): dat maakt het gezicht echt 3D
+    const S=2.5, kl=new THREE.Color();
     for(let i=0;i<N;i++){
       const q=wolk[i%wolk.length];
       const x=q[0]*S+rnd(-0.01,0.01), y=q[1]*S+rnd(-0.01,0.01),
-            z=(q[2]??0)*S*0.5;
-      let kl=huid;
-      if(q[3]===1) kl=kuif; else if(q[3]===2) kl=das; else if(q[3]===3) kl=pak;
+            z=(q[2]??0)*S*1.15;
+      let basis=huid;
+      if(q[3]===1) basis=kuif; else if(q[3]===2) basis=das; else if(q[3]===3) basis=pak;
+      const rel=Math.min(1,Math.max(0,((q[2]??0)+0.275)/0.575));
+      kl.copy(basis).multiplyScalar(0.4+0.65*rel);
       p.set([x,y,z],i*3); c.set([kl.r,kl.g,kl.b],i*3);
     }
     return {p,c};
@@ -478,21 +477,18 @@ function podium3D(cv){
   const scene=new THREE.Scene();
   const camera=new THREE.PerspectiveCamera(38,1,0.1,60);
   camera.position.set(0,0.1,7.6);
-  scene.add(new THREE.AmbientLight(0xffffff,0.75));
-  const lamp=new THREE.DirectionalLight(0xffffff,0.9); lamp.position.set(2,3,4);
-  scene.add(lamp);
-  const geo=new THREE.ConeGeometry(0.038,0.08,3);
-  const mat=new THREE.MeshStandardMaterial({roughness:0.55,metalness:0.15});
+  // kleine open driehoekjes (wireframe) zoals Dala
+  const geo=new THREE.ConeGeometry(0.028,0.058,3,1,true);
+  const mat=new THREE.MeshBasicMaterial({wireframe:true,transparent:true,opacity:0.92});
   const mesh=new THREE.InstancedMesh(geo,mat,N);
   mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
   scene.add(mesh);
 
   const vormen={trump:SHOW_TRUMP?vormTrump():vormBeker(),bal:vormBal(),
-                stadion:vormStadion(),beker:vormBeker()};
+                beker:vormBeker()};
   const captie={trump:SHOW_TRUMP?"DE GROOTSTE VOETBALKENNER ALLER TIJDEN. ECHT WAAR."
                                 :"DE WERELDBEKER. HET MOOISTE GOUD OOIT GEMAAKT.",
     bal:"DE BAL. PERFECT ROND. ONGELOOFLIJK.",
-    stadion:"HET STADION. ENORM. HET GROOTSTE.",
     beker:"DE WERELDBEKER. HET MOOISTE GOUD OOIT GEMAAKT."};
 
   const pos=new Float32Array(N*3), doel=new Float32Array(N*3),
@@ -570,7 +566,9 @@ function podium3D(cv){
       v3.set(pos[i3],pos[i3+1],pos[i3+2]).applyAxisAngle(asY,rotY);
       m4.compose(v3,q,s3);
       mesh.setMatrixAt(i,m4);
-      kc.setRGB(kleur[i3],kleur[i3+1],kleur[i3+2]);
+      // dieptedemping: deeltjes aan de achterkant vervagen richting het zwart
+      const f=0.22+0.78*Math.min(Math.max((v3.z+2.2)/4.2,0),1);
+      kc.setRGB(kleur[i3]*f,kleur[i3+1]*f,kleur[i3+2]*f);
       mesh.setColorAt(i,kc);
     }
     mesh.instanceMatrix.needsUpdate=true;
