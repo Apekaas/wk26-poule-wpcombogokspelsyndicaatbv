@@ -199,7 +199,14 @@ def main():
             cache = json.load(open(KAARTEN_CACHE, encoding="utf-8"))
         except Exception:
             cache = {}
-    nieuw = [m for m in klaar if str(m["id"]) not in cache][:MAX_DETAILCALLS]
+    def opnieuw_nodig(m):
+        c = cache.get(str(m["id"]))
+        if c is None:
+            return True
+        # bookings verschijnen soms pas uren na de wedstrijd: blijf proberen
+        return bool(c.get("geen_data")) and c.get("pogingen", 1) < 5
+
+    nieuw = [m for m in klaar if opnieuw_nodig(m)][:MAX_DETAILCALLS]
     zonder_data = 0
     for idx, m in enumerate(nieuw):
         if idx:
@@ -212,7 +219,9 @@ def main():
         k = kaarten_uit_match(detail)
         if k is None:
             zonder_data += 1
-            cache[str(m["id"])] = {"rood": 0, "geel_nl": 0, "geen_data": True}
+            eerdere = cache.get(str(m["id"]), {})
+            cache[str(m["id"])] = {"rood": 0, "geel_nl": 0, "geen_data": True,
+                                   "pogingen": eerdere.get("pogingen", 0) + 1}
         else:
             geel_nl = sum(n for team, n in k["geel_per_team"].items()
                           if nl(team, onbekend) == "Nederland")

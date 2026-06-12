@@ -468,11 +468,17 @@ function vormTrump(){
 
 function podium(){
   const cv=el("podium");
+  // ?fx=uit (geen animatie), ?fx=spaar (zuinige modus), ?fx=aan (forceer vol).
+  // Standaard 'auto': zuinige modus bij software-rendering (bijv. RDS zonder GPU).
+  const FX=new URLSearchParams(location.search).get("fx")||"auto";
+  if(FX==="uit"||matchMedia("(prefers-reduced-motion: reduce)").matches){
+    cv.style.display="none"; el("vormcaptie").style.display="none"; return;
+  }
   if(typeof THREE==="undefined"){fallback2D(cv);return;}
-  try{podium3D(cv);}
+  try{podium3D(cv,FX);}
   catch(e){console.warn("3D-podium faalt, 2D-fallback:",e);fallback2D(cv);}
 }
-function podium3D(cv){
+function podium3D(cv,FX){
   const renderer=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
   const scene=new THREE.Scene();
   const camera=new THREE.PerspectiveCamera(38,1,0.1,60);
@@ -483,6 +489,24 @@ function podium3D(cv){
   const mesh=new THREE.InstancedMesh(geo,mat,N);
   mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
   scene.add(mesh);
+
+  // spaarstand: bij software-rendering (SwiftShader/WARP, typisch RDS zonder
+  // GPU) halveren we de deeltjes, cappen op ~30 fps en stopt de animatie
+  // 8 s nadat een vorm tot rust is gekomen — tot de volgende sectiewissel.
+  let spaarstand=(FX==="spaar");
+  if(FX==="auto"){
+    try{
+      const gl=renderer.getContext();
+      const ext=gl.getExtension("WEBGL_debug_renderer_info");
+      const gpunaam=ext?String(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL)):"";
+      if(/swiftshader|llvmpipe|software|basic render/i.test(gpunaam)){
+        spaarstand=true;
+        console.info("Spaarstand actief (software-rendering gedetecteerd):",gpunaam);
+      }
+    }catch(e){}
+  }
+  if(spaarstand) mesh.count=2600;
+  let actiefTot=performance.now()+12000, loopBezig=true;
 
   const vormen={trump:SHOW_TRUMP?vormTrump():vormBeker(),bal:vormBal(),
                 beker:vormBeker()};
@@ -506,6 +530,7 @@ function podium3D(cv){
     huidig=naam;
     doel.set(vormen[naam].p); doelkleur.set(vormen[naam].c);
     el("vormcaptie").textContent=captie[naam];
+    if(spaarstand) wek();
   }
   zetVorm("trump");
 
@@ -518,11 +543,13 @@ function podium3D(cv){
 
   // muis-repulsie (goedkoop, dus die blijft)
   const muis=new THREE.Vector2(99,99), muisWereld=new THREE.Vector3();
-  addEventListener("pointermove",e=>{
-    muis.x=(e.clientX/innerWidth)*2-1;
-    muis.y=-(e.clientY/innerHeight)*2+1;
-  });
-  addEventListener("pointerleave",()=>muis.set(99,99));
+  if(!spaarstand){
+    addEventListener("pointermove",e=>{
+      muis.x=(e.clientX/innerWidth)*2-1;
+      muis.y=-(e.clientY/innerHeight)*2+1;
+    });
+    addEventListener("pointerleave",()=>muis.set(99,99));
+  }
 
   function maat(){
     renderer.setSize(innerWidth,innerHeight,false);
@@ -536,8 +563,17 @@ function podium3D(cv){
   const m4=new THREE.Matrix4(), q=new THREE.Quaternion(), e3=new THREE.Euler(),
         s3=new THREE.Vector3(1,1,1), v3=new THREE.Vector3(), kc=new THREE.Color(),
         asY=new THREE.Vector3(0,1,0);
-  let t0=performance.now();
+  let t0=performance.now(), vorigeRender=0;
+  function wek(){
+    actiefTot=performance.now()+8000;
+    if(!loopBezig){loopBezig=true; t0=performance.now(); requestAnimationFrame(frame);}
+  }
   function frame(t){
+    if(spaarstand){
+      if(t>actiefTot){loopBezig=false; return;}     // rust: encoder en CPU idle
+      if(t-vorigeRender<32){requestAnimationFrame(frame); return;}  // ~30 fps
+      vorigeRender=t;
+    }
     const dt=Math.min((t-t0)/16.7,3); t0=t;
     if(muis.x<50){
       muisWereld.set(muis.x,muis.y,0.5).unproject(camera);
