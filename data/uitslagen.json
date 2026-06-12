@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-06-12T09:40:40+00:00",
+  "laatste_update": "2026-06-12T22:03:11+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -128,8 +128,8 @@
     "nl_doelpunten_voor": 0,
     "nl_doelpunten_tegen": 0,
     "nl_geel": null,
-    "toernooi_doelpunten": 5,
+    "toernooi_doelpunten": 7,
     "toernooi_rood": null,
-    "topscorer": null
+    "topscorer": "Julián Quiñones (1) · Raúl Jiménez (1) · Ladislav Krejčí (1)"
   }
 }
