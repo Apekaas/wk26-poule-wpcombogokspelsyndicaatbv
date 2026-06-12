@@ -2,27 +2,34 @@
 """Haal werkelijke WK 2026-uitslagen op en werk data/uitslagen.json bij.
 
 Bron: football-data.org v4 (gratis tier). Vereist omgevingsvariabele
-FOOTBALL_DATA_KEY en de competitie-id voor het WK 2026 (FD_COMPETITIE,
-standaard 'WC'). Fase 0-validatie bepaalt of deze API volstaat; het
-script werkt defensief en laat velden ongemoeid die het niet kan vullen.
+FOOTBALL_DATA_KEY en de competitie-code (FD_COMPETITIE, standaard 'WC').
+
+Naast uitslagen en plaatsingen haalt dit script per afgeronde wedstrijd
+één detail-call op voor de kaarten (bookings/statistics) en het
+/scorers-endpoint voor de topscorer-tussenstand. Een cache
+(data/kaarten-cache.json) zorgt dat elke wedstrijd maar één keer wordt
+opgevraagd; per run maximaal MAX_DETAILCALLS calls met een pauze
+ertussen (gratis tier: 10 calls/minuut).
 
 Handmatige fallback: vul data/uitslagen.json zelf in en draai de
 workflow zonder API-key — dit script slaat zichzelf dan over.
-
-Gebruik (vanuit de repo-root): python3 github/fetch_resultaten.py
+Handmatig ingevulde kaarten-tellers worden alleen overschreven als de
+API daadwerkelijk kaartendata levert.
 """
 import json
 import os
 import sys
+import time
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 UITSLAGEN = REPO / "data" / "uitslagen.json"
+KAARTEN_CACHE = REPO / "data" / "kaarten-cache.json"
+MAX_DETAILCALLS = 24          # per run; 10/min-limiet -> pauze tussen calls
+CALL_PAUZE = 6.5              # seconden
 
-# Naam-mapping API (Engels) -> formulier (Nederlands). Aanvullen in fase 0
-# zodra de echte API-namen bekend zijn; onbekende namen worden gerapporteerd.
 NAAM_NL = {
     "Mexico": "Mexico", "South Africa": "Zuid-Afrika", "Korea Republic": "Zuid-Korea",
     "South Korea": "Zuid-Korea", "Czechia": "Tsjechië", "Czech Republic": "Tsjechië",
@@ -45,9 +52,9 @@ NAAM_NL = {
     "Uzbekistan": "Oezbekistan", "Colombia": "Colombia", "England": "Engeland",
     "Croatia": "Kroatië", "Ghana": "Ghana", "Panama": "Panama",
 }
-STADIUM_NAAR_LIJST = {           # API-fasecode -> veld in uitslagen.json
-    "LAST_32": "achtste_finalisten",     # winnaars zestiende -> achtste
-    "LAST_16": "kwartfinalisten",        # winnaars achtste -> kwart
+STADIUM_NAAR_LIJST = {
+    "LAST_32": "achtste_finalisten",
+    "LAST_16": "kwartfinalisten",
     "QUARTER_FINALS": "halvefinalisten",
     "SEMI_FINALS": "finalisten",
 }
@@ -66,6 +73,33 @@ def nl(naam, onbekend):
         return NAAM_NL[naam]
     onbekend.add(naam)
     return naam
+
+
+def kaarten_uit_match(detail):
+    """Tel kaarten uit een match-detail. Geeft None als de data ontbreekt.
+
+    RED en YELLOW_RED tellen als rode kaart; YELLOW en YELLOW_RED tellen
+    als gele kaart (een tweede gele is immers ook een getoonde gele)."""
+    bookings = detail.get("bookings")
+    if bookings:
+        rood = sum(1 for b in bookings if b.get("card") in ("RED", "YELLOW_RED"))
+        geel_per_team = {}
+        for b in bookings:
+            if b.get("card") in ("YELLOW", "YELLOW_RED"):
+                naam = b.get("team", {}).get("name", "")
+                geel_per_team[naam] = geel_per_team.get(naam, 0) + 1
+        return {"rood": rood, "geel_per_team": geel_per_team}
+    # fallback: team-statistieken
+    stats_aanwezig = False
+    rood, geel_per_team = 0, {}
+    for kant in ("homeTeam", "awayTeam"):
+        st = (detail.get(kant) or {}).get("statistics") or {}
+        if "red_cards" in st or "yellow_cards" in st:
+            stats_aanwezig = True
+            rood += (st.get("red_cards") or 0) + (st.get("yellow_red_cards") or 0)
+            geel_per_team[detail[kant]["name"]] = \
+                (st.get("yellow_cards") or 0) + (st.get("yellow_red_cards") or 0)
+    return {"rood": rood, "geel_per_team": geel_per_team} if stats_aanwezig else None
 
 
 def main():
@@ -103,14 +137,13 @@ def main():
                 continue
             groep = s["group"].replace("GROUP_", "").replace("Group ", "").strip()
             tafel = s["table"]
-            gespeeld = sum(r["playedGames"] for r in tafel)
-            if gespeeld == 12:  # 6 duels x 2 teams: groep afgerond
+            if sum(r["playedGames"] for r in tafel) == 12:
                 uitslagen["groepseindstand"][groep] = [
                     nl(r["team"]["name"], onbekend) for r in tafel]
     except Exception as e:
         print(f"Standings niet opgehaald ({e}); groepseindstanden ongemoeid.")
 
-    # 3. Knock-out: geplaatste ploegen per fase = winnaars van de vorige fase
+    # 3. Knock-out: geplaatste ploegen per fase
     for fase, veld in STADIUM_NAAR_LIJST.items():
         winnaars = []
         for m in klaar:
@@ -118,10 +151,9 @@ def main():
                 kant = "homeTeam" if m["score"]["winner"] == "HOME_TEAM" else "awayTeam"
                 winnaars.append(nl(m[kant]["name"], onbekend))
         if winnaars:
-            bestaand = set(uitslagen.get(veld, []))
-            uitslagen[veld] = sorted(bestaand | set(winnaars))
+            uitslagen[veld] = sorted(set(uitslagen.get(veld, [])) | set(winnaars))
 
-    # 4. Finale + troostfinale -> einduitslag
+    # 4. Finale + troostfinale
     for m in klaar:
         win = m["score"].get("winner")
         if not win:
@@ -135,7 +167,7 @@ def main():
             uitslagen["derde"] = nl(m[w_]["name"], onbekend)
             uitslagen["vierde"] = nl(m[v_]["name"], onbekend)
 
-    # 5. Uitgeschakelde ploegen afleiden (verliezers knock-out)
+    # 5. Uitgeschakelde ploegen (verliezers knock-out)
     uitgeschakeld = set(uitslagen.get("uitgeschakeld", []))
     for m in klaar:
         if m["stage"] in (*STADIUM_NAAR_LIJST, "FINAL") and m["score"].get("winner"):
@@ -143,9 +175,8 @@ def main():
             uitgeschakeld.add(nl(m[kant]["name"], onbekend))
     uitslagen["uitgeschakeld"] = sorted(uitgeschakeld)
 
-    # 6. Bonus-tussenstand: NL-doelpunten uit gespeelde NL-wedstrijden
-    nl_voor = nl_tegen = 0
-    tot_doelpunten = 0
+    # 6. Doelpunten-tussenstand (uit de wedstrijdenlijst zelf)
+    nl_voor = nl_tegen = tot_doelpunten = 0
     for m in klaar:
         ft = m["score"]["fullTime"]
         if ft["home"] is None:
@@ -156,11 +187,59 @@ def main():
         if "Nederland" in namen:
             nl_voor += namen.pop("Nederland")
             nl_tegen += next(iter(namen.values()))
-    uitslagen["bonus_tussenstand"]["nl_doelpunten_voor"] = nl_voor
-    uitslagen["bonus_tussenstand"]["nl_doelpunten_tegen"] = nl_tegen
-    uitslagen["bonus_tussenstand"]["toernooi_doelpunten"] = tot_doelpunten
-    # Kaarten en topscorer: niet betrouwbaar in de gratis tier ->
-    # handmatig bijhouden in bonus_tussenstand (zie README).
+    bt = uitslagen["bonus_tussenstand"]
+    bt["nl_doelpunten_voor"] = nl_voor
+    bt["nl_doelpunten_tegen"] = nl_tegen
+    bt["toernooi_doelpunten"] = tot_doelpunten
+
+    # 7. Kaarten: detail-call per afgeronde wedstrijd, met cache
+    cache = {}
+    if KAARTEN_CACHE.exists():
+        try:
+            cache = json.load(open(KAARTEN_CACHE, encoding="utf-8"))
+        except Exception:
+            cache = {}
+    nieuw = [m for m in klaar if str(m["id"]) not in cache][:MAX_DETAILCALLS]
+    zonder_data = 0
+    for idx, m in enumerate(nieuw):
+        if idx:
+            time.sleep(CALL_PAUZE)  # 10 calls/min-limiet respecteren
+        try:
+            detail = api(f"matches/{m['id']}", key)
+        except Exception as e:
+            print(f"Detail {m['id']} niet opgehaald ({e}); volgende run opnieuw.")
+            continue
+        k = kaarten_uit_match(detail)
+        if k is None:
+            zonder_data += 1
+            cache[str(m["id"])] = {"rood": 0, "geel_nl": 0, "geen_data": True}
+        else:
+            geel_nl = sum(n for team, n in k["geel_per_team"].items()
+                          if nl(team, onbekend) == "Nederland")
+            cache[str(m["id"])] = {"rood": k["rood"], "geel_nl": geel_nl}
+    KAARTEN_CACHE.write_text(json.dumps(cache, indent=2), encoding="utf-8")
+
+    met_data = [c for c in cache.values() if not c.get("geen_data")]
+    if met_data:
+        bt["toernooi_rood"] = sum(c["rood"] for c in met_data)
+        bt["nl_geel"] = sum(c["geel_nl"] for c in met_data)
+        print(f"Kaarten: {len(met_data)} wedstrijden met data; "
+              f"rood totaal {bt['toernooi_rood']}, geel NL {bt['nl_geel']}.")
+    else:
+        print("LET OP: geen kaartendata in de API-respons — handmatige "
+              "tellers in bonus_tussenstand blijven leidend.")
+    if zonder_data:
+        print(f"LET OP: {zonder_data} wedstrijd(en) zonder bookings/statistics "
+              f"in deze run.")
+
+    # 8. Topscorer-tussenstand via /scorers
+    try:
+        scorers = api(f"competitions/{comp}/scorers?limit=3", key).get("scorers", [])
+        if scorers:
+            bt["topscorer"] = " · ".join(
+                f"{s['player']['name']} ({s.get('goals') or 0})" for s in scorers)
+    except Exception as e:
+        print(f"Scorers niet opgehaald ({e}); topscorer-teller ongemoeid.")
 
     uitslagen["laatste_update"] = datetime.now(timezone.utc).isoformat(
         timespec="seconds")
@@ -168,7 +247,8 @@ def main():
                          encoding="utf-8")
     if onbekend:
         print("LET OP — onbekende teamnamen (mapping aanvullen):", sorted(onbekend))
-    print(f"Uitslagen bijgewerkt: {len(klaar)} gespeelde wedstrijden verwerkt.")
+    print(f"Uitslagen bijgewerkt: {len(klaar)} gespeelde wedstrijden, "
+          f"{len(nieuw)} nieuwe detail-calls.")
     return 0
 
 
