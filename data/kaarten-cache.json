@@ -3,18 +3,24 @@
     "rood": 0,
     "geel_nl": 0,
     "geen_data": true,
-    "pogingen": 2
+    "pogingen": 3
   },
   "537328": {
     "rood": 0,
     "geel_nl": 0,
     "geen_data": true,
-    "pogingen": 2
+    "pogingen": 3
   },
   "537333": {
     "rood": 0,
     "geel_nl": 0,
     "geen_data": true,
-    "pogingen": 2
+    "pogingen": 3
+  },
+  "537345": {
+    "rood": 0,
+    "geel_nl": 0,
+    "geen_data": true,
+    "pogingen": 1
   }
 }
