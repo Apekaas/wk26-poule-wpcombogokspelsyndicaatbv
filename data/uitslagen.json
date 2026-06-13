@@ -127,9 +127,9 @@
   "bonus_tussenstand": {
     "nl_doelpunten_voor": 0,
     "nl_doelpunten_tegen": 0,
-    "nl_geel": null,
+    "nl_geel": 0,
     "toernooi_doelpunten": 12,
-    "toernooi_rood": null,
+    "toernooi_rood": 3,
     "topscorer": "Folarin Balogun (2) · Julián Quiñones (1) · Raúl Jiménez (1)"
   }
 }

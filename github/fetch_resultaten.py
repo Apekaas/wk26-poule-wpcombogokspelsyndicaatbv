@@ -4,36 +4,36 @@
 Bron: football-data.org v4 (gratis tier). Vereist omgevingsvariabele
 FOOTBALL_DATA_KEY en de competitie-code (FD_COMPETITIE, standaard 'WC').
 
-Naast uitslagen en plaatsingen haalt dit script per afgeronde wedstrijd
-één detail-call op voor de kaarten (bookings/statistics) en het
-/scorers-endpoint voor de topscorer-tussenstand. Een cache
-(data/kaarten-cache.json) zorgt dat elke wedstrijd maar één keer wordt
-opgevraagd; per run maximaal MAX_DETAILCALLS calls met een pauze
-ertussen (gratis tier: 10 calls/minuut).
+Het script werkt automatisch bij: poule-uitslagen, groepseindstanden,
+knock-outplaatsingen, doelpunten-tussenstand en de topscorer (/scorers).
+
+Kaarten komen van een tweede, gratis bron: de (key-loze) ESPN-API.
+football-data.org levert kaarten namelijk alleen in betaalde tiers, en de
+gratis alternatieven (API-Football, TheSportsDB) hebben geen of incomplete
+kaartdata voor het WK 2026. ESPN geeft per wedstrijd een betrouwbare
+'details'-lijst met rode/gele kaarten; één scoreboard-call over de hele
+toernooiperiode volstaat. Lukt de ESPN-call niet, dan blijven de
+handmatig ingevulde tellers in bonus_tussenstand staan.
 
 Handmatige fallback: vul data/uitslagen.json zelf in en draai de
 workflow zonder API-key — dit script slaat zichzelf dan over.
-Handmatig ingevulde kaarten-tellers worden alleen overschreven als de
-API daadwerkelijk kaartendata levert.
 """
 import json
 import os
 import sys
-import time
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 UITSLAGEN = REPO / "data" / "uitslagen.json"
-KAARTEN_CACHE = REPO / "data" / "kaarten-cache.json"
-MAX_DETAILCALLS = 24          # per run; 10/min-limiet -> pauze tussen calls
-CALL_PAUZE = 6.5              # seconden
+ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/soccer"
 
 NAAM_NL = {
     "Mexico": "Mexico", "South Africa": "Zuid-Afrika", "Korea Republic": "Zuid-Korea",
     "South Korea": "Zuid-Korea", "Czechia": "Tsjechië", "Czech Republic": "Tsjechië",
     "Canada": "Canada", "Bosnia and Herzegovina": "Bosnië-Herzegovina",
+    "Bosnia-Herzegovina": "Bosnië-Herzegovina",
     "Qatar": "Qatar", "Switzerland": "Zwitserland", "Brazil": "Brazilië",
     "Morocco": "Marokko", "Haiti": "Haïti", "Scotland": "Schotland",
     "United States": "Verenigde Staten", "USA": "Verenigde Staten",
@@ -75,31 +75,50 @@ def nl(naam, onbekend):
     return naam
 
 
-def kaarten_uit_match(detail):
-    """Tel kaarten uit een match-detail. Geeft None als de data ontbreekt.
+def espn(pad):
+    req = urllib.request.Request(
+        f"{ESPN_BASE}/{pad}",
+        headers={"User-Agent": "Mozilla/5.0 (wk26-poule dashboard)"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return json.load(r)
 
-    RED en YELLOW_RED tellen als rode kaart; YELLOW en YELLOW_RED tellen
-    als gele kaart (een tweede gele is immers ook een getoonde gele)."""
-    bookings = detail.get("bookings")
-    if bookings:
-        rood = sum(1 for b in bookings if b.get("card") in ("RED", "YELLOW_RED"))
-        geel_per_team = {}
-        for b in bookings:
-            if b.get("card") in ("YELLOW", "YELLOW_RED"):
-                naam = b.get("team", {}).get("name", "")
-                geel_per_team[naam] = geel_per_team.get(naam, 0) + 1
-        return {"rood": rood, "geel_per_team": geel_per_team}
-    # fallback: team-statistieken
-    stats_aanwezig = False
-    rood, geel_per_team = 0, {}
-    for kant in ("homeTeam", "awayTeam"):
-        st = (detail.get(kant) or {}).get("statistics") or {}
-        if "red_cards" in st or "yellow_cards" in st:
-            stats_aanwezig = True
-            rood += (st.get("red_cards") or 0) + (st.get("yellow_red_cards") or 0)
-            geel_per_team[detail[kant]["name"]] = \
-                (st.get("yellow_cards") or 0) + (st.get("yellow_red_cards") or 0)
-    return {"rood": rood, "geel_per_team": geel_per_team} if stats_aanwezig else None
+
+def kaarten_via_espn(onbekend):
+    """Tel kaarten via de gratis, key-loze ESPN-API.
+
+    Eén scoreboard-call over de toernooiperiode bevat per wedstrijd een
+    'details'-lijst met kaart-events (betrouwbare redCard/yellowCard-
+    booleans en team-id). Telt over alle afgeronde wedstrijden de rode
+    kaarten (toernooi-totaal) en de gele kaarten van Nederland.
+    Geeft (toernooi_rood, nl_geel) terug, of None bij een fout.
+
+    Instelbaar via ESPN_LIGA (standaard 'fifa.world') en ESPN_DATES
+    (YYYYMMDD-YYYYMMDD, standaard de hele WK 2026-periode)."""
+    liga = os.environ.get("ESPN_LIGA", "fifa.world")
+    dates = os.environ.get("ESPN_DATES", "20260611-20260720")
+    try:
+        sb = espn(f"{liga}/scoreboard?dates={dates}&limit=300")
+    except Exception as e:
+        print(f"ESPN scoreboard niet opgehaald ({e}); kaarten ongemoeid.")
+        return None
+    rood_totaal, nl_geel, afgerond = 0, 0, 0
+    for ev in sb.get("events", []):
+        if not ev.get("status", {}).get("type", {}).get("completed"):
+            continue
+        afgerond += 1
+        comp = (ev.get("competitions") or [{}])[0]
+        team_naam = {(c.get("team") or {}).get("id"):
+                     nl((c.get("team") or {}).get("displayName", ""), onbekend)
+                     for c in comp.get("competitors", [])}
+        for d in comp.get("details", []):
+            if d.get("redCard"):
+                rood_totaal += 1
+            if d.get("yellowCard") and \
+                    team_naam.get((d.get("team") or {}).get("id")) == "Nederland":
+                nl_geel += 1
+    print(f"ESPN-kaarten: {afgerond} afgeronde wedstrijden; "
+          f"rood totaal {rood_totaal}, geel NL {nl_geel}.")
+    return rood_totaal, nl_geel
 
 
 def main():
@@ -192,54 +211,11 @@ def main():
     bt["nl_doelpunten_tegen"] = nl_tegen
     bt["toernooi_doelpunten"] = tot_doelpunten
 
-    # 7. Kaarten: detail-call per afgeronde wedstrijd, met cache
-    cache = {}
-    if KAARTEN_CACHE.exists():
-        try:
-            cache = json.load(open(KAARTEN_CACHE, encoding="utf-8"))
-        except Exception:
-            cache = {}
-    def opnieuw_nodig(m):
-        c = cache.get(str(m["id"]))
-        if c is None:
-            return True
-        # bookings verschijnen soms pas uren na de wedstrijd: blijf proberen
-        return bool(c.get("geen_data")) and c.get("pogingen", 1) < 5
-
-    nieuw = [m for m in klaar if opnieuw_nodig(m)][:MAX_DETAILCALLS]
-    zonder_data = 0
-    for idx, m in enumerate(nieuw):
-        if idx:
-            time.sleep(CALL_PAUZE)  # 10 calls/min-limiet respecteren
-        try:
-            detail = api(f"matches/{m['id']}", key)
-        except Exception as e:
-            print(f"Detail {m['id']} niet opgehaald ({e}); volgende run opnieuw.")
-            continue
-        k = kaarten_uit_match(detail)
-        if k is None:
-            zonder_data += 1
-            eerdere = cache.get(str(m["id"]), {})
-            cache[str(m["id"])] = {"rood": 0, "geel_nl": 0, "geen_data": True,
-                                   "pogingen": eerdere.get("pogingen", 0) + 1}
-        else:
-            geel_nl = sum(n for team, n in k["geel_per_team"].items()
-                          if nl(team, onbekend) == "Nederland")
-            cache[str(m["id"])] = {"rood": k["rood"], "geel_nl": geel_nl}
-    KAARTEN_CACHE.write_text(json.dumps(cache, indent=2), encoding="utf-8")
-
-    met_data = [c for c in cache.values() if not c.get("geen_data")]
-    if met_data:
-        bt["toernooi_rood"] = sum(c["rood"] for c in met_data)
-        bt["nl_geel"] = sum(c["geel_nl"] for c in met_data)
-        print(f"Kaarten: {len(met_data)} wedstrijden met data; "
-              f"rood totaal {bt['toernooi_rood']}, geel NL {bt['nl_geel']}.")
-    else:
-        print("LET OP: geen kaartendata in de API-respons — handmatige "
-              "tellers in bonus_tussenstand blijven leidend.")
-    if zonder_data:
-        print(f"LET OP: {zonder_data} wedstrijd(en) zonder bookings/statistics "
-              f"in deze run.")
+    # 7. Kaarten via de gratis ESPN-API. Lukt het niet, dan blijven de
+    #    handmatig ingevulde tellers in bonus_tussenstand staan.
+    espn_kaarten = kaarten_via_espn(onbekend)
+    if espn_kaarten is not None:
+        bt["toernooi_rood"], bt["nl_geel"] = espn_kaarten
 
     # 8. Topscorer-tussenstand via /scorers
     try:
@@ -256,8 +232,7 @@ def main():
                          encoding="utf-8")
     if onbekend:
         print("LET OP — onbekende teamnamen (mapping aanvullen):", sorted(onbekend))
-    print(f"Uitslagen bijgewerkt: {len(klaar)} gespeelde wedstrijden, "
-          f"{len(nieuw)} nieuwe detail-calls.")
+    print(f"Uitslagen bijgewerkt: {len(klaar)} gespeelde wedstrijden.")
     return 0
 
 
