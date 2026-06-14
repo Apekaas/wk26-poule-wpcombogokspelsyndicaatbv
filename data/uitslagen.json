@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-06-14T08:52:58+00:00",
+  "laatste_update": "2026-06-14T22:39:11+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -29,16 +29,16 @@
       "datum": "2026-06-14",
       "thuis": "Nederland",
       "uit": "Japan",
-      "thuis_score": null,
-      "uit_score": null,
+      "thuis_score": 2,
+      "uit_score": 2,
       "ronde": "groep-1"
     },
     {
       "datum": "2026-06-14",
       "thuis": "Duitsland",
       "uit": "Curaçao",
-      "thuis_score": null,
-      "uit_score": null,
+      "thuis_score": 7,
+      "uit_score": 1,
       "ronde": "groep-1"
     },
     {
@@ -125,11 +125,11 @@
     "topscorer": null
   },
   "bonus_tussenstand": {
-    "nl_doelpunten_voor": 0,
-    "nl_doelpunten_tegen": 0,
-    "nl_geel": 0,
-    "toernooi_doelpunten": 19,
+    "nl_doelpunten_voor": 2,
+    "nl_doelpunten_tegen": 2,
+    "nl_geel": 3,
+    "toernooi_doelpunten": 31,
     "toernooi_rood": 3,
-    "topscorer": "Folarin Balogun (2) · Julián Quiñones (1) · Raúl Jiménez (1)"
+    "topscorer": "Folarin Balogun (2) · Kai Havertz (2) · Julián Quiñones (1)"
   }
 }
