@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-06-20T10:13:06+00:00",
+  "laatste_update": "2026-06-20T22:40:08+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -61,8 +61,8 @@
       "datum": "2026-06-20",
       "thuis": "Nederland",
       "uit": "Zweden",
-      "thuis_score": null,
-      "uit_score": null,
+      "thuis_score": 5,
+      "uit_score": 1,
       "ronde": "groep-2"
     },
     {
@@ -125,11 +125,11 @@
     "topscorer": null
   },
   "bonus_tussenstand": {
-    "nl_doelpunten_voor": 2,
-    "nl_doelpunten_tegen": 2,
+    "nl_doelpunten_voor": 7,
+    "nl_doelpunten_tegen": 3,
     "nl_geel": 3,
-    "toernooi_doelpunten": 96,
+    "toernooi_doelpunten": 105,
     "toernooi_rood": 7,
-    "topscorer": "Lionel Messi (3) · Jonathan David (3) · Cyle Larin (2)"
+    "topscorer": "Deniz Undav (3) · Lionel Messi (3) · Jonathan David (3)"
   }
 }
