@@ -1986,6 +1986,48 @@
       "positie_delta": 0
     },
     {
+      "naam": "Angelique",
+      "totaal": 2,
+      "per_ronde": {
+        "groep-1": 2,
+        "groep-2": 0,
+        "groep-3": 0,
+        "zestiende": 0,
+        "achtste": 0,
+        "kwart": 0,
+        "halve": 0,
+        "finale": 0,
+        "bonus": 0
+      },
+      "cumulatief": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "categorien": {
+        "groepswedstrijden": 2,
+        "groepseindstand": 0,
+        "achtste_bereikt": 0,
+        "kwart_bereikt": 0,
+        "halve_bereikt": 0,
+        "finale_bereikt": 0,
+        "einduitslag": 0,
+        "bonus": 0
+      },
+      "max_haalbaar": 357,
+      "kampioen": "Spanje",
+      "topscorer": "Erling Haaland",
+      "positie": 48,
+      "delta": 2,
+      "positie_delta": 2
+    },
+    {
       "naam": "Frank",
       "totaal": 2,
       "per_ronde": {
@@ -2068,48 +2110,6 @@
       "positie": 48,
       "delta": 0,
       "positie_delta": 0
-    },
-    {
-      "naam": "Angelique",
-      "totaal": 0,
-      "per_ronde": {
-        "groep-1": 0,
-        "groep-2": 0,
-        "groep-3": 0,
-        "zestiende": 0,
-        "achtste": 0,
-        "kwart": 0,
-        "halve": 0,
-        "finale": 0,
-        "bonus": 0
-      },
-      "cumulatief": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "categorien": {
-        "groepswedstrijden": 0,
-        "groepseindstand": 0,
-        "achtste_bereikt": 0,
-        "kwart_bereikt": 0,
-        "halve_bereikt": 0,
-        "finale_bereikt": 0,
-        "einduitslag": 0,
-        "bonus": 0
-      },
-      "max_haalbaar": 337,
-      "kampioen": "Spanje",
-      "topscorer": "Erling Haaland",
-      "positie": 50,
-      "delta": -2,
-      "positie_delta": -2
     }
   ]
 }
