@@ -1172,171 +1172,79 @@
     {
       "naam": "Angelique",
       "bestand": "Invulformulier WK 2026 Angelique.xlsx",
-      "groepswedstrijden": [
-        {
-          "datum": "2026-06-11",
-          "thuis": "Mexico",
-          "uit": "Zuid-Afrika",
-          "thuis_score": 2,
-          "uit_score": 1
-        },
-        {
-          "datum": "2026-06-12",
-          "thuis": "Verenigde Staten",
-          "uit": "Paraguay",
-          "thuis_score": 0,
-          "uit_score": 0
-        },
-        {
-          "datum": "2026-06-13",
-          "thuis": "Australië",
-          "uit": "Turkije",
-          "thuis_score": 0,
-          "uit_score": 2
-        },
-        {
-          "datum": "2026-06-14",
-          "thuis": "Nederland",
-          "uit": "Japan",
-          "thuis_score": 1,
-          "uit_score": 0
-        },
-        {
-          "datum": "2026-06-14",
-          "thuis": "Duitsland",
-          "uit": "Curaçao",
-          "thuis_score": 0,
-          "uit_score": 1
-        },
-        {
-          "datum": "2026-06-16",
-          "thuis": "Argentinië",
-          "uit": "Algerije",
-          "thuis_score": 0,
-          "uit_score": 0
-        },
-        {
-          "datum": "2026-06-17",
-          "thuis": "Engeland",
-          "uit": "Kroatië",
-          "thuis_score": 2,
-          "uit_score": 1
-        },
-        {
-          "datum": "2026-06-20",
-          "thuis": "Nederland",
-          "uit": "Zweden",
-          "thuis_score": 0,
-          "uit_score": 1
-        },
-        {
-          "datum": "2026-06-21",
-          "thuis": "België",
-          "uit": "Iran",
-          "thuis_score": 2,
-          "uit_score": 0
-        },
-        {
-          "datum": "2026-06-22",
-          "thuis": "Frankrijk",
-          "uit": "Irak",
-          "thuis_score": 1,
-          "uit_score": 1
-        },
-        {
-          "datum": "2026-06-25",
-          "thuis": "Tunesië",
-          "uit": "Nederland",
-          "thuis_score": 1,
-          "uit_score": 2
-        },
-        {
-          "datum": "2026-06-25",
-          "thuis": "Curaçao",
-          "uit": "Ivoorkust",
-          "thuis_score": 1,
-          "uit_score": 0
-        },
-        {
-          "datum": "2026-06-27",
-          "thuis": "Colombia",
-          "uit": "Portugal",
-          "thuis_score": 1,
-          "uit_score": 2
-        }
-      ],
+      "groepswedstrijden": [],
       "groepseindstand": {
         "A": [
-          "Mexico",
-          "Zuid-Korea",
-          "Tsjechië",
-          "Zuid-Afrika"
+          null,
+          null,
+          null,
+          null
         ],
         "B": [
-          "Zwitserland",
-          "Qatar",
-          "Canada",
-          "Bosnië-Herzegovina"
+          null,
+          null,
+          null,
+          null
         ],
         "C": [
-          "Marokko",
-          "Brazilië",
-          "Schotland",
-          "Haïti"
+          null,
+          null,
+          null,
+          null
         ],
         "D": [
-          "Turkije",
-          "Paraguay",
-          "Australië",
-          "Verenigde Staten"
+          null,
+          null,
+          null,
+          null
         ],
         "E": [
-          "Duitsland",
-          "Curaçao",
-          "Ivoorkust",
-          "Ecuador"
+          null,
+          null,
+          null,
+          null
         ],
         "F": [
-          "Zweden",
-          "Nederland",
-          "Japan",
-          "Tunesië"
+          null,
+          null,
+          null,
+          null
         ],
         "G": [
-          "België",
-          "Iran",
-          "Egypte",
-          "Nieuw-Zeeland"
+          null,
+          null,
+          null,
+          null
         ],
         "H": [
-          "Spanje",
-          "Saoedi-Arabië",
-          "Uruguay",
-          "Kaapverdië"
+          null,
+          null,
+          null,
+          null
         ],
         "I": [
-          "Noorwegen",
-          "Frankrijk",
-          "Senegal",
-          "Irak"
+          null,
+          null,
+          null,
+          null
         ],
         "J": [
-          "Algerije",
-          "Argentinië",
-          "Oostenrijk",
-          "Jordanië"
+          null,
+          null,
+          null,
+          null
         ],
         "K": [
-          "Portugal",
-          "Oezbekistan",
-          "DR Congo",
-          "Colombia"
+          null,
+          null,
+          null,
+          null
         ],
         "L": [
-          "Kroatië",
-          "Engeland",
-          "Panama",
-          "Ghana"
+          null,
+          null,
+          null,
+          null
         ]
       },
       "zestiende_winnaars": {
@@ -11053,8 +10961,91 @@
     },
     {
       "bestand": "Invulformulier WK 2026 Angelique.xlsx",
-      "fouten": [],
-      "waarschuwingen": []
+      "fouten": [
+        "groep A rij 41: leeg",
+        "groep A rij 42: leeg",
+        "groep A rij 43: leeg",
+        "groep A rij 44: leeg",
+        "groep B rij 41: leeg",
+        "groep B rij 42: leeg",
+        "groep B rij 43: leeg",
+        "groep B rij 44: leeg",
+        "groep C rij 41: leeg",
+        "groep C rij 42: leeg",
+        "groep C rij 43: leeg",
+        "groep C rij 44: leeg",
+        "groep D rij 41: leeg",
+        "groep D rij 42: leeg",
+        "groep D rij 43: leeg",
+        "groep D rij 44: leeg",
+        "groep E rij 47: leeg",
+        "groep E rij 48: leeg",
+        "groep E rij 49: leeg",
+        "groep E rij 50: leeg",
+        "groep F rij 47: leeg",
+        "groep F rij 48: leeg",
+        "groep F rij 49: leeg",
+        "groep F rij 50: leeg",
+        "groep G rij 47: leeg",
+        "groep G rij 48: leeg",
+        "groep G rij 49: leeg",
+        "groep G rij 50: leeg",
+        "groep H rij 47: leeg",
+        "groep H rij 48: leeg",
+        "groep H rij 49: leeg",
+        "groep H rij 50: leeg",
+        "groep I rij 53: leeg",
+        "groep I rij 54: leeg",
+        "groep I rij 55: leeg",
+        "groep I rij 56: leeg",
+        "groep J rij 53: leeg",
+        "groep J rij 54: leeg",
+        "groep J rij 55: leeg",
+        "groep J rij 56: leeg",
+        "groep K rij 53: leeg",
+        "groep K rij 54: leeg",
+        "groep K rij 55: leeg",
+        "groep K rij 56: leeg",
+        "groep L rij 53: leeg",
+        "groep L rij 54: leeg",
+        "groep L rij 55: leeg",
+        "groep L rij 56: leeg"
+      ],
+      "waarschuwingen": [
+        "Verwacht 13 groepswedstrijden, gevonden: 0",
+        "zestiende finale W1: onbekende landnaam 'Mexico'",
+        "zestiende finale W2: onbekende landnaam 'Marokko'",
+        "zestiende finale W3: onbekende landnaam 'Canada'",
+        "zestiende finale W4: onbekende landnaam 'Schotland'",
+        "zestiende finale W5: onbekende landnaam 'Duitsland'",
+        "zestiende finale W6: onbekende landnaam 'Nederland'",
+        "zestiende finale W7: onbekende landnaam 'Brazilië'",
+        "zestiende finale W8: onbekende landnaam 'Engeland'",
+        "zestiende finale W9: onbekende landnaam 'Spanje'",
+        "zestiende finale W10: onbekende landnaam 'Argentinië'",
+        "zestiende finale W11: onbekende landnaam 'Uruguay'",
+        "zestiende finale W12: onbekende landnaam 'Colombia'",
+        "zestiende finale W13: onbekende landnaam 'België'",
+        "zestiende finale W14: onbekende landnaam 'Australië'",
+        "zestiende finale W15: onbekende landnaam 'Saoedi-Arabië'",
+        "zestiende finale W16: onbekende landnaam 'Portugal'",
+        "achtste finale W17: onbekende landnaam 'Marokko'",
+        "achtste finale W18: onbekende landnaam 'België'",
+        "achtste finale W19: onbekende landnaam 'Nederland'",
+        "achtste finale W20: onbekende landnaam 'Engeland'",
+        "achtste finale W21: onbekende landnaam 'Colombia'",
+        "achtste finale W22: onbekende landnaam 'Duitsland'",
+        "achtste finale W23: onbekende landnaam 'Frankrijk'",
+        "achtste finale W24: onbekende landnaam 'Portugal'",
+        "kwartfinale W25: onbekende landnaam 'Engeland'",
+        "kwartfinale W26: onbekende landnaam 'Frankrijk'",
+        "kwartfinale W27: onbekende landnaam 'Argentinië'",
+        "kwartfinale W28: onbekende landnaam 'Spanje'",
+        "halve finale W29: onbekende landnaam 'Frankrijk'",
+        "halve finale W30: onbekende landnaam 'Nederland'",
+        "kampioen: onbekende landnaam 'Spanje'",
+        "verliezend finalist: onbekende landnaam 'Frankrijk'"
+      ]
     },
     {
       "bestand": "Invulformulier WK 2026 Annelies P.xlsx",
