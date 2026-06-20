@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-06-20T04:49:10+00:00",
+  "laatste_update": "2026-06-20T08:30:49+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -128,8 +128,8 @@
     "nl_doelpunten_voor": 2,
     "nl_doelpunten_tegen": 2,
     "nl_geel": 3,
-    "toernooi_doelpunten": 95,
-    "toernooi_rood": 6,
+    "toernooi_doelpunten": 96,
+    "toernooi_rood": 7,
     "topscorer": "Lionel Messi (3) · Jonathan David (3) · Cyle Larin (2)"
   }
 }
