@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-06-21T09:06:16+00:00",
+  "laatste_update": "2026-06-21T22:41:38+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -69,8 +69,8 @@
       "datum": "2026-06-21",
       "thuis": "België",
       "uit": "Iran",
-      "thuis_score": null,
-      "uit_score": null,
+      "thuis_score": 0,
+      "uit_score": 0,
       "ronde": "groep-2"
     },
     {
@@ -128,8 +128,8 @@
     "nl_doelpunten_voor": 7,
     "nl_doelpunten_tegen": 3,
     "nl_geel": 3,
-    "toernooi_doelpunten": 109,
-    "toernooi_rood": 7,
+    "toernooi_doelpunten": 113,
+    "toernooi_rood": 8,
     "topscorer": "Deniz Undav (3) · Lionel Messi (3) · Jonathan David (3)"
   }
 }

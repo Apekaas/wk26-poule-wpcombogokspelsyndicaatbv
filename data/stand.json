@@ -46,7 +46,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 363,
+      "max_haalbaar": 360,
       "kampioen": "Brazilië",
       "topscorer": "Cristiano Ronaldo",
       "positie": 1,
@@ -88,12 +88,54 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 362,
+      "max_haalbaar": 359,
       "kampioen": "Duitsland",
       "topscorer": "Lautaro Martínez",
       "positie": 2,
       "delta": 0,
       "positie_delta": 0
+    },
+    {
+      "naam": "Yuksel",
+      "totaal": 10,
+      "per_ronde": {
+        "groep-1": 6,
+        "groep-2": 4,
+        "groep-3": 0,
+        "zestiende": 0,
+        "achtste": 0,
+        "kwart": 0,
+        "halve": 0,
+        "finale": 0,
+        "bonus": 0
+      },
+      "cumulatief": [
+        6,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "categorien": {
+        "groepswedstrijden": 10,
+        "groepseindstand": 0,
+        "achtste_bereikt": 0,
+        "kwart_bereikt": 0,
+        "halve_bereikt": 0,
+        "finale_bereikt": 0,
+        "einduitslag": 0,
+        "bonus": 0
+      },
+      "max_haalbaar": 359,
+      "kampioen": "Turkije",
+      "topscorer": "Arda Guler",
+      "positie": 2,
+      "delta": 3,
+      "positie_delta": 13
     },
     {
       "naam": "AukeB",
@@ -130,12 +172,54 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 361,
+      "max_haalbaar": 358,
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
-      "positie": 3,
+      "positie": 4,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
+    },
+    {
+      "naam": "Guido",
+      "totaal": 9,
+      "per_ronde": {
+        "groep-1": 7,
+        "groep-2": 2,
+        "groep-3": 0,
+        "zestiende": 0,
+        "achtste": 0,
+        "kwart": 0,
+        "halve": 0,
+        "finale": 0,
+        "bonus": 0
+      },
+      "cumulatief": [
+        7,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "categorien": {
+        "groepswedstrijden": 9,
+        "groepseindstand": 0,
+        "achtste_bereikt": 0,
+        "kwart_bereikt": 0,
+        "halve_bereikt": 0,
+        "finale_bereikt": 0,
+        "einduitslag": 0,
+        "bonus": 0
+      },
+      "max_haalbaar": 358,
+      "kampioen": "Noorwegen",
+      "topscorer": "Erling Haaland",
+      "positie": 4,
+      "delta": 1,
+      "positie_delta": 3
     },
     {
       "naam": "Jan",
@@ -172,12 +256,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 361,
+      "max_haalbaar": 358,
       "kampioen": "Spanje",
       "topscorer": "Lautaro Martínez",
-      "positie": 3,
+      "positie": 4,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
     },
     {
       "naam": "Jochem",
@@ -214,12 +298,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 361,
+      "max_haalbaar": 358,
       "kampioen": "Nederland",
       "topscorer": "Kylian Mbappé",
-      "positie": 3,
+      "positie": 4,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
     },
     {
       "naam": "Rob",
@@ -256,12 +340,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 361,
+      "max_haalbaar": 358,
       "kampioen": "Engeland",
       "topscorer": "Harry Kane",
-      "positie": 3,
+      "positie": 4,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
     },
     {
       "naam": "Bas V.",
@@ -298,12 +382,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 360,
+      "max_haalbaar": 357,
       "kampioen": "Argentinië",
       "topscorer": "Kylian Mbappé",
-      "positie": 7,
+      "positie": 9,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
     },
     {
       "naam": "Chanika",
@@ -340,12 +424,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 360,
+      "max_haalbaar": 357,
       "kampioen": "Argentinië",
       "topscorer": "Kylian Mbappé",
-      "positie": 7,
+      "positie": 9,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
     },
     {
       "naam": "Gino",
@@ -382,54 +466,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 360,
+      "max_haalbaar": 357,
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
-      "positie": 7,
+      "positie": 9,
       "delta": 0,
-      "positie_delta": 0
-    },
-    {
-      "naam": "Guido",
-      "totaal": 8,
-      "per_ronde": {
-        "groep-1": 7,
-        "groep-2": 1,
-        "groep-3": 0,
-        "zestiende": 0,
-        "achtste": 0,
-        "kwart": 0,
-        "halve": 0,
-        "finale": 0,
-        "bonus": 0
-      },
-      "cumulatief": [
-        7,
-        8,
-        8,
-        8,
-        8,
-        8,
-        8,
-        8,
-        8
-      ],
-      "categorien": {
-        "groepswedstrijden": 8,
-        "groepseindstand": 0,
-        "achtste_bereikt": 0,
-        "kwart_bereikt": 0,
-        "halve_bereikt": 0,
-        "finale_bereikt": 0,
-        "einduitslag": 0,
-        "bonus": 0
-      },
-      "max_haalbaar": 360,
-      "kampioen": "Noorwegen",
-      "topscorer": "Erling Haaland",
-      "positie": 7,
-      "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
     },
     {
       "naam": "Guus",
@@ -466,12 +508,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 360,
+      "max_haalbaar": 357,
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
-      "positie": 7,
+      "positie": 9,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
     },
     {
       "naam": "Niels",
@@ -508,12 +550,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 360,
+      "max_haalbaar": 357,
       "kampioen": "Spanje",
       "topscorer": "Lamine Yamal",
-      "positie": 7,
+      "positie": 9,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
     },
     {
       "naam": "Thijmen",
@@ -550,12 +592,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 360,
+      "max_haalbaar": 357,
       "kampioen": "Nederland",
       "topscorer": "Kylian Mbappé",
-      "positie": 7,
+      "positie": 9,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
     },
     {
       "naam": "Thom \"Mythos\"",
@@ -592,12 +634,96 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 360,
+      "max_haalbaar": 357,
       "kampioen": "Spanje",
       "topscorer": "Kylian Mbappé",
-      "positie": 7,
+      "positie": 9,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
+    },
+    {
+      "naam": "Willie",
+      "totaal": 8,
+      "per_ronde": {
+        "groep-1": 6,
+        "groep-2": 2,
+        "groep-3": 0,
+        "zestiende": 0,
+        "achtste": 0,
+        "kwart": 0,
+        "halve": 0,
+        "finale": 0,
+        "bonus": 0
+      },
+      "cumulatief": [
+        6,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "categorien": {
+        "groepswedstrijden": 8,
+        "groepseindstand": 0,
+        "achtste_bereikt": 0,
+        "kwart_bereikt": 0,
+        "halve_bereikt": 0,
+        "finale_bereikt": 0,
+        "einduitslag": 0,
+        "bonus": 0
+      },
+      "max_haalbaar": 357,
+      "kampioen": "Portugal",
+      "topscorer": "Oyarzabal",
+      "positie": 9,
+      "delta": 1,
+      "positie_delta": 6
+    },
+    {
+      "naam": "Annelies P.",
+      "totaal": 7,
+      "per_ronde": {
+        "groep-1": 4,
+        "groep-2": 3,
+        "groep-3": 0,
+        "zestiende": 0,
+        "achtste": 0,
+        "kwart": 0,
+        "halve": 0,
+        "finale": 0,
+        "bonus": 0
+      },
+      "cumulatief": [
+        4,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "categorien": {
+        "groepswedstrijden": 7,
+        "groepseindstand": 0,
+        "achtste_bereikt": 0,
+        "kwart_bereikt": 0,
+        "halve_bereikt": 0,
+        "finale_bereikt": 0,
+        "einduitslag": 0,
+        "bonus": 0
+      },
+      "max_haalbaar": 356,
+      "kampioen": "Frankrijk",
+      "topscorer": "Kylian Mbappé",
+      "positie": 17,
+      "delta": 3,
+      "positie_delta": 21
     },
     {
       "naam": "Bas de R",
@@ -634,12 +760,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 359,
+      "max_haalbaar": 356,
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
-      "positie": 15,
+      "positie": 17,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
     },
     {
       "naam": "Elize",
@@ -676,12 +802,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 359,
+      "max_haalbaar": 356,
       "kampioen": "Brazilië",
       "topscorer": "Kylian Mbappé",
-      "positie": 15,
+      "positie": 17,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
     },
     {
       "naam": "Gerrit",
@@ -718,12 +844,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 359,
+      "max_haalbaar": 356,
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
-      "positie": 15,
+      "positie": 17,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
     },
     {
       "naam": "Joury",
@@ -760,12 +886,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 359,
+      "max_haalbaar": 356,
       "kampioen": "Nederland",
       "topscorer": "Harry Kane",
-      "positie": 15,
+      "positie": 17,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
     },
     {
       "naam": "Liesbeth",
@@ -802,12 +928,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 359,
+      "max_haalbaar": 356,
       "kampioen": "Argentinië",
       "topscorer": "Kylian Mbappé",
-      "positie": 15,
+      "positie": 17,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
     },
     {
       "naam": "Marlies",
@@ -844,96 +970,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 359,
+      "max_haalbaar": 356,
       "kampioen": "Brazilië",
       "topscorer": "Kylian Mbappé",
-      "positie": 15,
+      "positie": 17,
       "delta": 0,
-      "positie_delta": 0
-    },
-    {
-      "naam": "Willie",
-      "totaal": 7,
-      "per_ronde": {
-        "groep-1": 6,
-        "groep-2": 1,
-        "groep-3": 0,
-        "zestiende": 0,
-        "achtste": 0,
-        "kwart": 0,
-        "halve": 0,
-        "finale": 0,
-        "bonus": 0
-      },
-      "cumulatief": [
-        6,
-        7,
-        7,
-        7,
-        7,
-        7,
-        7,
-        7,
-        7
-      ],
-      "categorien": {
-        "groepswedstrijden": 7,
-        "groepseindstand": 0,
-        "achtste_bereikt": 0,
-        "kwart_bereikt": 0,
-        "halve_bereikt": 0,
-        "finale_bereikt": 0,
-        "einduitslag": 0,
-        "bonus": 0
-      },
-      "max_haalbaar": 359,
-      "kampioen": "Portugal",
-      "topscorer": "Oyarzabal",
-      "positie": 15,
-      "delta": 0,
-      "positie_delta": 0
-    },
-    {
-      "naam": "Yuksel",
-      "totaal": 7,
-      "per_ronde": {
-        "groep-1": 6,
-        "groep-2": 1,
-        "groep-3": 0,
-        "zestiende": 0,
-        "achtste": 0,
-        "kwart": 0,
-        "halve": 0,
-        "finale": 0,
-        "bonus": 0
-      },
-      "cumulatief": [
-        6,
-        7,
-        7,
-        7,
-        7,
-        7,
-        7,
-        7,
-        7
-      ],
-      "categorien": {
-        "groepswedstrijden": 7,
-        "groepseindstand": 0,
-        "achtste_bereikt": 0,
-        "kwart_bereikt": 0,
-        "halve_bereikt": 0,
-        "finale_bereikt": 0,
-        "einduitslag": 0,
-        "bonus": 0
-      },
-      "max_haalbaar": 359,
-      "kampioen": "Turkije",
-      "topscorer": "Arda Guler",
-      "positie": 15,
-      "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
     },
     {
       "naam": "AI (Copilot)",
@@ -970,12 +1012,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 358,
+      "max_haalbaar": 355,
       "kampioen": "Brazilië",
       "topscorer": "Kylian Mbappé",
-      "positie": 23,
+      "positie": 24,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
     },
     {
       "naam": "Janine",
@@ -1012,12 +1054,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 358,
+      "max_haalbaar": 355,
       "kampioen": "Spanje",
       "topscorer": "Kylian Mbappé",
-      "positie": 23,
+      "positie": 24,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
     },
     {
       "naam": "Peter",
@@ -1054,12 +1096,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 358,
+      "max_haalbaar": 355,
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
-      "positie": 23,
+      "positie": 24,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
     },
     {
       "naam": "Wendy N.",
@@ -1096,12 +1138,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 358,
+      "max_haalbaar": 355,
       "kampioen": "Marokko",
       "topscorer": "Cristiano Ronaldo",
-      "positie": 23,
+      "positie": 24,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
     },
     {
       "naam": "Barendjan",
@@ -1138,12 +1180,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 357,
+      "max_haalbaar": 354,
       "kampioen": "Duitsland",
       "topscorer": "Kylian Mbappé",
-      "positie": 27,
+      "positie": 28,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
     },
     {
       "naam": "Bas S.",
@@ -1180,12 +1222,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 357,
+      "max_haalbaar": 354,
       "kampioen": "Spanje",
       "topscorer": "Erling Haaland",
-      "positie": 27,
+      "positie": 28,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
     },
     {
       "naam": "Denise",
@@ -1222,12 +1264,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 357,
+      "max_haalbaar": 354,
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
-      "positie": 27,
+      "positie": 28,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
     },
     {
       "naam": "Emile",
@@ -1264,12 +1306,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 357,
+      "max_haalbaar": 354,
       "kampioen": "Argentinië",
       "topscorer": "Álvaro Morata",
-      "positie": 27,
+      "positie": 28,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
     },
     {
       "naam": "Hizel",
@@ -1306,12 +1348,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 357,
+      "max_haalbaar": 354,
       "kampioen": "Argentinië",
       "topscorer": "Lionel Messi",
-      "positie": 27,
+      "positie": 28,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
     },
     {
       "naam": "Jasper",
@@ -1348,12 +1390,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 357,
+      "max_haalbaar": 354,
       "kampioen": "Nederland",
       "topscorer": "Lamine Yamal",
-      "positie": 27,
+      "positie": 28,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
     },
     {
       "naam": "Lex",
@@ -1390,12 +1432,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 357,
+      "max_haalbaar": 354,
       "kampioen": "Frankrijk",
       "topscorer": "Harry Kane",
-      "positie": 27,
+      "positie": 28,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
     },
     {
       "naam": "Mandy",
@@ -1432,12 +1474,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 357,
+      "max_haalbaar": 354,
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
-      "positie": 27,
+      "positie": 28,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
     },
     {
       "naam": "Richard",
@@ -1474,12 +1516,54 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 357,
+      "max_haalbaar": 354,
       "kampioen": "Engeland",
       "topscorer": "Harry Kane",
-      "positie": 27,
+      "positie": 28,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
+    },
+    {
+      "naam": "Robin",
+      "totaal": 5,
+      "per_ronde": {
+        "groep-1": 3,
+        "groep-2": 2,
+        "groep-3": 0,
+        "zestiende": 0,
+        "achtste": 0,
+        "kwart": 0,
+        "halve": 0,
+        "finale": 0,
+        "bonus": 0
+      },
+      "cumulatief": [
+        3,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "categorien": {
+        "groepswedstrijden": 5,
+        "groepseindstand": 0,
+        "achtste_bereikt": 0,
+        "kwart_bereikt": 0,
+        "halve_bereikt": 0,
+        "finale_bereikt": 0,
+        "einduitslag": 0,
+        "bonus": 0
+      },
+      "max_haalbaar": 354,
+      "kampioen": "Frankrijk",
+      "topscorer": "Ferran Torres",
+      "positie": 28,
+      "delta": 1,
+      "positie_delta": 10
     },
     {
       "naam": "Tommie",
@@ -1516,12 +1600,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 357,
+      "max_haalbaar": 354,
       "kampioen": "Spanje",
       "topscorer": "Mikel Oyarzabal",
-      "positie": 27,
+      "positie": 28,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
     },
     {
       "naam": "Vincent",
@@ -1558,54 +1642,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 357,
+      "max_haalbaar": 354,
       "kampioen": "Portugal",
       "topscorer": "Kylian Mbappé",
-      "positie": 27,
+      "positie": 28,
       "delta": 0,
-      "positie_delta": 0
-    },
-    {
-      "naam": "Annelies P.",
-      "totaal": 4,
-      "per_ronde": {
-        "groep-1": 4,
-        "groep-2": 0,
-        "groep-3": 0,
-        "zestiende": 0,
-        "achtste": 0,
-        "kwart": 0,
-        "halve": 0,
-        "finale": 0,
-        "bonus": 0
-      },
-      "cumulatief": [
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4
-      ],
-      "categorien": {
-        "groepswedstrijden": 4,
-        "groepseindstand": 0,
-        "achtste_bereikt": 0,
-        "kwart_bereikt": 0,
-        "halve_bereikt": 0,
-        "finale_bereikt": 0,
-        "einduitslag": 0,
-        "bonus": 0
-      },
-      "max_haalbaar": 356,
-      "kampioen": "Frankrijk",
-      "topscorer": "Kylian Mbappé",
-      "positie": 38,
-      "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -1
     },
     {
       "naam": "Art",
@@ -1642,12 +1684,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 356,
+      "max_haalbaar": 353,
       "kampioen": "Argentinië",
       "topscorer": "Lionel Messi",
-      "positie": 38,
+      "positie": 40,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
     },
     {
       "naam": "Aruna",
@@ -1684,12 +1726,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 356,
+      "max_haalbaar": 353,
       "kampioen": "Argentinië",
       "topscorer": "Lautaro Martínez",
-      "positie": 38,
+      "positie": 40,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
     },
     {
       "naam": "Laura van S.",
@@ -1726,12 +1768,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 356,
+      "max_haalbaar": 353,
       "kampioen": "Spanje",
       "topscorer": "Lamine Yamal",
-      "positie": 38,
+      "positie": 40,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
     },
     {
       "naam": "Mart",
@@ -1768,12 +1810,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 356,
+      "max_haalbaar": 353,
       "kampioen": "Spanje",
       "topscorer": "Kylian Mbappé",
-      "positie": 38,
+      "positie": 40,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
     },
     {
       "naam": "Rene",
@@ -1810,54 +1852,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 356,
+      "max_haalbaar": 353,
       "kampioen": "Engeland",
       "topscorer": "Harry Kane",
-      "positie": 38,
+      "positie": 40,
       "delta": 0,
-      "positie_delta": 0
-    },
-    {
-      "naam": "Robin",
-      "totaal": 4,
-      "per_ronde": {
-        "groep-1": 3,
-        "groep-2": 1,
-        "groep-3": 0,
-        "zestiende": 0,
-        "achtste": 0,
-        "kwart": 0,
-        "halve": 0,
-        "finale": 0,
-        "bonus": 0
-      },
-      "cumulatief": [
-        3,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4
-      ],
-      "categorien": {
-        "groepswedstrijden": 4,
-        "groepseindstand": 0,
-        "achtste_bereikt": 0,
-        "kwart_bereikt": 0,
-        "halve_bereikt": 0,
-        "finale_bereikt": 0,
-        "einduitslag": 0,
-        "bonus": 0
-      },
-      "max_haalbaar": 356,
-      "kampioen": "Frankrijk",
-      "topscorer": "Ferran Torres",
-      "positie": 38,
-      "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
     },
     {
       "naam": "Simone S.",
@@ -1894,12 +1894,12 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 356,
+      "max_haalbaar": 353,
       "kampioen": "Frankrijk",
       "topscorer": "Harry Kane",
-      "positie": 38,
+      "positie": 40,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": -2
     },
     {
       "naam": "Frank",
@@ -1936,7 +1936,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 355,
+      "max_haalbaar": 352,
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
       "positie": 46,
@@ -1978,7 +1978,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 355,
+      "max_haalbaar": 352,
       "kampioen": "Ghana",
       "topscorer": "Erling Haaland",
       "positie": 46,
@@ -2020,7 +2020,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 355,
+      "max_haalbaar": 352,
       "kampioen": "Nederland",
       "topscorer": "Miroslav Klose",
       "positie": 46,
@@ -2062,7 +2062,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 355,
+      "max_haalbaar": 352,
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
       "positie": 46,
@@ -2104,7 +2104,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 354,
+      "max_haalbaar": 351,
       "kampioen": "Spanje",
       "topscorer": "Erling Haaland",
       "positie": 50,
