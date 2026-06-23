@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-06-22T23:01:02+00:00",
+  "laatste_update": "2026-06-23T04:38:25+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -77,8 +77,8 @@
       "datum": "2026-06-22",
       "thuis": "Frankrijk",
       "uit": "Irak",
-      "thuis_score": null,
-      "uit_score": null,
+      "thuis_score": 3,
+      "uit_score": 0,
       "ronde": "groep-2"
     },
     {
@@ -128,8 +128,8 @@
     "nl_doelpunten_voor": 7,
     "nl_doelpunten_tegen": 3,
     "nl_geel": 3,
-    "toernooi_doelpunten": 123,
+    "toernooi_doelpunten": 131,
     "toernooi_rood": 8,
-    "topscorer": "Lionel Messi (5) · Deniz Undav (3) · Kylian Mbappé (3)"
+    "topscorer": "Lionel Messi (5) · Kylian Mbappé (4) · Erling Haaland (4)"
   }
 }
