@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-06-25T08:34:12+00:00",
+  "laatste_update": "2026-06-25T22:54:58+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -93,8 +93,8 @@
       "datum": "2026-06-25",
       "thuis": "Curaçao",
       "uit": "Ivoorkust",
-      "thuis_score": null,
-      "uit_score": null,
+      "thuis_score": 0,
+      "uit_score": 2,
       "ronde": "groep-3"
     },
     {
@@ -124,6 +124,12 @@
       "Zuid-Afrika",
       "Zuid-Korea",
       "Tsjechië"
+    ],
+    "E": [
+      "Duitsland",
+      "Ivoorkust",
+      "Ecuador",
+      "Curaçao"
     ]
   },
   "achtste_finalisten": [],
@@ -147,7 +153,7 @@
     "nl_doelpunten_voor": 7,
     "nl_doelpunten_tegen": 3,
     "nl_geel": 3,
-    "toernooi_doelpunten": 161,
+    "toernooi_doelpunten": 166,
     "toernooi_rood": 8,
     "topscorer": "Lionel Messi (5) · Vinicius Junior (4) · Kylian Mbappé (4)"
   }
