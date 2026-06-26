@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-06-25T22:54:58+00:00",
+  "laatste_update": "2026-06-26T04:48:24+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -85,8 +85,8 @@
       "datum": "2026-06-25",
       "thuis": "Tunesië",
       "uit": "Nederland",
-      "thuis_score": null,
-      "uit_score": null,
+      "thuis_score": 1,
+      "uit_score": 3,
       "ronde": "groep-3"
     },
     {
@@ -130,6 +130,18 @@
       "Ivoorkust",
       "Ecuador",
       "Curaçao"
+    ],
+    "D": [
+      "Verenigde Staten",
+      "Australië",
+      "Paraguay",
+      "Turkije"
+    ],
+    "F": [
+      "Nederland",
+      "Japan",
+      "Zweden",
+      "Tunesië"
     ]
   },
   "achtste_finalisten": [],
@@ -150,10 +162,10 @@
     "topscorer": null
   },
   "bonus_tussenstand": {
-    "nl_doelpunten_voor": 7,
-    "nl_doelpunten_tegen": 3,
+    "nl_doelpunten_voor": 10,
+    "nl_doelpunten_tegen": 4,
     "nl_geel": 3,
-    "toernooi_doelpunten": 166,
+    "toernooi_doelpunten": 177,
     "toernooi_rood": 8,
     "topscorer": "Lionel Messi (5) · Vinicius Junior (4) · Kylian Mbappé (4)"
   }
