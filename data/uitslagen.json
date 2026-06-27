@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-06-26T22:43:49+00:00",
+  "laatste_update": "2026-06-27T04:31:55+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -148,6 +148,18 @@
       "Noorwegen",
       "Senegal",
       "Irak"
+    ],
+    "G": [
+      "België",
+      "Egypte",
+      "Iran",
+      "Nieuw-Zeeland"
+    ],
+    "H": [
+      "Spanje",
+      "Cape Verde Islands",
+      "Uruguay",
+      "Saoedi-Arabië"
     ]
   },
   "achtste_finalisten": [],
@@ -171,8 +183,8 @@
     "nl_doelpunten_voor": 10,
     "nl_doelpunten_tegen": 4,
     "nl_geel": 3,
-    "toernooi_doelpunten": 187,
-    "toernooi_rood": 9,
+    "toernooi_doelpunten": 188,
+    "toernooi_rood": 10,
     "topscorer": "Lionel Messi (5) · Vinicius Junior (4) · Kylian Mbappé (4)"
   }
 }
