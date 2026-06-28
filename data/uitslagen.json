@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-06-28T08:30:56+00:00",
+  "laatste_update": "2026-06-28T22:34:15+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -180,7 +180,9 @@
       "Oezbekistan"
     ]
   },
-  "achtste_finalisten": [],
+  "achtste_finalisten": [
+    "Canada"
+  ],
   "kwartfinalisten": [],
   "halvefinalisten": [],
   "finalisten": [],
@@ -188,7 +190,9 @@
   "tweede": null,
   "derde": null,
   "vierde": null,
-  "uitgeschakeld": [],
+  "uitgeschakeld": [
+    "Zuid-Afrika"
+  ],
   "bonus": {
     "nl_doelpunten_voor": null,
     "nl_doelpunten_tegen": null,
@@ -201,7 +205,7 @@
     "nl_doelpunten_voor": 10,
     "nl_doelpunten_tegen": 4,
     "nl_geel": 3,
-    "toernooi_doelpunten": 215,
+    "toernooi_doelpunten": 216,
     "toernooi_rood": 10,
     "topscorer": "Lionel Messi (6) · Vinicius Junior (4) · Kylian Mbappé (4)"
   }
