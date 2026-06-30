@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-06-29T22:35:41+00:00",
+  "laatste_update": "2026-06-30T04:41:32+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -204,10 +204,10 @@
     "topscorer": null
   },
   "bonus_tussenstand": {
-    "nl_doelpunten_voor": 10,
-    "nl_doelpunten_tegen": 4,
+    "nl_doelpunten_voor": 14,
+    "nl_doelpunten_tegen": 8,
     "nl_geel": 3,
-    "toernooi_doelpunten": 219,
+    "toernooi_doelpunten": 236,
     "toernooi_rood": 10,
     "topscorer": "Lionel Messi (6) · Vinicius Junior (4) · Kylian Mbappé (4)"
   }
