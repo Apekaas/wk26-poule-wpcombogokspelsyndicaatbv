@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-01T08:57:58+00:00",
+  "laatste_update": "2026-07-01T22:46:14+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -183,6 +183,7 @@
   "achtste_finalisten": [
     "Brazilië",
     "Canada",
+    "Engeland",
     "Frankrijk",
     "Marokko",
     "Mexico",
@@ -197,6 +198,7 @@
   "derde": null,
   "vierde": null,
   "uitgeschakeld": [
+    "DR Congo",
     "Duitsland",
     "Ecuador",
     "Ivoorkust",
@@ -217,7 +219,7 @@
     "nl_doelpunten_voor": 13,
     "nl_doelpunten_tegen": 8,
     "nl_geel": 3,
-    "toernooi_doelpunten": 243,
+    "toernooi_doelpunten": 246,
     "toernooi_rood": 11,
     "topscorer": "Kylian Mbappé (6) · Lionel Messi (6) · Erling Haaland (5)"
   }
