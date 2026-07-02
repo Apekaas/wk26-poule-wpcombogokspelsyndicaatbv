@@ -75,7 +75,16 @@ def nl_bonusmeter(data, uitslagen):
                                  for n, a in topscorers.most_common(8)]}
 
 
-def verrassing(data, uitslagen):
+# Knockoutrondes, diepst-eerst: (uitslag-lijst, deelnemer-voorspelveld, label).
+KNOCKOUT_RONDES = [
+    ("finalisten", "halve_winnaars", "de finale"),
+    ("halvefinalisten", "kwart_winnaars", "de halve finale"),
+    ("kwartfinalisten", "achtste_winnaars", "de kwartfinale"),
+    ("achtste_finalisten", "zestiende_winnaars", "de achtste finale"),
+]
+
+
+def _verrassing_groep(data, uitslagen):
     """De gespeelde groepsuitslag (toto) die door de minste deelnemers was voorspeld."""
     kandidaten = []
     for w in uitslagen["groepswedstrijden"]:
@@ -99,7 +108,90 @@ def verrassing(data, uitslagen):
                 "pct": round(100 * goed / totaal),
             })
     kandidaten.sort(key=lambda k: k["pct"])
-    return kandidaten[0] if kandidaten else None
+    if not kandidaten:
+        return None
+    k = kandidaten[0]
+    return {
+        "type": "groep",
+        "kop": k["wedstrijd"],
+        "tekst": f'eindigde in {k["uitslag"]} — slechts {k["goed"]} van de '
+                 f'{k["totaal"]} deelnemers ({k["pct"]}%) had deze toto goed.',
+        **k,  # wedstrijd/uitslag/goed/totaal/pct blijven beschikbaar
+    }
+
+
+def _verrassing_knockout(data, uitslagen):
+    """Grootste plaatsingsverrassing van de huidige (diepst besliste) knockoutronde.
+
+    Vergelijkt de 'gevallen favoriet' (meest voorspelde ploeg die de ronde niet
+    haalde) met de 'verrassende stunt' (ploeg die de ronde wél haalde terwijl
+    bijna niemand het voorspelde) en toont de grootste van de twee."""
+    for actkey, veld, label in KNOCKOUT_RONDES:
+        bereikt = uitslagen.get(actkey) or []
+        if not bereikt:
+            continue  # ronde nog niet begonnen
+
+        bereikt_n = {scoring.norm(l) for l in bereikt if l}
+        uit = {scoring.norm(l) for l in uitslagen.get("uitgeschakeld", []) if l}
+
+        # Per genormaliseerd land: aantal deelnemers dat het in deze ronde voorspelde.
+        telling, noemer, weergave = {}, 0, {}
+        for d in data["deelnemers"]:
+            landen = {scoring.norm(l): l for l in d[veld].values() if l}
+            if not landen:
+                continue
+            noemer += 1
+            for n, orig in landen.items():
+                telling[n] = telling.get(n, 0) + 1
+                weergave.setdefault(n, orig)
+        if not noemer:
+            continue
+
+        # Gevallen favoriet: uitgeschakeld, ronde niet gehaald, hoogste share.
+        favoriet = None
+        for n, aantal in telling.items():
+            if n in uit and n not in bereikt_n:
+                waarde = aantal / noemer
+                if favoriet is None or waarde > favoriet[1]:
+                    favoriet = (n, waarde, aantal)
+
+        # Verrassende stunt: haalde de ronde, laagste share.
+        stunt = None
+        for n in bereikt_n:
+            aantal = telling.get(n, 0)
+            waarde = 1 - aantal / noemer
+            if stunt is None or waarde > stunt[1]:
+                stunt = (n, waarde, aantal)
+
+        # Grootste van de twee (bij gelijke waarde wint de gevallen favoriet).
+        keuze = None
+        if favoriet and (stunt is None or favoriet[1] >= stunt[1]):
+            n, _, aantal = favoriet
+            keuze = {
+                "kop": weergave.get(n, bereikt[0]),
+                "tekst": f'stond bij {round(100 * aantal / noemer)}% van de '
+                         f'deelnemers nog in {label} — en werd toch uitgeschakeld. '
+                         f'De verrassing van deze ronde.',
+            }
+        elif stunt:
+            n, _, aantal = stunt
+            landnaam = next((l for l in bereikt if scoring.norm(l) == n), n)
+            keuze = {
+                "kop": landnaam,
+                "tekst": f'haalde {label} terwijl slechts '
+                         f'{round(100 * aantal / noemer)}% van de deelnemers het '
+                         f'voorspelde. De verrassing van deze ronde.',
+            }
+        if keuze:
+            keuze["type"] = "knockout"
+            return keuze
+        return None  # ronde begonnen maar geen bruikbare kandidaat
+    return None
+
+
+def verrassing(data, uitslagen):
+    """Knockoutverrassing zodra die fase loopt, anders de groepsfase-verrassing."""
+    return _verrassing_knockout(data, uitslagen) or _verrassing_groep(data, uitslagen)
 
 
 def main(deelnemers_pad, uitslagen_pad, outmap):

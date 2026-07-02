@@ -326,8 +326,7 @@ function verrassing(d){
   if(!d.verrassing) return;
   el("verrassingsectie").style.display="block";
   const v=d.verrassing;
-  html("verrassing", `<strong>${esc(v.wedstrijd)}</strong> eindigde in <strong>${v.uitslag}</strong> — `+
-    `slechts ${v.goed} van de ${v.totaal} deelnemers (${v.pct}%) had deze toto goed.`);
+  html("verrassing", `<strong>${esc(v.kop)}</strong> ${esc(v.tekst)}`);
 }
 function validatie(d){
   if(!d.validatie||!d.validatie.length) return;
