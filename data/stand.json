@@ -955,7 +955,7 @@
       "topscorer": "Lautaro Martínez",
       "positie": 22,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": 1
     },
     {
       "naam": "Bas S.",
@@ -998,7 +998,7 @@
       "topscorer": "Erling Haaland",
       "positie": 22,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": 1
     },
     {
       "naam": "Mandy",
@@ -1040,8 +1040,8 @@
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
       "positie": 24,
-      "delta": 0,
-      "positie_delta": 0
+      "delta": -3,
+      "positie_delta": -3
     },
     {
       "naam": "Art",
@@ -1858,7 +1858,7 @@
       "topscorer": "Kylian Mbappé",
       "positie": 43,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": 1
     },
     {
       "naam": "Barendjan",
@@ -1900,8 +1900,8 @@
       "kampioen": "Duitsland",
       "topscorer": "Kylian Mbappé",
       "positie": 44,
-      "delta": 0,
-      "positie_delta": 0
+      "delta": -3,
+      "positie_delta": -1
     },
     {
       "naam": "Frank",
@@ -1987,7 +1987,7 @@
       "topscorer": "Lautaro Martínez",
       "positie": 46,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": 1
     },
     {
       "naam": "Menno",
@@ -2030,7 +2030,7 @@
       "topscorer": "Erling Haaland",
       "positie": 47,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": 1
     },
     {
       "naam": "Vincent",
@@ -2072,8 +2072,8 @@
       "kampioen": "Portugal",
       "topscorer": "Kylian Mbappé",
       "positie": 47,
-      "delta": 0,
-      "positie_delta": 0
+      "delta": -3,
+      "positie_delta": -1
     },
     {
       "naam": "Angelique",

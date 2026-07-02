@@ -279,18 +279,20 @@ def programma(data, uitslagen):
     for m in matches:
         gespeeld = m.get("status") == "FINISHED"
         thuis, uit = m.get("thuis"), m.get("uit")
+        ts, us = m.get("thuis_score"), m.get("uit_score")
         rij = {
             "thuis": thuis, "uit": uit,
             "gespeeld": gespeeld,
             "speeltijd": nl_speeltijd(m.get("utcDate")),
+            "inzet_thuis": inzet.get(scoring.norm(thuis)) if thuis else None,
+            "inzet_uit": inzet.get(scoring.norm(uit)) if uit else None,
         }
         if gespeeld:
-            rij["uitslag"] = (f'{m.get("thuis_score")}–{m.get("uit_score")}'
-                              if m.get("thuis_score") is not None else None)
+            rij["uitslag"] = f'{ts}–{us}' if ts is not None else None
+            rij["winnaar"] = ("thuis" if (ts or 0) > (us or 0) else
+                              "uit" if (us or 0) > (ts or 0) else None)
         else:
             rij["punten"] = punten_label
-            rij["inzet_thuis"] = inzet.get(scoring.norm(thuis)) if thuis else None
-            rij["inzet_uit"] = inzet.get(scoring.norm(uit)) if uit else None
         wedstrijden.append(rij)
 
     return {

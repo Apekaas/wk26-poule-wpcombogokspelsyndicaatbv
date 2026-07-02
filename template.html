@@ -116,10 +116,24 @@ h2{font-weight:200;font-size:clamp(32px,5vw,48px);letter-spacing:-.04em;
 .wed.komt{border-style:dashed}
 .wed .teams{font-weight:600;font-size:15px}
 .wed .teams .vs{color:var(--smoke);font-weight:400;margin:0 8px}
-.wed .uitslag{font-weight:200;font-size:28px;letter-spacing:-.03em;color:var(--plum)}
+.wed .uitslag{font-weight:200;font-size:28px;letter-spacing:-.03em;color:var(--plum);text-align:center}
 .wed .meta{text-align:right;font-size:12px;color:var(--smoke);line-height:1.6}
 .wed .meta .tijd{color:var(--lichen);font-weight:600}
 .wed .meta .punten{color:var(--amber);font-weight:600}
+/* gespeelde rij: gecentreerde score, inzet onder elk team */
+.wed.uitslagrij{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px}
+.wed.uitslagrij .teamblok.rechts{text-align:right}
+.wed .teamblok small{display:block;color:var(--smoke);font-size:12px;font-weight:400;margin-top:2px}
+.wed .teamblok.winnaar .teams{color:var(--lichen)}
+/* scorebord (2/3) naast programma (1/3) op breedbeeld */
+.topgrid{display:grid;gap:24px;align-items:start;margin:96px 0}
+.topgrid>section{margin:0}
+@media(min-width:1000px){
+  .topgrid.split{grid-template-columns:2fr 1fr}
+  .topgrid.split #programmakop{font-size:26px}
+  .topgrid.split .wed.komt{flex-direction:column;align-items:stretch;gap:6px}
+  .topgrid.split .wed.komt .meta{text-align:left}
+}
 footer{border-top:1px solid var(--hairline);padding:24px 0 60px;margin-top:96px;
   color:var(--smoke);font-size:12px;letter-spacing:.05em;text-align:center}
 .valwaarschuwing{border:1px solid var(--amber);border-radius:24px;padding:14px 24px;
@@ -145,12 +159,21 @@ footer{border-top:1px solid var(--hairline);padding:24px 0 60px;margin-top:96px;
   <p id="herotekst"></p>
 </header>
 
+<div class="topgrid">
 <section id="scoreboard" data-vorm="trump">
   <div class="kicker">Tussenstand</div>
   <h2>Scoreboard</h2>
   <div class="parodie" id="scoreparodie"></div>
   <div class="bord" id="bord"></div>
 </section>
+
+<section id="programmasectie" style="display:none">
+  <div class="kicker">Wat er op het spel staat</div>
+  <h2 id="programmakop">Wedstrijden van de ronde</h2>
+  <p class="muted" id="programmasub"></p>
+  <div class="wedstrijden" id="wedstrijden"></div>
+</section>
+</div>
 
 <section id="rondes" data-vorm="bal">
   <div class="kicker">Per speelronde</div>
@@ -189,13 +212,6 @@ footer{border-top:1px solid var(--hairline);padding:24px 0 60px;margin-top:96px;
   <p class="muted">Actuele tellers tegenover de spreiding van de voorspellingen.</p>
   <div class="grid" id="bonusgrid"></div>
   <div class="kaart" id="topscorers"></div>
-</section>
-
-<section id="programmasectie" style="display:none">
-  <div class="kicker">Wat er op het spel staat</div>
-  <h2 id="programmakop">Wedstrijden van de ronde</h2>
-  <p class="muted" id="programmasub"></p>
-  <div class="wedstrijden" id="wedstrijden"></div>
 </section>
 
 <section id="verrassingsectie" data-vorm="beker" style="display:none">
@@ -343,16 +359,20 @@ function programma(d){
   const p=d.programma;
   if(!p||!p.wedstrijden||!p.wedstrijden.length) return;
   el("programmasectie").style.display="block";
+  document.querySelector(".topgrid")?.classList.add("split");
   el("programmakop").textContent=`${p.ronde}: wat staat er op het spel`;
   const teGaan=p.wedstrijden.filter(w=>!w.gespeeld).length;
   el("programmasub").textContent = teGaan
     ? `Nog ${teGaan} te spelen in deze ronde — met Nederlandse aftraptijd en de punten die op het spel staan.`
     : `Alle wedstrijden van deze ronde zijn gespeeld.`;
+  const inzetLabel=(n)=> n!=null ? `<small>${n}× door</small>` : "";
   html("wedstrijden", p.wedstrijden.map(w=>{
     if(w.gespeeld){
-      return `<div class="wed"><span class="teams">${esc(w.thuis||"?")}</span>`+
+      const iT=p.toont_inzet?inzetLabel(w.inzet_thuis):"", iU=p.toont_inzet?inzetLabel(w.inzet_uit):"";
+      return `<div class="wed uitslagrij">`+
+        `<span class="teamblok links${w.winnaar==="thuis"?" winnaar":""}"><span class="teams">${esc(w.thuis||"?")}</span>${iT}</span>`+
         `<span class="uitslag">${esc(w.uitslag||"–")}</span>`+
-        `<span class="teams">${esc(w.uit||"?")}</span></div>`;
+        `<span class="teamblok rechts${w.winnaar==="uit"?" winnaar":""}"><span class="teams">${esc(w.uit||"?")}</span>${iU}</span></div>`;
     }
     const inzet=[];
     if(p.toont_inzet){
