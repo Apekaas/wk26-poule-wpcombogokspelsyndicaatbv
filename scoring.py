@@ -14,6 +14,16 @@ import unicodedata
 RONDES = ["groep-1", "groep-2", "groep-3", "zestiende", "achtste",
           "kwart", "halve", "finale", "bonus"]
 
+# --- Grap-handicap (tijdelijk) --------------------------------------------
+# Vaste extra punten bovenop de formulierscore, per deelnemer (op naam).
+# Knipoog naar René Charlataan, die vroeger zelf het scorebord in een
+# gigantische Excel bijhield en zichzelf steevast bovenaan zette.
+# VERWIJDEREN: zet HANDICAP = {} (of maak deze regel leeg). Niets anders
+# hoeft te veranderen; de handicap verdwijnt dan uit totaal en verloop.
+HANDICAP = {
+    "René Charlataan": 50,
+}
+
 # Punten per categorie (reglement)
 PT_UITSLAG, PT_TOTO = 3, 1
 PT_PLEK_JUIST, PT_TOP2 = 3, 2
@@ -248,14 +258,17 @@ def bereken_stand(data, uitslagen):
         categorien["bonus"] = pt
         potentieel += pot
 
-        totaal = sum(per_ronde.values())
-        cumulatief, lopend = [], 0
+        handicap = HANDICAP.get(d["naam"], 0)
+        totaal = sum(per_ronde.values()) + handicap
+        # Vlakke offset zodat het verloop (cumulatief[-1]) gelijk blijft aan totaal.
+        cumulatief, lopend = [], handicap
         for r in RONDES:
             lopend += per_ronde[r]
             cumulatief.append(lopend)
         stand.append({
             "naam": d["naam"],
             "totaal": totaal,
+            "handicap": handicap,
             "per_ronde": per_ronde,
             "cumulatief": cumulatief,
             "categorien": categorien,
