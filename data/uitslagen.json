@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-02T19:56:24+00:00",
+  "laatste_update": "2026-07-02T20:26:19+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -1052,7 +1052,7 @@
       "utcDate": "2026-07-02T19:00:00Z",
       "stage": "LAST_32",
       "matchday": null,
-      "status": "PAUSED",
+      "status": "IN_PLAY",
       "thuis": "Spanje",
       "uit": "Oostenrijk",
       "thuis_score": 1,
