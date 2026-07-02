@@ -18,10 +18,16 @@ RONDES = ["groep-1", "groep-2", "groep-3", "zestiende", "achtste",
 # Vaste extra punten bovenop de formulierscore, per deelnemer (op naam).
 # Knipoog naar René Charlataan, die vroeger zelf het scorebord in een
 # gigantische Excel bijhield en zichzelf steevast bovenaan zette.
+# Zodra de finale is gespeeld (kampioen bekend in uitslagen) vervalt de
+# handicap automatisch en onthult de naam de grap (HANDICAP_ONTHULLING).
 # VERWIJDEREN: zet HANDICAP = {} (of maak deze regel leeg). Niets anders
 # hoeft te veranderen; de handicap verdwijnt dan uit totaal en verloop.
 HANDICAP = {
     "René Charlataan": 50,
+}
+# Naam-onthulling zodra de handicap na de finale vervalt (originele naam -> grap).
+HANDICAP_ONTHULLING = {
+    "René Charlataan": "René 'zonder +50' Aan",
 }
 
 # Punten per categorie (reglement)
@@ -216,6 +222,7 @@ def score_bonus(deelnemer, uitslagen):
 
 def bereken_stand(data, uitslagen):
     uitgeschakeld = {norm(l) for l in uitslagen.get("uitgeschakeld", [])}
+    finale_gespeeld = bool(uitslagen.get("kampioen"))  # trigger handicap-onthulling
     stand = []
     for d in data["deelnemers"]:
         per_ronde = {r: 0 for r in RONDES}
@@ -259,6 +266,10 @@ def bereken_stand(data, uitslagen):
         potentieel += pot
 
         handicap = HANDICAP.get(d["naam"], 0)
+        naam = d["naam"]
+        if handicap and finale_gespeeld:  # finale gespeeld -> grap onthuld
+            naam = HANDICAP_ONTHULLING.get(d["naam"], naam)
+            handicap = 0
         totaal = sum(per_ronde.values()) + handicap
         # Vlakke offset zodat het verloop (cumulatief[-1]) gelijk blijft aan totaal.
         cumulatief, lopend = [], handicap
@@ -266,7 +277,7 @@ def bereken_stand(data, uitslagen):
             lopend += per_ronde[r]
             cumulatief.append(lopend)
         stand.append({
-            "naam": d["naam"],
+            "naam": naam,
             "totaal": totaal,
             "handicap": handicap,
             "per_ronde": per_ronde,
