@@ -233,7 +233,11 @@ def main():
     #    knock-outploegen komen als None binnen (placeholder overslaan).
     schema = []
     for m in wedstrijden:
-        ft = (m.get("score") or {}).get("fullTime") or {}
+        score = m.get("score") or {}
+        ft = score.get("fullTime") or {}
+        rt = score.get("regularTime") or {}
+        et = score.get("extraTime") or {}
+        pen = score.get("penalties") or {}
         thuis = (m.get("homeTeam") or {}).get("name")
         uit = (m.get("awayTeam") or {}).get("name")
         schema.append({
@@ -241,10 +245,16 @@ def main():
             "stage": m.get("stage"),
             "matchday": m.get("matchday"),
             "status": m.get("status"),
+            "duration": score.get("duration"),
             "thuis": nl(thuis, onbekend) if thuis else None,
             "uit": nl(uit, onbekend) if uit else None,
             "thuis_score": ft.get("home"),
             "uit_score": ft.get("away"),
+            # Opsplitsing voor verlenging/strafschoppen (kan op de gratis tier
+            # ontbreken -> dan None). Wordt geverifieerd op de echte respons.
+            "regulier": [rt.get("home"), rt.get("away")] if rt else None,
+            "verlenging": [et.get("home"), et.get("away")] if et else None,
+            "penalties": [pen.get("home"), pen.get("away")] if pen else None,
         })
     uitslagen["wedstrijdschema"] = schema
 
