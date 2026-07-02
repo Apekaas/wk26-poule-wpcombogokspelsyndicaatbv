@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-02T19:28:22+00:00",
+  "laatste_update": "2026-07-02T19:56:24+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -157,7 +157,7 @@
     ],
     "H": [
       "Spanje",
-      "Cape Verde Islands",
+      "Kaapverdië",
       "Uruguay",
       "Saoedi-Arabië"
     ],
@@ -354,7 +354,7 @@
       "matchday": 1,
       "status": "FINISHED",
       "thuis": "Spanje",
-      "uit": "Cape Verde Islands",
+      "uit": "Kaapverdië",
       "thuis_score": 0,
       "uit_score": 0
     },
@@ -614,7 +614,7 @@
       "matchday": 2,
       "status": "FINISHED",
       "thuis": "Uruguay",
-      "uit": "Cape Verde Islands",
+      "uit": "Kaapverdië",
       "thuis_score": 2,
       "uit_score": 2
     },
@@ -863,7 +863,7 @@
       "stage": "GROUP_STAGE",
       "matchday": 3,
       "status": "FINISHED",
-      "thuis": "Cape Verde Islands",
+      "thuis": "Kaapverdië",
       "uit": "Saoedi-Arabië",
       "thuis_score": 0,
       "uit_score": 0
@@ -1052,11 +1052,11 @@
       "utcDate": "2026-07-02T19:00:00Z",
       "stage": "LAST_32",
       "matchday": null,
-      "status": "TIMED",
+      "status": "PAUSED",
       "thuis": "Spanje",
       "uit": "Oostenrijk",
-      "thuis_score": null,
-      "uit_score": null
+      "thuis_score": 1,
+      "uit_score": 0
     },
     {
       "utcDate": "2026-07-02T23:00:00Z",
@@ -1094,7 +1094,7 @@
       "matchday": null,
       "status": "TIMED",
       "thuis": "Argentinië",
-      "uit": "Cape Verde Islands",
+      "uit": "Kaapverdië",
       "thuis_score": null,
       "uit_score": null
     },
