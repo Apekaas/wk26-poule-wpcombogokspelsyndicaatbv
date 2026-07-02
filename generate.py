@@ -288,7 +288,19 @@ def programma(data, uitslagen):
             "inzet_uit": inzet.get(scoring.norm(uit)) if uit else None,
         }
         if gespeeld:
-            rij["uitslag"] = f'{ts}–{us}' if ts is not None else None
+            reg, ver, pen = m.get("regulier"), m.get("verlenging"), m.get("penalties")
+            if reg and ver:
+                hoofd = [reg[0] + ver[0], reg[1] + ver[1]]  # stand na verlenging
+            elif reg:
+                hoofd = reg
+            else:
+                hoofd = [ts, us]                             # reguliere speeltijd
+            rij["uitslag"] = f'{hoofd[0]}–{hoofd[1]}' if ts is not None else None
+            if m.get("duration") == "PENALTY_SHOOTOUT" and pen:
+                rij["penalties"] = f'{pen[0]}–{pen[1]}'       # los, in het paars
+            elif m.get("duration") == "EXTRA_TIME":
+                rij["scorelabel"] = "na verlenging"
+            # Winnaar op basis van fullTime (verrekent de strafschoppen correct).
             rij["winnaar"] = ("thuis" if (ts or 0) > (us or 0) else
                               "uit" if (us or 0) > (ts or 0) else None)
         else:

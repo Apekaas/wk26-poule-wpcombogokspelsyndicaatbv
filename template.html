@@ -117,6 +117,9 @@ h2{font-weight:200;font-size:clamp(32px,5vw,48px);letter-spacing:-.04em;
 .wed .teams{font-weight:600;font-size:15px}
 .wed .teams .vs{color:var(--smoke);font-weight:400;margin:0 8px}
 .wed .uitslag{font-weight:200;font-size:28px;letter-spacing:-.03em;color:var(--plum);text-align:center}
+.wed .uitslag.metpens{color:var(--bone)}                       /* na verlenging: wit */
+.wed .uitslag .pens{display:block;font-size:13px;font-weight:600;color:var(--plum);letter-spacing:0}  /* strafschoppen: paars */
+.wed .uitslag .nvlabel{display:block;font-size:11px;font-weight:400;color:var(--smoke);letter-spacing:.05em;text-transform:uppercase}
 .wed .meta{text-align:right;font-size:12px;color:var(--smoke);line-height:1.6}
 .wed .meta .tijd{color:var(--lichen);font-weight:600}
 .wed .meta .punten{color:var(--amber);font-weight:600}
@@ -369,9 +372,11 @@ function programma(d){
   html("wedstrijden", p.wedstrijden.map(w=>{
     if(w.gespeeld){
       const iT=p.toont_inzet?inzetLabel(w.inzet_thuis):"", iU=p.toont_inzet?inzetLabel(w.inzet_uit):"";
+      const pens=w.penalties?`<small class="pens">pen. ${esc(w.penalties)}</small>`:"";
+      const nvl=w.scorelabel?`<small class="nvlabel">${esc(w.scorelabel)}</small>`:"";
       return `<div class="wed uitslagrij">`+
         `<span class="teamblok links${w.winnaar==="thuis"?" winnaar":""}"><span class="teams">${esc(w.thuis||"?")}</span>${iT}</span>`+
-        `<span class="uitslag">${esc(w.uitslag||"–")}</span>`+
+        `<span class="uitslag${w.penalties?" metpens":""}">${esc(w.uitslag||"–")}${pens}${nvl}</span>`+
         `<span class="teamblok rechts${w.winnaar==="uit"?" winnaar":""}"><span class="teams">${esc(w.uit||"?")}</span>${iU}</span></div>`;
     }
     const inzet=[];
