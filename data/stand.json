@@ -1692,48 +1692,6 @@
       "positie_delta": 0
     },
     {
-      "naam": "Rene",
-      "totaal": 68,
-      "per_ronde": {
-        "groep-1": 3,
-        "groep-2": 2,
-        "groep-3": 45,
-        "zestiende": 18,
-        "achtste": 0,
-        "kwart": 0,
-        "halve": 0,
-        "finale": 0,
-        "bonus": 0
-      },
-      "cumulatief": [
-        3,
-        5,
-        50,
-        68,
-        68,
-        68,
-        68,
-        68,
-        68
-      ],
-      "categorien": {
-        "groepswedstrijden": 6,
-        "groepseindstand": 44,
-        "achtste_bereikt": 18,
-        "kwart_bereikt": 0,
-        "halve_bereikt": 0,
-        "finale_bereikt": 0,
-        "einduitslag": 0,
-        "bonus": 0
-      },
-      "max_haalbaar": 254,
-      "kampioen": "Engeland",
-      "topscorer": "Harry Kane",
-      "positie": 40,
-      "delta": 0,
-      "positie_delta": 0
-    },
-    {
       "naam": "Robin",
       "totaal": 68,
       "per_ronde": {
@@ -1776,6 +1734,48 @@
       "positie_delta": 0
     },
     {
+      "naam": "René Charlataan",
+      "totaal": 64,
+      "per_ronde": {
+        "groep-1": 5,
+        "groep-2": 2,
+        "groep-3": 39,
+        "zestiende": 18,
+        "achtste": 0,
+        "kwart": 0,
+        "halve": 0,
+        "finale": 0,
+        "bonus": 0
+      },
+      "cumulatief": [
+        5,
+        7,
+        46,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "categorien": {
+        "groepswedstrijden": 7,
+        "groepseindstand": 39,
+        "achtste_bereikt": 18,
+        "kwart_bereikt": 0,
+        "halve_bereikt": 0,
+        "finale_bereikt": 0,
+        "einduitslag": 0,
+        "bonus": 0
+      },
+      "max_haalbaar": 300,
+      "kampioen": "Frankrijk",
+      "topscorer": "Vermalen",
+      "positie": 42,
+      "delta": 0,
+      "positie_delta": 0
+    },
+    {
       "naam": "Sabrina",
       "totaal": 64,
       "per_ronde": {
@@ -1813,9 +1813,9 @@
       "max_haalbaar": 291,
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
-      "positie": 43,
+      "positie": 42,
       "delta": 0,
-      "positie_delta": 0
+      "positie_delta": 1
     },
     {
       "naam": "Barendjan",

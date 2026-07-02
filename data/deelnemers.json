@@ -2484,225 +2484,6 @@
       }
     },
     {
-      "naam": "Bas S.",
-      "bestand": "Invulformulier WK 2026 Bas S.xlsx",
-      "groepswedstrijden": [
-        {
-          "datum": "2026-06-11",
-          "thuis": "Mexico",
-          "uit": "Zuid-Afrika",
-          "thuis_score": 3,
-          "uit_score": 1
-        },
-        {
-          "datum": "2026-06-12",
-          "thuis": "Verenigde Staten",
-          "uit": "Paraguay",
-          "thuis_score": 2,
-          "uit_score": 1
-        },
-        {
-          "datum": "2026-06-13",
-          "thuis": "Australië",
-          "uit": "Turkije",
-          "thuis_score": 0,
-          "uit_score": 2
-        },
-        {
-          "datum": "2026-06-14",
-          "thuis": "Nederland",
-          "uit": "Japan",
-          "thuis_score": 4,
-          "uit_score": 1
-        },
-        {
-          "datum": "2026-06-14",
-          "thuis": "Duitsland",
-          "uit": "Curaçao",
-          "thuis_score": 3,
-          "uit_score": 0
-        },
-        {
-          "datum": "2026-06-16",
-          "thuis": "Argentinië",
-          "uit": "Algerije",
-          "thuis_score": 2,
-          "uit_score": 0
-        },
-        {
-          "datum": "2026-06-17",
-          "thuis": "Engeland",
-          "uit": "Kroatië",
-          "thuis_score": 1,
-          "uit_score": 1
-        },
-        {
-          "datum": "2026-06-20",
-          "thuis": "Nederland",
-          "uit": "Zweden",
-          "thuis_score": 2,
-          "uit_score": 0
-        },
-        {
-          "datum": "2026-06-21",
-          "thuis": "België",
-          "uit": "Iran",
-          "thuis_score": 4,
-          "uit_score": 1
-        },
-        {
-          "datum": "2026-06-22",
-          "thuis": "Frankrijk",
-          "uit": "Irak",
-          "thuis_score": 3,
-          "uit_score": 0
-        },
-        {
-          "datum": "2026-06-25",
-          "thuis": "Tunesië",
-          "uit": "Nederland",
-          "thuis_score": 0,
-          "uit_score": 2
-        },
-        {
-          "datum": "2026-06-25",
-          "thuis": "Curaçao",
-          "uit": "Ivoorkust",
-          "thuis_score": 1,
-          "uit_score": 1
-        },
-        {
-          "datum": "2026-06-27",
-          "thuis": "Colombia",
-          "uit": "Portugal",
-          "thuis_score": 1,
-          "uit_score": 3
-        }
-      ],
-      "groepseindstand": {
-        "A": [
-          "Mexico",
-          "Zuid-Afrika",
-          "Tsjechië",
-          "Zuid-Korea"
-        ],
-        "B": [
-          "Zwitserland",
-          "Canada",
-          "Bosnië-Herzegovina",
-          "Qatar"
-        ],
-        "C": [
-          "Marokko",
-          "Brazilië",
-          "Schotland",
-          "Haïti"
-        ],
-        "D": [
-          "Turkije",
-          "Verenigde Staten",
-          "Paraguay",
-          "Australië"
-        ],
-        "E": [
-          "Duitsland",
-          "Ecuador",
-          "Curaçao",
-          "Ivoorkust"
-        ],
-        "F": [
-          "Nederland",
-          "Zweden",
-          "Japan",
-          "Tunesië"
-        ],
-        "G": [
-          "België",
-          "Egypte",
-          "Iran",
-          "Nieuw-Zeeland"
-        ],
-        "H": [
-          "Spanje",
-          "Uruguay",
-          "Kaapverdië",
-          "Saoedi-Arabië"
-        ],
-        "I": [
-          "Frankrijk",
-          "Senegal",
-          "Noorwegen",
-          "Irak"
-        ],
-        "J": [
-          "Argentinië",
-          "Oostenrijk",
-          "Algerije",
-          "Jordanië"
-        ],
-        "K": [
-          "Portugal",
-          "Colombia",
-          "Oezbekistan",
-          "DR Congo"
-        ],
-        "L": [
-          "Engeland",
-          "Kroatië",
-          "Panama",
-          "Ghana"
-        ]
-      },
-      "zestiende_winnaars": {
-        "1": "Canada",
-        "2": "Marokko",
-        "3": "Duitsland",
-        "4": "Nederland",
-        "5": "Senegal",
-        "6": "Frankrijk",
-        "7": "Mexico",
-        "8": "Engeland",
-        "9": "België",
-        "10": "Turkije",
-        "11": "Spanje",
-        "12": "Colombia",
-        "13": "Zwitserland",
-        "14": "Verenigde Staten",
-        "15": "Argentinië",
-        "16": "Portugal"
-      },
-      "achtste_winnaars": {
-        "17": "Nederland",
-        "18": "Frankrijk",
-        "19": "Marokko",
-        "20": "Engeland",
-        "21": "Spanje",
-        "22": "België",
-        "23": "Argentinië",
-        "24": "Portugal"
-      },
-      "kwart_winnaars": {
-        "25": "Frankrijk",
-        "26": "Spanje",
-        "27": "Marokko",
-        "28": "Argentinië"
-      },
-      "halve_winnaars": {
-        "29": "Spanje",
-        "30": "Argentinië"
-      },
-      "kampioen": "Spanje",
-      "tweede": "Argentinië",
-      "bonus": {
-        "nl_doelpunten_voor": 11,
-        "nl_doelpunten_tegen": 7,
-        "nl_geel": 18,
-        "toernooi_doelpunten": 310,
-        "toernooi_rood": 12,
-        "topscorer": "Haaland"
-      }
-    },
-    {
       "naam": "Bas de R",
       "bestand": "Invulformulier WK 2026 Bas de R.xlsx",
       "groepswedstrijden": [
@@ -2919,6 +2700,225 @@
         "toernooi_doelpunten": 162,
         "toernooi_rood": 9,
         "topscorer": "mbappe"
+      }
+    },
+    {
+      "naam": "Bas S.",
+      "bestand": "Invulformulier WK 2026 Bas S.xlsx",
+      "groepswedstrijden": [
+        {
+          "datum": "2026-06-11",
+          "thuis": "Mexico",
+          "uit": "Zuid-Afrika",
+          "thuis_score": 3,
+          "uit_score": 1
+        },
+        {
+          "datum": "2026-06-12",
+          "thuis": "Verenigde Staten",
+          "uit": "Paraguay",
+          "thuis_score": 2,
+          "uit_score": 1
+        },
+        {
+          "datum": "2026-06-13",
+          "thuis": "Australië",
+          "uit": "Turkije",
+          "thuis_score": 0,
+          "uit_score": 2
+        },
+        {
+          "datum": "2026-06-14",
+          "thuis": "Nederland",
+          "uit": "Japan",
+          "thuis_score": 4,
+          "uit_score": 1
+        },
+        {
+          "datum": "2026-06-14",
+          "thuis": "Duitsland",
+          "uit": "Curaçao",
+          "thuis_score": 3,
+          "uit_score": 0
+        },
+        {
+          "datum": "2026-06-16",
+          "thuis": "Argentinië",
+          "uit": "Algerije",
+          "thuis_score": 2,
+          "uit_score": 0
+        },
+        {
+          "datum": "2026-06-17",
+          "thuis": "Engeland",
+          "uit": "Kroatië",
+          "thuis_score": 1,
+          "uit_score": 1
+        },
+        {
+          "datum": "2026-06-20",
+          "thuis": "Nederland",
+          "uit": "Zweden",
+          "thuis_score": 2,
+          "uit_score": 0
+        },
+        {
+          "datum": "2026-06-21",
+          "thuis": "België",
+          "uit": "Iran",
+          "thuis_score": 4,
+          "uit_score": 1
+        },
+        {
+          "datum": "2026-06-22",
+          "thuis": "Frankrijk",
+          "uit": "Irak",
+          "thuis_score": 3,
+          "uit_score": 0
+        },
+        {
+          "datum": "2026-06-25",
+          "thuis": "Tunesië",
+          "uit": "Nederland",
+          "thuis_score": 0,
+          "uit_score": 2
+        },
+        {
+          "datum": "2026-06-25",
+          "thuis": "Curaçao",
+          "uit": "Ivoorkust",
+          "thuis_score": 1,
+          "uit_score": 1
+        },
+        {
+          "datum": "2026-06-27",
+          "thuis": "Colombia",
+          "uit": "Portugal",
+          "thuis_score": 1,
+          "uit_score": 3
+        }
+      ],
+      "groepseindstand": {
+        "A": [
+          "Mexico",
+          "Zuid-Afrika",
+          "Tsjechië",
+          "Zuid-Korea"
+        ],
+        "B": [
+          "Zwitserland",
+          "Canada",
+          "Bosnië-Herzegovina",
+          "Qatar"
+        ],
+        "C": [
+          "Marokko",
+          "Brazilië",
+          "Schotland",
+          "Haïti"
+        ],
+        "D": [
+          "Turkije",
+          "Verenigde Staten",
+          "Paraguay",
+          "Australië"
+        ],
+        "E": [
+          "Duitsland",
+          "Ecuador",
+          "Curaçao",
+          "Ivoorkust"
+        ],
+        "F": [
+          "Nederland",
+          "Zweden",
+          "Japan",
+          "Tunesië"
+        ],
+        "G": [
+          "België",
+          "Egypte",
+          "Iran",
+          "Nieuw-Zeeland"
+        ],
+        "H": [
+          "Spanje",
+          "Uruguay",
+          "Kaapverdië",
+          "Saoedi-Arabië"
+        ],
+        "I": [
+          "Frankrijk",
+          "Senegal",
+          "Noorwegen",
+          "Irak"
+        ],
+        "J": [
+          "Argentinië",
+          "Oostenrijk",
+          "Algerije",
+          "Jordanië"
+        ],
+        "K": [
+          "Portugal",
+          "Colombia",
+          "Oezbekistan",
+          "DR Congo"
+        ],
+        "L": [
+          "Engeland",
+          "Kroatië",
+          "Panama",
+          "Ghana"
+        ]
+      },
+      "zestiende_winnaars": {
+        "1": "Canada",
+        "2": "Marokko",
+        "3": "Duitsland",
+        "4": "Nederland",
+        "5": "Senegal",
+        "6": "Frankrijk",
+        "7": "Mexico",
+        "8": "Engeland",
+        "9": "België",
+        "10": "Turkije",
+        "11": "Spanje",
+        "12": "Colombia",
+        "13": "Zwitserland",
+        "14": "Verenigde Staten",
+        "15": "Argentinië",
+        "16": "Portugal"
+      },
+      "achtste_winnaars": {
+        "17": "Nederland",
+        "18": "Frankrijk",
+        "19": "Marokko",
+        "20": "Engeland",
+        "21": "Spanje",
+        "22": "België",
+        "23": "Argentinië",
+        "24": "Portugal"
+      },
+      "kwart_winnaars": {
+        "25": "Frankrijk",
+        "26": "Spanje",
+        "27": "Marokko",
+        "28": "Argentinië"
+      },
+      "halve_winnaars": {
+        "29": "Spanje",
+        "30": "Argentinië"
+      },
+      "kampioen": "Spanje",
+      "tweede": "Argentinië",
+      "bonus": {
+        "nl_doelpunten_voor": 11,
+        "nl_doelpunten_tegen": 7,
+        "nl_geel": 18,
+        "toernooi_doelpunten": 310,
+        "toernooi_rood": 12,
+        "topscorer": "Haaland"
       }
     },
     {
@@ -8178,43 +8178,43 @@
       }
     },
     {
-      "naam": "Rene",
+      "naam": "René Charlataan",
       "bestand": "Invulformulier WK 2026 Rene.xlsx",
       "groepswedstrijden": [
         {
           "datum": "2026-06-11",
           "thuis": "Mexico",
           "uit": "Zuid-Afrika",
-          "thuis_score": 0,
+          "thuis_score": 2,
           "uit_score": 0
         },
         {
           "datum": "2026-06-12",
           "thuis": "Verenigde Staten",
           "uit": "Paraguay",
-          "thuis_score": 2,
-          "uit_score": 1
+          "thuis_score": 0,
+          "uit_score": 0
         },
         {
           "datum": "2026-06-13",
           "thuis": "Australië",
           "uit": "Turkije",
-          "thuis_score": 1,
+          "thuis_score": 0,
           "uit_score": 1
         },
         {
           "datum": "2026-06-14",
           "thuis": "Nederland",
           "uit": "Japan",
-          "thuis_score": 3,
-          "uit_score": 1
+          "thuis_score": 0,
+          "uit_score": 2
         },
         {
           "datum": "2026-06-14",
           "thuis": "Duitsland",
           "uit": "Curaçao",
           "thuis_score": 2,
-          "uit_score": 2
+          "uit_score": 0
         },
         {
           "datum": "2026-06-16",
@@ -8227,94 +8227,94 @@
           "datum": "2026-06-17",
           "thuis": "Engeland",
           "uit": "Kroatië",
-          "thuis_score": 4,
+          "thuis_score": 0,
           "uit_score": 0
         },
         {
           "datum": "2026-06-20",
           "thuis": "Nederland",
           "uit": "Zweden",
-          "thuis_score": 2,
-          "uit_score": 0
+          "thuis_score": 0,
+          "uit_score": 1
         },
         {
           "datum": "2026-06-21",
           "thuis": "België",
           "uit": "Iran",
-          "thuis_score": 3,
-          "uit_score": 0
+          "thuis_score": 1,
+          "uit_score": 1
         },
         {
           "datum": "2026-06-22",
           "thuis": "Frankrijk",
           "uit": "Irak",
-          "thuis_score": 6,
+          "thuis_score": 2,
           "uit_score": 0
         },
         {
           "datum": "2026-06-25",
           "thuis": "Tunesië",
           "uit": "Nederland",
-          "thuis_score": 0,
-          "uit_score": 3
+          "thuis_score": 1,
+          "uit_score": 0
         },
         {
           "datum": "2026-06-25",
           "thuis": "Curaçao",
           "uit": "Ivoorkust",
           "thuis_score": 2,
-          "uit_score": 1
+          "uit_score": 0
         },
         {
           "datum": "2026-06-27",
           "thuis": "Colombia",
           "uit": "Portugal",
-          "thuis_score": 1,
-          "uit_score": 2
+          "thuis_score": 0,
+          "uit_score": 1
         }
       ],
       "groepseindstand": {
         "A": [
           "Tsjechië",
-          "Zuid-Korea",
           "Mexico",
+          "Zuid-Korea",
           "Zuid-Afrika"
         ],
         "B": [
           "Zwitserland",
-          "Canada",
           "Bosnië-Herzegovina",
-          "Qatar"
+          "Qatar",
+          "Canada"
         ],
         "C": [
           "Brazilië",
-          "Marokko",
           "Schotland",
+          "Marokko",
           "Haïti"
         ],
         "D": [
-          "Turkije",
           "Paraguay",
+          "Turkije",
           "Verenigde Staten",
           "Australië"
         ],
         "E": [
           "Duitsland",
           "Curaçao",
-          "Ivoorkust",
-          "Ecuador"
+          "Ecuador",
+          "Ivoorkust"
         ],
         "F": [
-          "Nederland",
           "Japan",
           "Zweden",
-          "Tunesië"
+          "Tunesië",
+          "Nederland"
         ],
         "G": [
           "België",
           "Egypte",
-          "Nieuw-Zeeland",
-          "Iran"
+          "Iran",
+          "Nieuw-Zeeland"
         ],
         "H": [
           "Spanje",
@@ -8324,76 +8324,76 @@
         ],
         "I": [
           "Frankrijk",
-          "Senegal",
           "Noorwegen",
+          "Senegal",
           "Irak"
         ],
         "J": [
           "Argentinië",
-          "Oostenrijk",
           "Algerije",
+          "Oostenrijk",
           "Jordanië"
         ],
         "K": [
           "Portugal",
-          "DR Congo",
           "Colombia",
-          "Oezbekistan"
+          "Oezbekistan",
+          "DR Congo"
         ],
         "L": [
-          "Engeland",
-          "Ghana",
           "Kroatië",
-          "Panama"
+          "Engeland",
+          "Panama",
+          "Ghana"
         ]
       },
       "zestiende_winnaars": {
-        "1": "Zuid-Korea",
+        "1": "Mexico",
         "2": "Brazilië",
         "3": "Duitsland",
-        "4": "Nederland",
+        "4": "Japan",
         "5": "Curaçao",
         "6": "Frankrijk",
         "7": "Tsjechië",
-        "8": "Engeland",
+        "8": "Kroatië",
         "9": "België",
-        "10": "Turkije",
+        "10": "Paraguay",
         "11": "Spanje",
-        "12": "Ghana",
-        "13": "Noorwegen",
-        "14": "Paraguay",
-        "15": "Uruguay",
+        "12": "Engeland",
+        "13": "Zwitserland",
+        "14": "Turkije",
+        "15": "Argentinië",
         "16": "Portugal"
       },
       "achtste_winnaars": {
-        "17": "Nederland",
-        "18": "Duitsland",
+        "17": "Japan",
+        "18": "Frankrijk",
         "19": "Brazilië",
-        "20": "Engeland",
-        "21": "Spanje",
-        "22": "België",
-        "23": "Uruguay",
+        "20": "Kroatië",
+        "21": "Engeland",
+        "22": "Paraguay",
+        "23": "Argentinië",
         "24": "Portugal"
       },
       "kwart_winnaars": {
-        "25": "Nederland",
-        "26": "Spanje",
-        "27": "Engeland",
+        "25": "Frankrijk",
+        "26": "Engeland",
+        "27": "Kroatië",
         "28": "Portugal"
       },
       "halve_winnaars": {
-        "29": "Nederland",
-        "30": "Engeland"
+        "29": "Frankrijk",
+        "30": "Portugal"
       },
-      "kampioen": "Engeland",
-      "tweede": "Nederland",
+      "kampioen": "Frankrijk",
+      "tweede": "Portugal",
       "bonus": {
-        "nl_doelpunten_voor": 15,
-        "nl_doelpunten_tegen": 9,
-        "nl_geel": 10,
-        "toernooi_doelpunten": 278,
-        "toernooi_rood": 10,
-        "topscorer": "Harry Kane"
+        "nl_doelpunten_voor": 2,
+        "nl_doelpunten_tegen": 4,
+        "nl_geel": 8,
+        "toernooi_doelpunten": 291,
+        "toernooi_rood": 11,
+        "topscorer": "Vermalen"
       }
     },
     {
@@ -11082,12 +11082,12 @@
       "waarschuwingen": []
     },
     {
-      "bestand": "Invulformulier WK 2026 Bas S.xlsx",
+      "bestand": "Invulformulier WK 2026 Bas de R.xlsx",
       "fouten": [],
       "waarschuwingen": []
     },
     {
-      "bestand": "Invulformulier WK 2026 Bas de R.xlsx",
+      "bestand": "Invulformulier WK 2026 Bas S.xlsx",
       "fouten": [],
       "waarschuwingen": []
     },
