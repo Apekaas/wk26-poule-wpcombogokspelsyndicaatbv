@@ -110,6 +110,16 @@ h2{font-weight:200;font-size:clamp(32px,5vw,48px);letter-spacing:-.04em;
 .cel .spreiding{font-size:12px;color:var(--smoke)}
 .verrassing{border:1px solid var(--amber);border-radius:24px;padding:24px;
   margin-top:24px;background:var(--paneel)}
+.wedstrijden{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.wed{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  border:1px solid var(--hairline);border-radius:18px;padding:14px 20px;background:var(--paneel)}
+.wed.komt{border-style:dashed}
+.wed .teams{font-weight:600;font-size:15px}
+.wed .teams .vs{color:var(--smoke);font-weight:400;margin:0 8px}
+.wed .uitslag{font-weight:200;font-size:28px;letter-spacing:-.03em;color:var(--plum)}
+.wed .meta{text-align:right;font-size:12px;color:var(--smoke);line-height:1.6}
+.wed .meta .tijd{color:var(--lichen);font-weight:600}
+.wed .meta .punten{color:var(--amber);font-weight:600}
 footer{border-top:1px solid var(--hairline);padding:24px 0 60px;margin-top:96px;
   color:var(--smoke);font-size:12px;letter-spacing:.05em;text-align:center}
 .valwaarschuwing{border:1px solid var(--amber);border-radius:24px;padding:14px 24px;
@@ -181,6 +191,13 @@ footer{border-top:1px solid var(--hairline);padding:24px 0 60px;margin-top:96px;
   <div class="kaart" id="topscorers"></div>
 </section>
 
+<section id="programmasectie" style="display:none">
+  <div class="kicker">Wat er op het spel staat</div>
+  <h2 id="programmakop">Wedstrijden van de ronde</h2>
+  <p class="muted" id="programmasub"></p>
+  <div class="wedstrijden" id="wedstrijden"></div>
+</section>
+
 <section id="verrassingsectie" data-vorm="beker" style="display:none">
   <div class="kicker">Niemand zag het aankomen</div>
   <h2>Verrassing van de ronde</h2>
@@ -229,7 +246,7 @@ function init(){
   html("scoreparodie", PARODIE[(dt.getDate())%PARODIE.length]);
   html("rondeparodie", PARODIE[(dt.getDate()+3)%PARODIE.length]);
   try{scoreboard(d); rondetabs(d); verloop(d); balken(d);
-      kampioenen(d); bonus(d); verrassing(d); validatie(d);}
+      kampioenen(d); bonus(d); programma(d); verrassing(d); validatie(d);}
   catch(e){console.error("Sectie-fout:",e);}
   podium();
 }
@@ -321,6 +338,33 @@ function bonus(d){
   const ts=m.topscorer_keuzes.map(t=>`${esc(t.naam)} (${t.aantal}×)`).join(" · ");
   html("topscorers", `<strong>Topscorerkeuzes:</strong> ${ts||"—"}`+
     (m.topscorer_actueel?`<br><span class="muted">Actuele topscorer: ${esc(m.topscorer_actueel)}</span>`:""));
+}
+function programma(d){
+  const p=d.programma;
+  if(!p||!p.wedstrijden||!p.wedstrijden.length) return;
+  el("programmasectie").style.display="block";
+  el("programmakop").textContent=`${p.ronde}: wat staat er op het spel`;
+  const teGaan=p.wedstrijden.filter(w=>!w.gespeeld).length;
+  el("programmasub").textContent = teGaan
+    ? `Nog ${teGaan} te spelen in deze ronde — met Nederlandse aftraptijd en de punten die op het spel staan.`
+    : `Alle wedstrijden van deze ronde zijn gespeeld.`;
+  html("wedstrijden", p.wedstrijden.map(w=>{
+    if(w.gespeeld){
+      return `<div class="wed"><span class="teams">${esc(w.thuis||"?")}</span>`+
+        `<span class="uitslag">${esc(w.uitslag||"–")}</span>`+
+        `<span class="teams">${esc(w.uit||"?")}</span></div>`;
+    }
+    const inzet=[];
+    if(p.toont_inzet){
+      if(w.inzet_thuis!=null) inzet.push(`${w.inzet_thuis}× ${esc(w.thuis)}`);
+      if(w.inzet_uit!=null) inzet.push(`${w.inzet_uit}× ${esc(w.uit)}`);
+    }
+    const inzetTxt = inzet.length? `<div>${inzet.join(" · ")} doorvoorspeld</div>`:"";
+    return `<div class="wed komt">`+
+      `<span class="teams">${esc(w.thuis||"n.t.b.")}<span class="vs">–</span>${esc(w.uit||"n.t.b.")}</span>`+
+      `<span class="meta"><div class="tijd">${esc(w.speeltijd||"tijd volgt")}</div>`+
+      `<div class="punten">${esc(w.punten||"")}</div>${inzetTxt}</span></div>`;
+  }).join(""));
 }
 function verrassing(d){
   if(!d.verrassing) return;

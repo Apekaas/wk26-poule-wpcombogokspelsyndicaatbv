@@ -226,6 +226,27 @@ def main():
     except Exception as e:
         print(f"Scorers niet opgehaald ({e}); topscorer-teller ongemoeid.")
 
+    # 9. Volledig wedstrijdschema (gespeeld + nog te spelen) voor het
+    #    programma-blok. Zelfde /matches-respons als hierboven, dus geen
+    #    extra API-call. Aftraptijden staan in utcDate; nog niet bepaalde
+    #    knock-outploegen komen als None binnen (placeholder overslaan).
+    schema = []
+    for m in wedstrijden:
+        ft = (m.get("score") or {}).get("fullTime") or {}
+        thuis = (m.get("homeTeam") or {}).get("name")
+        uit = (m.get("awayTeam") or {}).get("name")
+        schema.append({
+            "utcDate": m.get("utcDate"),
+            "stage": m.get("stage"),
+            "matchday": m.get("matchday"),
+            "status": m.get("status"),
+            "thuis": nl(thuis, onbekend) if thuis else None,
+            "uit": nl(uit, onbekend) if uit else None,
+            "thuis_score": ft.get("home"),
+            "uit_score": ft.get("away"),
+        })
+    uitslagen["wedstrijdschema"] = schema
+
     uitslagen["laatste_update"] = datetime.now(timezone.utc).isoformat(
         timespec="seconds")
     UITSLAGEN.write_text(json.dumps(uitslagen, ensure_ascii=False, indent=2),

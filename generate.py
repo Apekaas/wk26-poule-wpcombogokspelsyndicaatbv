@@ -15,12 +15,45 @@ import json
 import statistics
 import sys
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import scoring
 
 HIER = Path(__file__).resolve().parent
+
+# Stages op chronologische volgorde (football-data.org v4).
+STAGE_VOLGORDE = ["GROUP_STAGE", "LAST_32", "LAST_16", "QUARTER_FINALS",
+                  "SEMI_FINALS", "THIRD_PLACE", "FINAL"]
+# Per knock-outstage: (poule-rondelabel, deelnemer-voorspelveld 'gaat door',
+# punten die de winst ontsluit, weergavelabel voor de punten).
+KO_STAGE = {
+    "LAST_32": ("Zestiende finales", "zestiende_winnaars", "3 pt"),
+    "LAST_16": ("Achtste finales", "achtste_winnaars", "5 pt"),
+    "QUARTER_FINALS": ("Kwartfinales", "kwart_winnaars", "10 pt"),
+    "SEMI_FINALS": ("Halve finales", "halve_winnaars", "15 pt"),
+    "THIRD_PLACE": ("Troostfinale", None, "15 / 10 pt"),
+    "FINAL": ("Finale", "kampioen", "40 / 20 pt"),
+}
+
+NL_DAGEN = ["ma", "di", "wo", "do", "vr", "za", "zo"]
+NL_MAANDEN = ["jan", "feb", "mrt", "apr", "mei", "jun",
+              "jul", "aug", "sep", "okt", "nov", "dec"]
+
+
+def nl_speeltijd(utc_iso):
+    """UTC-aftrap -> Nederlandse zomertijd (UTC+2, vast voor juni/juli 2026).
+
+    Geeft bv. 'za 13 jun 20:00', of None als er geen tijd bekend is."""
+    if not utc_iso:
+        return None
+    try:
+        dt = datetime.fromisoformat(utc_iso.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    dt = dt.astimezone(timezone.utc) + timedelta(hours=2)
+    return (f"{NL_DAGEN[dt.weekday()]} {dt.day} {NL_MAANDEN[dt.month - 1]} "
+            f"{dt.hour:02d}:{dt.minute:02d}")
 
 RONDE_LABELS = {
     "groep-1": "Groepsronde 1", "groep-2": "Groepsronde 2",
@@ -194,6 +227,79 @@ def verrassing(data, uitslagen):
     return _verrassing_knockout(data, uitslagen) or _verrassing_groep(data, uitslagen)
 
 
+def _doorgevoorspeld(deelnemer, veld):
+    """Genormaliseerde set landen die deze deelnemer in dat veld liet doorgaan."""
+    if veld == "kampioen":
+        k = deelnemer.get("kampioen")
+        return {scoring.norm(k)} if k else set()
+    return {scoring.norm(l) for l in deelnemer.get(veld, {}).values() if l}
+
+
+def programma(data, uitslagen):
+    """Wedstrijden van de huidige ronde: gespeelde uitslagen + nog te spelen
+    wedstrijden met Nederlandse aftraptijd, punten en deelnemers-inzet.
+
+    'Huidige ronde' = de vroegste stage met nog niet-gespeelde wedstrijden."""
+    schema = uitslagen.get("wedstrijdschema") or []
+    if not schema:
+        return None
+
+    # Vroegste stage met een niet-afgeronde wedstrijd; anders de laatste
+    # stage waar überhaupt wedstrijden voor bestaan (toernooi afgelopen).
+    huidige, laatste = None, None
+    for stage in STAGE_VOLGORDE:
+        matches = [m for m in schema if m.get("stage") == stage]
+        if not matches:
+            continue
+        laatste = stage
+        if any(m.get("status") != "FINISHED" for m in matches):
+            huidige = stage
+            break
+    stage = huidige or laatste
+    if not stage:
+        return None
+
+    matches = [m for m in schema if m.get("stage") == stage]
+    matches.sort(key=lambda m: m.get("utcDate") or "")
+
+    if stage == "GROUP_STAGE":
+        label, veld, punten_label = "Groepswedstrijden", None, "max 3 pt"
+    else:
+        label, veld, punten_label = KO_STAGE.get(
+            stage, (stage.title(), None, ""))
+
+    # Deelnemers-inzet: hoe vaak is elk land in dit veld doorvoorspeld?
+    inzet = Counter()
+    if veld:
+        for d in data["deelnemers"]:
+            for land in _doorgevoorspeld(d, veld):
+                inzet[land] += 1
+
+    wedstrijden = []
+    for m in matches:
+        gespeeld = m.get("status") == "FINISHED"
+        thuis, uit = m.get("thuis"), m.get("uit")
+        rij = {
+            "thuis": thuis, "uit": uit,
+            "gespeeld": gespeeld,
+            "speeltijd": nl_speeltijd(m.get("utcDate")),
+        }
+        if gespeeld:
+            rij["uitslag"] = (f'{m.get("thuis_score")}–{m.get("uit_score")}'
+                              if m.get("thuis_score") is not None else None)
+        else:
+            rij["punten"] = punten_label
+            rij["inzet_thuis"] = inzet.get(scoring.norm(thuis)) if thuis else None
+            rij["inzet_uit"] = inzet.get(scoring.norm(uit)) if uit else None
+        wedstrijden.append(rij)
+
+    return {
+        "ronde": label,
+        "toont_inzet": bool(veld),
+        "wedstrijden": wedstrijden,
+    }
+
+
 def main(deelnemers_pad, uitslagen_pad, outmap):
     data = json.load(open(deelnemers_pad, encoding="utf-8"))
     uitslagen = json.load(open(uitslagen_pad, encoding="utf-8"))
@@ -220,6 +326,7 @@ def main(deelnemers_pad, uitslagen_pad, outmap):
         "stand": stand["stand"],
         "kampioenskaart": kampioenskaart(data, uitslagen),
         "nl_bonusmeter": nl_bonusmeter(data, uitslagen),
+        "programma": programma(data, uitslagen),
         "verrassing": verrassing(data, uitslagen),
         "groepswedstrijden": uitslagen["groepswedstrijden"],
         "validatie": [v for v in data.get("validatie", []) if v["fouten"]],
