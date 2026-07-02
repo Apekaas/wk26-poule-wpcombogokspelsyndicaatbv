@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-02T20:46:40+00:00",
+  "laatste_update": "2026-07-02T22:35:49+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -190,6 +190,7 @@
     "Mexico",
     "Noorwegen",
     "Paraguay",
+    "Spanje",
     "Verenigde Staten"
   ],
   "kwartfinalisten": [],
@@ -207,6 +208,7 @@
     "Ivoorkust",
     "Japan",
     "Nederland",
+    "Oostenrijk",
     "Senegal",
     "Zuid-Afrika",
     "Zweden"
@@ -223,7 +225,7 @@
     "nl_doelpunten_voor": 13,
     "nl_doelpunten_tegen": 8,
     "nl_geel": 3,
-    "toernooi_doelpunten": 253,
+    "toernooi_doelpunten": 256,
     "toernooi_rood": 12,
     "topscorer": "Kylian Mbappé (6) · Lionel Messi (6) · Erling Haaland (5)"
   },
@@ -1404,11 +1406,11 @@
       "utcDate": "2026-07-02T19:00:00Z",
       "stage": "LAST_32",
       "matchday": null,
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "duration": "REGULAR",
       "thuis": "Spanje",
       "uit": "Oostenrijk",
-      "thuis_score": 2,
+      "thuis_score": 3,
       "uit_score": 0,
       "regulier": null,
       "verlenging": null,
