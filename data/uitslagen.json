@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-02T19:10:27+00:00",
+  "laatste_update": "2026-07-02T19:28:22+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -226,5 +226,1047 @@
     "toernooi_doelpunten": 253,
     "toernooi_rood": 12,
     "topscorer": "Kylian Mbappé (6) · Lionel Messi (6) · Erling Haaland (5)"
-  }
+  },
+  "wedstrijdschema": [
+    {
+      "utcDate": "2026-06-11T19:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Mexico",
+      "uit": "Zuid-Afrika",
+      "thuis_score": 2,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-12T02:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Zuid-Korea",
+      "uit": "Tsjechië",
+      "thuis_score": 2,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-12T19:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Canada",
+      "uit": "Bosnië-Herzegovina",
+      "thuis_score": 1,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-13T01:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Verenigde Staten",
+      "uit": "Paraguay",
+      "thuis_score": 4,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-13T19:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Qatar",
+      "uit": "Zwitserland",
+      "thuis_score": 1,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-13T22:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Brazilië",
+      "uit": "Marokko",
+      "thuis_score": 1,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-14T01:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Haïti",
+      "uit": "Schotland",
+      "thuis_score": 0,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-14T04:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Australië",
+      "uit": "Turkije",
+      "thuis_score": 2,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-14T17:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Duitsland",
+      "uit": "Curaçao",
+      "thuis_score": 7,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-14T20:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Nederland",
+      "uit": "Japan",
+      "thuis_score": 2,
+      "uit_score": 2
+    },
+    {
+      "utcDate": "2026-06-14T23:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Ivoorkust",
+      "uit": "Ecuador",
+      "thuis_score": 1,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-15T02:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Zweden",
+      "uit": "Tunesië",
+      "thuis_score": 5,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-15T16:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Spanje",
+      "uit": "Cape Verde Islands",
+      "thuis_score": 0,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-15T19:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "België",
+      "uit": "Egypte",
+      "thuis_score": 1,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-15T22:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Saoedi-Arabië",
+      "uit": "Uruguay",
+      "thuis_score": 1,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-16T01:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Iran",
+      "uit": "Nieuw-Zeeland",
+      "thuis_score": 2,
+      "uit_score": 2
+    },
+    {
+      "utcDate": "2026-06-16T19:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Frankrijk",
+      "uit": "Senegal",
+      "thuis_score": 3,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-16T22:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Irak",
+      "uit": "Noorwegen",
+      "thuis_score": 1,
+      "uit_score": 4
+    },
+    {
+      "utcDate": "2026-06-17T01:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Argentinië",
+      "uit": "Algerije",
+      "thuis_score": 3,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-17T04:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Oostenrijk",
+      "uit": "Jordanië",
+      "thuis_score": 3,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-17T17:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Portugal",
+      "uit": "DR Congo",
+      "thuis_score": 1,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-17T20:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Engeland",
+      "uit": "Kroatië",
+      "thuis_score": 4,
+      "uit_score": 2
+    },
+    {
+      "utcDate": "2026-06-17T23:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Ghana",
+      "uit": "Panama",
+      "thuis_score": 1,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-18T02:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 1,
+      "status": "FINISHED",
+      "thuis": "Oezbekistan",
+      "uit": "Colombia",
+      "thuis_score": 1,
+      "uit_score": 3
+    },
+    {
+      "utcDate": "2026-06-18T16:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Tsjechië",
+      "uit": "Zuid-Afrika",
+      "thuis_score": 1,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-18T19:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Zwitserland",
+      "uit": "Bosnië-Herzegovina",
+      "thuis_score": 4,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-18T22:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Canada",
+      "uit": "Qatar",
+      "thuis_score": 6,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-19T01:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Mexico",
+      "uit": "Zuid-Korea",
+      "thuis_score": 1,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-19T19:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Verenigde Staten",
+      "uit": "Australië",
+      "thuis_score": 2,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-19T22:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Schotland",
+      "uit": "Marokko",
+      "thuis_score": 0,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-20T00:30:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Brazilië",
+      "uit": "Haïti",
+      "thuis_score": 3,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-20T03:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Turkije",
+      "uit": "Paraguay",
+      "thuis_score": 0,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-20T17:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Nederland",
+      "uit": "Zweden",
+      "thuis_score": 5,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-20T20:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Duitsland",
+      "uit": "Ivoorkust",
+      "thuis_score": 2,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-21T00:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Ecuador",
+      "uit": "Curaçao",
+      "thuis_score": 0,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-21T04:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Tunesië",
+      "uit": "Japan",
+      "thuis_score": 0,
+      "uit_score": 4
+    },
+    {
+      "utcDate": "2026-06-21T16:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Spanje",
+      "uit": "Saoedi-Arabië",
+      "thuis_score": 4,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-21T19:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "België",
+      "uit": "Iran",
+      "thuis_score": 0,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-21T22:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Uruguay",
+      "uit": "Cape Verde Islands",
+      "thuis_score": 2,
+      "uit_score": 2
+    },
+    {
+      "utcDate": "2026-06-22T01:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Nieuw-Zeeland",
+      "uit": "Egypte",
+      "thuis_score": 1,
+      "uit_score": 3
+    },
+    {
+      "utcDate": "2026-06-22T17:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Argentinië",
+      "uit": "Oostenrijk",
+      "thuis_score": 2,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-22T21:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Frankrijk",
+      "uit": "Irak",
+      "thuis_score": 3,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-23T00:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Noorwegen",
+      "uit": "Senegal",
+      "thuis_score": 3,
+      "uit_score": 2
+    },
+    {
+      "utcDate": "2026-06-23T03:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Jordanië",
+      "uit": "Algerije",
+      "thuis_score": 1,
+      "uit_score": 2
+    },
+    {
+      "utcDate": "2026-06-23T17:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Portugal",
+      "uit": "Oezbekistan",
+      "thuis_score": 5,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-23T20:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Engeland",
+      "uit": "Ghana",
+      "thuis_score": 0,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-23T23:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Panama",
+      "uit": "Kroatië",
+      "thuis_score": 0,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-24T02:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 2,
+      "status": "FINISHED",
+      "thuis": "Colombia",
+      "uit": "DR Congo",
+      "thuis_score": 1,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-24T19:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Zwitserland",
+      "uit": "Canada",
+      "thuis_score": 2,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-24T19:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Bosnië-Herzegovina",
+      "uit": "Qatar",
+      "thuis_score": 3,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-24T22:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Marokko",
+      "uit": "Haïti",
+      "thuis_score": 4,
+      "uit_score": 2
+    },
+    {
+      "utcDate": "2026-06-24T22:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Schotland",
+      "uit": "Brazilië",
+      "thuis_score": 0,
+      "uit_score": 3
+    },
+    {
+      "utcDate": "2026-06-25T01:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Tsjechië",
+      "uit": "Mexico",
+      "thuis_score": 0,
+      "uit_score": 3
+    },
+    {
+      "utcDate": "2026-06-25T01:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Zuid-Afrika",
+      "uit": "Zuid-Korea",
+      "thuis_score": 1,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-25T20:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Ecuador",
+      "uit": "Duitsland",
+      "thuis_score": 2,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-25T20:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Curaçao",
+      "uit": "Ivoorkust",
+      "thuis_score": 0,
+      "uit_score": 2
+    },
+    {
+      "utcDate": "2026-06-25T23:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Tunesië",
+      "uit": "Nederland",
+      "thuis_score": 1,
+      "uit_score": 3
+    },
+    {
+      "utcDate": "2026-06-25T23:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Japan",
+      "uit": "Zweden",
+      "thuis_score": 1,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-26T02:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Turkije",
+      "uit": "Verenigde Staten",
+      "thuis_score": 3,
+      "uit_score": 2
+    },
+    {
+      "utcDate": "2026-06-26T02:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Paraguay",
+      "uit": "Australië",
+      "thuis_score": 0,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-26T19:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Noorwegen",
+      "uit": "Frankrijk",
+      "thuis_score": 1,
+      "uit_score": 4
+    },
+    {
+      "utcDate": "2026-06-26T19:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Senegal",
+      "uit": "Irak",
+      "thuis_score": 5,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-27T00:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Uruguay",
+      "uit": "Spanje",
+      "thuis_score": 0,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-27T00:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Cape Verde Islands",
+      "uit": "Saoedi-Arabië",
+      "thuis_score": 0,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-27T03:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Nieuw-Zeeland",
+      "uit": "België",
+      "thuis_score": 1,
+      "uit_score": 5
+    },
+    {
+      "utcDate": "2026-06-27T03:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Egypte",
+      "uit": "Iran",
+      "thuis_score": 1,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-27T21:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Panama",
+      "uit": "Engeland",
+      "thuis_score": 0,
+      "uit_score": 2
+    },
+    {
+      "utcDate": "2026-06-27T21:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Kroatië",
+      "uit": "Ghana",
+      "thuis_score": 2,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-27T23:30:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Colombia",
+      "uit": "Portugal",
+      "thuis_score": 0,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-06-27T23:30:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "DR Congo",
+      "uit": "Oezbekistan",
+      "thuis_score": 3,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-28T02:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Jordanië",
+      "uit": "Argentinië",
+      "thuis_score": 1,
+      "uit_score": 3
+    },
+    {
+      "utcDate": "2026-06-28T02:00:00Z",
+      "stage": "GROUP_STAGE",
+      "matchday": 3,
+      "status": "FINISHED",
+      "thuis": "Algerije",
+      "uit": "Oostenrijk",
+      "thuis_score": 3,
+      "uit_score": 3
+    },
+    {
+      "utcDate": "2026-06-28T19:00:00Z",
+      "stage": "LAST_32",
+      "matchday": null,
+      "status": "FINISHED",
+      "thuis": "Zuid-Afrika",
+      "uit": "Canada",
+      "thuis_score": 0,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-29T17:00:00Z",
+      "stage": "LAST_32",
+      "matchday": null,
+      "status": "FINISHED",
+      "thuis": "Brazilië",
+      "uit": "Japan",
+      "thuis_score": 2,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-06-29T20:30:00Z",
+      "stage": "LAST_32",
+      "matchday": null,
+      "status": "FINISHED",
+      "thuis": "Duitsland",
+      "uit": "Paraguay",
+      "thuis_score": 4,
+      "uit_score": 5
+    },
+    {
+      "utcDate": "2026-06-30T01:00:00Z",
+      "stage": "LAST_32",
+      "matchday": null,
+      "status": "FINISHED",
+      "thuis": "Nederland",
+      "uit": "Marokko",
+      "thuis_score": 3,
+      "uit_score": 4
+    },
+    {
+      "utcDate": "2026-06-30T17:00:00Z",
+      "stage": "LAST_32",
+      "matchday": null,
+      "status": "FINISHED",
+      "thuis": "Ivoorkust",
+      "uit": "Noorwegen",
+      "thuis_score": 1,
+      "uit_score": 2
+    },
+    {
+      "utcDate": "2026-06-30T21:00:00Z",
+      "stage": "LAST_32",
+      "matchday": null,
+      "status": "FINISHED",
+      "thuis": "Frankrijk",
+      "uit": "Zweden",
+      "thuis_score": 3,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-07-01T02:00:00Z",
+      "stage": "LAST_32",
+      "matchday": null,
+      "status": "FINISHED",
+      "thuis": "Mexico",
+      "uit": "Ecuador",
+      "thuis_score": 2,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-07-01T16:00:00Z",
+      "stage": "LAST_32",
+      "matchday": null,
+      "status": "FINISHED",
+      "thuis": "Engeland",
+      "uit": "DR Congo",
+      "thuis_score": 2,
+      "uit_score": 1
+    },
+    {
+      "utcDate": "2026-07-01T20:00:00Z",
+      "stage": "LAST_32",
+      "matchday": null,
+      "status": "FINISHED",
+      "thuis": "België",
+      "uit": "Senegal",
+      "thuis_score": 3,
+      "uit_score": 2
+    },
+    {
+      "utcDate": "2026-07-02T00:00:00Z",
+      "stage": "LAST_32",
+      "matchday": null,
+      "status": "FINISHED",
+      "thuis": "Verenigde Staten",
+      "uit": "Bosnië-Herzegovina",
+      "thuis_score": 2,
+      "uit_score": 0
+    },
+    {
+      "utcDate": "2026-07-02T19:00:00Z",
+      "stage": "LAST_32",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": "Spanje",
+      "uit": "Oostenrijk",
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-02T23:00:00Z",
+      "stage": "LAST_32",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": "Portugal",
+      "uit": "Kroatië",
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-03T03:00:00Z",
+      "stage": "LAST_32",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": "Zwitserland",
+      "uit": "Algerije",
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-03T18:00:00Z",
+      "stage": "LAST_32",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": "Australië",
+      "uit": "Egypte",
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-03T22:00:00Z",
+      "stage": "LAST_32",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": "Argentinië",
+      "uit": "Cape Verde Islands",
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-04T01:30:00Z",
+      "stage": "LAST_32",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": "Colombia",
+      "uit": "Ghana",
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-04T17:00:00Z",
+      "stage": "LAST_16",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": "Canada",
+      "uit": "Marokko",
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-04T21:00:00Z",
+      "stage": "LAST_16",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": "Paraguay",
+      "uit": "Frankrijk",
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-05T20:00:00Z",
+      "stage": "LAST_16",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": "Brazilië",
+      "uit": "Noorwegen",
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-06T00:00:00Z",
+      "stage": "LAST_16",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": "Mexico",
+      "uit": "Engeland",
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-06T19:00:00Z",
+      "stage": "LAST_16",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": null,
+      "uit": null,
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-07T00:00:00Z",
+      "stage": "LAST_16",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": "Verenigde Staten",
+      "uit": "België",
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-07T16:00:00Z",
+      "stage": "LAST_16",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": null,
+      "uit": null,
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-07T20:00:00Z",
+      "stage": "LAST_16",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": null,
+      "uit": null,
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-09T20:00:00Z",
+      "stage": "QUARTER_FINALS",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": null,
+      "uit": null,
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-10T19:00:00Z",
+      "stage": "QUARTER_FINALS",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": null,
+      "uit": null,
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-11T21:00:00Z",
+      "stage": "QUARTER_FINALS",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": null,
+      "uit": null,
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-12T01:00:00Z",
+      "stage": "QUARTER_FINALS",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": null,
+      "uit": null,
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-14T19:00:00Z",
+      "stage": "SEMI_FINALS",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": null,
+      "uit": null,
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-15T19:00:00Z",
+      "stage": "SEMI_FINALS",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": null,
+      "uit": null,
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-18T21:00:00Z",
+      "stage": "THIRD_PLACE",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": null,
+      "uit": null,
+      "thuis_score": null,
+      "uit_score": null
+    },
+    {
+      "utcDate": "2026-07-19T19:00:00Z",
+      "stage": "FINAL",
+      "matchday": null,
+      "status": "TIMED",
+      "thuis": null,
+      "uit": null,
+      "thuis_score": null,
+      "uit_score": null
+    }
+  ]
 }
