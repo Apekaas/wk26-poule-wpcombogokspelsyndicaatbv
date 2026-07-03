@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-02T22:35:49+00:00",
+  "laatste_update": "2026-07-03T04:24:04+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -190,6 +190,7 @@
     "Mexico",
     "Noorwegen",
     "Paraguay",
+    "Portugal",
     "Spanje",
     "Verenigde Staten"
   ],
@@ -207,6 +208,7 @@
     "Ecuador",
     "Ivoorkust",
     "Japan",
+    "Kroatië",
     "Nederland",
     "Oostenrijk",
     "Senegal",
@@ -225,7 +227,7 @@
     "nl_doelpunten_voor": 13,
     "nl_doelpunten_tegen": 8,
     "nl_geel": 3,
-    "toernooi_doelpunten": 256,
+    "toernooi_doelpunten": 259,
     "toernooi_rood": 12,
     "topscorer": "Kylian Mbappé (6) · Lionel Messi (6) · Erling Haaland (5)"
   },
@@ -1420,12 +1422,12 @@
       "utcDate": "2026-07-02T23:00:00Z",
       "stage": "LAST_32",
       "matchday": null,
-      "status": "TIMED",
+      "status": "FINISHED",
       "duration": "REGULAR",
       "thuis": "Portugal",
       "uit": "Kroatië",
-      "thuis_score": null,
-      "uit_score": null,
+      "thuis_score": 2,
+      "uit_score": 1,
       "regulier": null,
       "verlenging": null,
       "penalties": null
@@ -1434,12 +1436,12 @@
       "utcDate": "2026-07-03T03:00:00Z",
       "stage": "LAST_32",
       "matchday": null,
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "duration": "REGULAR",
       "thuis": "Zwitserland",
       "uit": "Algerije",
-      "thuis_score": null,
-      "uit_score": null,
+      "thuis_score": 2,
+      "uit_score": 0,
       "regulier": null,
       "verlenging": null,
       "penalties": null
