@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-03T22:32:18+00:00",
+  "laatste_update": "2026-07-04T04:09:27+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -181,9 +181,11 @@
     ]
   },
   "achtste_finalisten": [
+    "Argentinië",
     "België",
     "Brazilië",
     "Canada",
+    "Colombia",
     "Engeland",
     "Frankrijk",
     "Marokko",
@@ -208,8 +210,10 @@
     "DR Congo",
     "Duitsland",
     "Ecuador",
+    "Ghana",
     "Ivoorkust",
     "Japan",
+    "Kaapverdië",
     "Kroatië",
     "Nederland",
     "Oostenrijk",
@@ -229,7 +233,7 @@
     "nl_doelpunten_voor": 13,
     "nl_doelpunten_tegen": 8,
     "nl_geel": 3,
-    "toernooi_doelpunten": 269,
+    "toernooi_doelpunten": 275,
     "toernooi_rood": 12,
     "topscorer": "Lionel Messi (7) · Kylian Mbappé (6) · Erling Haaland (5)"
   },
@@ -1475,26 +1479,32 @@
       "utcDate": "2026-07-03T22:00:00Z",
       "stage": "LAST_32",
       "matchday": null,
-      "status": "IN_PLAY",
-      "duration": "REGULAR",
+      "status": "FINISHED",
+      "duration": "EXTRA_TIME",
       "thuis": "Argentinië",
       "uit": "Kaapverdië",
-      "thuis_score": 0,
-      "uit_score": 0,
-      "regulier": null,
-      "verlenging": null,
+      "thuis_score": 3,
+      "uit_score": 2,
+      "regulier": [
+        null,
+        null
+      ],
+      "verlenging": [
+        2,
+        1
+      ],
       "penalties": null
     },
     {
       "utcDate": "2026-07-04T01:30:00Z",
       "stage": "LAST_32",
       "matchday": null,
-      "status": "TIMED",
+      "status": "FINISHED",
       "duration": "REGULAR",
       "thuis": "Colombia",
       "uit": "Ghana",
-      "thuis_score": null,
-      "uit_score": null,
+      "thuis_score": 1,
+      "uit_score": 0,
       "regulier": null,
       "verlenging": null,
       "penalties": null
