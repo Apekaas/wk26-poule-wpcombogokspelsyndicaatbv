@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-04T04:09:27+00:00",
+  "laatste_update": "2026-07-04T08:08:20+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -186,6 +186,7 @@
     "Brazilië",
     "Canada",
     "Colombia",
+    "Egypte",
     "Engeland",
     "Frankrijk",
     "Marokko",
@@ -206,6 +207,7 @@
   "vierde": null,
   "uitgeschakeld": [
     "Algerije",
+    "Australië",
     "Bosnië-Herzegovina",
     "DR Congo",
     "Duitsland",
@@ -1471,7 +1473,7 @@
         0
       ],
       "penalties": [
-        4,
+        2,
         4
       ]
     },
@@ -1486,8 +1488,8 @@
       "thuis_score": 3,
       "uit_score": 2,
       "regulier": [
-        null,
-        null
+        1,
+        1
       ],
       "verlenging": [
         2,
@@ -1571,8 +1573,8 @@
       "matchday": null,
       "status": "TIMED",
       "duration": "REGULAR",
-      "thuis": null,
-      "uit": null,
+      "thuis": "Portugal",
+      "uit": "Spanje",
       "thuis_score": null,
       "uit_score": null,
       "regulier": null,
@@ -1599,8 +1601,8 @@
       "matchday": null,
       "status": "TIMED",
       "duration": "REGULAR",
-      "thuis": null,
-      "uit": null,
+      "thuis": "Argentinië",
+      "uit": "Egypte",
       "thuis_score": null,
       "uit_score": null,
       "regulier": null,
@@ -1613,8 +1615,8 @@
       "matchday": null,
       "status": "TIMED",
       "duration": "REGULAR",
-      "thuis": null,
-      "uit": null,
+      "thuis": "Zwitserland",
+      "uit": "Colombia",
       "thuis_score": null,
       "uit_score": null,
       "regulier": null,
