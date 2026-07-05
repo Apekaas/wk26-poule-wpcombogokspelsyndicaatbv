@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-05T04:37:44+00:00",
+  "laatste_update": "2026-07-05T08:23:19+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -1634,8 +1634,8 @@
       "matchday": null,
       "status": "TIMED",
       "duration": "REGULAR",
-      "thuis": null,
-      "uit": null,
+      "thuis": "Frankrijk",
+      "uit": "Marokko",
       "thuis_score": null,
       "uit_score": null,
       "regulier": null,
