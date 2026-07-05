@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-05T08:23:19+00:00",
+  "laatste_update": "2026-07-05T22:29:43+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -200,7 +200,8 @@
   ],
   "kwartfinalisten": [
     "Frankrijk",
-    "Marokko"
+    "Marokko",
+    "Noorwegen"
   ],
   "halvefinalisten": [],
   "finalisten": [],
@@ -212,6 +213,7 @@
     "Algerije",
     "Australië",
     "Bosnië-Herzegovina",
+    "Brazilië",
     "Canada",
     "DR Congo",
     "Duitsland",
@@ -240,9 +242,9 @@
     "nl_doelpunten_voor": 13,
     "nl_doelpunten_tegen": 8,
     "nl_geel": 3,
-    "toernooi_doelpunten": 279,
+    "toernooi_doelpunten": 282,
     "toernooi_rood": 12,
-    "topscorer": "Kylian Mbappé (7) · Lionel Messi (7) · Erling Haaland (5)"
+    "topscorer": "Kylian Mbappé (7) · Erling Haaland (7) · Lionel Messi (7)"
   },
   "wedstrijdschema": [
     {
@@ -1548,12 +1550,12 @@
       "utcDate": "2026-07-05T20:00:00Z",
       "stage": "LAST_16",
       "matchday": null,
-      "status": "TIMED",
+      "status": "FINISHED",
       "duration": "REGULAR",
       "thuis": "Brazilië",
       "uit": "Noorwegen",
-      "thuis_score": null,
-      "uit_score": null,
+      "thuis_score": 1,
+      "uit_score": 2,
       "regulier": null,
       "verlenging": null,
       "penalties": null
