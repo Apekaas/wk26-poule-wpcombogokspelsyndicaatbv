@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-06T04:48:43+00:00",
+  "laatste_update": "2026-07-06T09:15:08+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -1666,8 +1666,8 @@
       "matchday": null,
       "status": "TIMED",
       "duration": "REGULAR",
-      "thuis": null,
-      "uit": null,
+      "thuis": "Noorwegen",
+      "uit": "Engeland",
       "thuis_score": null,
       "uit_score": null,
       "regulier": null,
