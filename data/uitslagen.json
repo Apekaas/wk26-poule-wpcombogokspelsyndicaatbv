@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-06T22:44:28+00:00",
+  "laatste_update": "2026-07-07T04:30:53+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -199,6 +199,7 @@
     "Zwitserland"
   ],
   "kwartfinalisten": [
+    "België",
     "Engeland",
     "Frankrijk",
     "Marokko",
@@ -231,6 +232,7 @@
     "Paraguay",
     "Portugal",
     "Senegal",
+    "Verenigde Staten",
     "Zuid-Afrika",
     "Zweden"
   ],
@@ -246,7 +248,7 @@
     "nl_doelpunten_voor": 13,
     "nl_doelpunten_tegen": 8,
     "nl_geel": 3,
-    "toernooi_doelpunten": 288,
+    "toernooi_doelpunten": 293,
     "toernooi_rood": 13,
     "topscorer": "Kylian Mbappé (7) · Erling Haaland (7) · Lionel Messi (7)"
   },
@@ -1596,12 +1598,12 @@
       "utcDate": "2026-07-07T00:00:00Z",
       "stage": "LAST_16",
       "matchday": null,
-      "status": "TIMED",
+      "status": "FINISHED",
       "duration": "REGULAR",
       "thuis": "Verenigde Staten",
       "uit": "België",
-      "thuis_score": null,
-      "uit_score": null,
+      "thuis_score": 1,
+      "uit_score": 4,
       "regulier": null,
       "verlenging": null,
       "penalties": null
