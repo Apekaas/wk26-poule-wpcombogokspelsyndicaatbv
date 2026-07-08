@@ -606,7 +606,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 299,
+      "max_haalbaar": 244,
       "kampioen": "Spanje",
       "topscorer": "Kylian Mbappé",
       "positie": 13,
@@ -649,7 +649,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 258,
+      "max_haalbaar": 253,
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
       "positie": 15,
@@ -692,7 +692,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 263,
+      "max_haalbaar": 253,
       "kampioen": "Turkije",
       "topscorer": "Arda Guler",
       "positie": 15,
@@ -907,7 +907,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 224,
+      "max_haalbaar": 219,
       "kampioen": "Duitsland",
       "topscorer": "Lautaro Martínez",
       "positie": 21,
@@ -993,7 +993,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 251,
+      "max_haalbaar": 246,
       "kampioen": "Spanje",
       "topscorer": "Lautaro Martínez",
       "positie": 23,
@@ -1079,7 +1079,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 248,
+      "max_haalbaar": 243,
       "kampioen": "Argentinië",
       "topscorer": "Lionel Messi",
       "positie": 25,
@@ -1122,7 +1122,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 183,
+      "max_haalbaar": 178,
       "kampioen": "Nederland",
       "topscorer": "Kylian Mbappé",
       "positie": 25,
@@ -1165,7 +1165,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 227,
+      "max_haalbaar": 222,
       "kampioen": "Nederland",
       "topscorer": "Harry Kane",
       "positie": 27,
@@ -1294,7 +1294,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 301,
+      "max_haalbaar": 286,
       "kampioen": "Marokko",
       "topscorer": "Cristiano Ronaldo",
       "positie": 28,
@@ -1337,7 +1337,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 280,
+      "max_haalbaar": 275,
       "kampioen": "Spanje",
       "topscorer": "Kylian Mbappé",
       "positie": 31,
@@ -1380,7 +1380,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 235,
+      "max_haalbaar": 230,
       "kampioen": "Spanje",
       "topscorer": "Lamine Yamal",
       "positie": 31,
@@ -1423,7 +1423,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 279,
+      "max_haalbaar": 274,
       "kampioen": "Argentinië",
       "topscorer": "Lionel Messi",
       "positie": 33,
@@ -1509,7 +1509,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 193,
+      "max_haalbaar": 188,
       "kampioen": "Nederland",
       "topscorer": "Lamine Yamal",
       "positie": 34,
@@ -1595,7 +1595,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 213,
+      "max_haalbaar": 203,
       "kampioen": "Brazilië",
       "topscorer": "Cristiano Ronaldo",
       "positie": 37,
@@ -1681,7 +1681,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 282,
+      "max_haalbaar": 277,
       "kampioen": "Frankrijk",
       "topscorer": "Ferran Torres",
       "positie": 38,
@@ -1724,7 +1724,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 191,
+      "max_haalbaar": 186,
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
       "positie": 40,
@@ -1853,7 +1853,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 156,
+      "max_haalbaar": 151,
       "kampioen": "Portugal",
       "topscorer": "Kylian Mbappé",
       "positie": 43,
@@ -1982,7 +1982,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 217,
+      "max_haalbaar": 212,
       "kampioen": "Engeland",
       "topscorer": "Harry Kane",
       "positie": 46,
@@ -2025,7 +2025,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 195,
+      "max_haalbaar": 190,
       "kampioen": "Ghana",
       "topscorer": "Erling Haaland",
       "positie": 47,
@@ -2068,7 +2068,7 @@
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 253,
+      "max_haalbaar": 248,
       "kampioen": "Spanje",
       "topscorer": "Erling Haaland",
       "positie": 48,
@@ -2077,14 +2077,14 @@
     },
     {
       "naam": "Aruna",
-      "totaal": 72,
+      "totaal": 77,
       "handicap": 0,
       "per_ronde": {
         "groep-1": 4,
         "groep-2": 1,
         "groep-3": 41,
         "zestiende": 21,
-        "achtste": 5,
+        "achtste": 10,
         "kwart": 0,
         "halve": 0,
         "finale": 0,
@@ -2095,39 +2095,39 @@
         5,
         46,
         67,
-        72,
-        72,
-        72,
-        72,
-        72
+        77,
+        77,
+        77,
+        77,
+        77
       ],
       "categorien": {
         "groepswedstrijden": 6,
         "groepseindstand": 40,
         "achtste_bereikt": 21,
-        "kwart_bereikt": 5,
+        "kwart_bereikt": 10,
         "halve_bereikt": 0,
         "finale_bereikt": 0,
         "einduitslag": 0,
         "bonus": 0
       },
-      "max_haalbaar": 174,
+      "max_haalbaar": 164,
       "kampioen": "Argentinië",
       "topscorer": "Lautaro Martínez",
       "positie": 49,
-      "delta": 0,
+      "delta": 5,
       "positie_delta": 0
     },
     {
       "naam": "Rowan",
-      "totaal": 70,
+      "totaal": 75,
       "handicap": 0,
       "per_ronde": {
         "groep-1": 3,
         "groep-2": 1,
         "groep-3": 38,
         "zestiende": 18,
-        "achtste": 10,
+        "achtste": 15,
         "kwart": 0,
         "halve": 0,
         "finale": 0,
@@ -2138,17 +2138,17 @@
         4,
         42,
         60,
-        70,
-        70,
-        70,
-        70,
-        70
+        75,
+        75,
+        75,
+        75,
+        75
       ],
       "categorien": {
         "groepswedstrijden": 6,
         "groepseindstand": 36,
         "achtste_bereikt": 18,
-        "kwart_bereikt": 10,
+        "kwart_bereikt": 15,
         "halve_bereikt": 0,
         "finale_bereikt": 0,
         "einduitslag": 0,
@@ -2158,7 +2158,7 @@
       "kampioen": "Nederland",
       "topscorer": "Miroslav Klose",
       "positie": 50,
-      "delta": 0,
+      "delta": 5,
       "positie_delta": 0
     }
   ]

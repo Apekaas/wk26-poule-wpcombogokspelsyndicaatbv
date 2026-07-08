@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-08T03:52:23+00:00",
+  "laatste_update": "2026-07-08T07:44:13+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -205,7 +205,8 @@
     "Frankrijk",
     "Marokko",
     "Noorwegen",
-    "Spanje"
+    "Spanje",
+    "Zwitserland"
   ],
   "halvefinalisten": [],
   "finalisten": [],
@@ -219,6 +220,7 @@
     "Bosnië-Herzegovina",
     "Brazilië",
     "Canada",
+    "Colombia",
     "DR Congo",
     "Duitsland",
     "Ecuador",
@@ -1643,7 +1645,7 @@
         0
       ],
       "penalties": [
-        3,
+        4,
         3
       ]
     },
@@ -1695,8 +1697,8 @@
       "matchday": null,
       "status": "TIMED",
       "duration": "REGULAR",
-      "thuis": null,
-      "uit": null,
+      "thuis": "Argentinië",
+      "uit": "Zwitserland",
       "thuis_score": null,
       "uit_score": null,
       "regulier": null,
