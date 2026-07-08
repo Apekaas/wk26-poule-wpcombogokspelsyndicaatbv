@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-07T22:36:19+00:00",
+  "laatste_update": "2026-07-08T03:52:23+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -250,7 +250,7 @@
     "nl_doelpunten_voor": 13,
     "nl_doelpunten_tegen": 8,
     "nl_geel": 3,
-    "toernooi_doelpunten": 298,
+    "toernooi_doelpunten": 305,
     "toernooi_rood": 13,
     "topscorer": "Lionel Messi (8) · Kylian Mbappé (7) · Erling Haaland (7)"
   },
@@ -1628,21 +1628,24 @@
       "utcDate": "2026-07-07T20:00:00Z",
       "stage": "LAST_16",
       "matchday": null,
-      "status": "IN_PLAY",
-      "duration": "EXTRA_TIME",
+      "status": "FINISHED",
+      "duration": "PENALTY_SHOOTOUT",
       "thuis": "Zwitserland",
       "uit": "Colombia",
-      "thuis_score": 0,
-      "uit_score": 0,
+      "thuis_score": 4,
+      "uit_score": 3,
       "regulier": [
-        null,
-        null
+        0,
+        0
       ],
       "verlenging": [
         0,
         0
       ],
-      "penalties": null
+      "penalties": [
+        3,
+        3
+      ]
     },
     {
       "utcDate": "2026-07-09T20:00:00Z",
