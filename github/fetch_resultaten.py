@@ -187,12 +187,28 @@ def main():
             uitslagen["derde"] = nl(m[w_]["name"], onbekend)
             uitslagen["vierde"] = nl(m[v_]["name"], onbekend)
 
-    # 5. Uitgeschakelde ploegen (verliezers knock-out)
+    # 5. Uitgeschakelde ploegen: knock-outverliezers + groepsfase-uitvallers.
     uitgeschakeld = set(uitslagen.get("uitgeschakeld", []))
     for m in klaar:
         if m["stage"] in (*STADIUM_NAAR_LIJST, "FINAL") and m["score"].get("winner"):
             kant = "awayTeam" if m["score"]["winner"] == "HOME_TEAM" else "homeTeam"
             uitgeschakeld.add(nl(m[kant]["name"], onbekend))
+    # Groepsfase-uitvallers markeert football-data niet als 'verliezer' van één
+    # wedstrijd, dus leiden we ze af: zodra alle 12 groepen een eindstand hebben
+    # en de ronde van 32 geloot is, is elk groepsteam dat niet in LAST_32 uitkomt
+    # uitgeschakeld (48 teams -> 32 vervolgers -> 16 afvallers).
+    if len(uitslagen.get("groepseindstand", {})) == 12:
+        door = set()
+        for m in wedstrijden:
+            if m.get("stage") == "LAST_32":
+                for kant in ("homeTeam", "awayTeam"):
+                    naam = (m.get(kant) or {}).get("name")
+                    if naam:
+                        door.add(nl(naam, onbekend))
+        if door:  # alleen zodra de loting van de ronde van 32 bekend is
+            groepsteams = {t for teams in uitslagen["groepseindstand"].values()
+                           for t in teams}
+            uitgeschakeld |= (groepsteams - door)
     uitslagen["uitgeschakeld"] = sorted(uitgeschakeld)
 
     # 6. Doelpunten-tussenstand (uit de wedstrijdenlijst zelf)
