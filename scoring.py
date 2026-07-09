@@ -18,8 +18,9 @@ RONDES = ["groep-1", "groep-2", "groep-3", "zestiende", "achtste",
 # Vaste extra punten bovenop de formulierscore, per deelnemer (op naam).
 # Knipoog naar René Charlataan, die vroeger zelf het scorebord in een
 # gigantische Excel bijhield en zichzelf steevast bovenaan zette.
-# Zodra de finale is gespeeld (kampioen bekend in uitslagen) vervalt de
-# handicap automatisch en onthult de naam de grap (HANDICAP_ONTHULLING).
+# De grap is op 9 juli 2026 onthuld: de handicap vervalt en de naam wordt
+# omgezet naar HANDICAP_ONTHULLING zolang er een handicap voor de deelnemer
+# staat (niet langer wachtend op de finale — sommigen namen het te serieus).
 # VERWIJDEREN: zet HANDICAP = {} (of maak deze regel leeg). Niets anders
 # hoeft te veranderen; de handicap verdwijnt dan uit totaal en verloop.
 HANDICAP = {
@@ -222,7 +223,6 @@ def score_bonus(deelnemer, uitslagen):
 
 def bereken_stand(data, uitslagen):
     uitgeschakeld = {norm(l) for l in uitslagen.get("uitgeschakeld", [])}
-    finale_gespeeld = bool(uitslagen.get("kampioen"))  # trigger handicap-onthulling
     stand = []
     for d in data["deelnemers"]:
         per_ronde = {r: 0 for r in RONDES}
@@ -267,7 +267,7 @@ def bereken_stand(data, uitslagen):
 
         handicap = HANDICAP.get(d["naam"], 0)
         naam = d["naam"]
-        if handicap and finale_gespeeld:  # finale gespeeld -> grap onthuld
+        if handicap:  # grap onthuld: handicap eraf, naam gewijzigd
             naam = HANDICAP_ONTHULLING.get(d["naam"], naam)
             handicap = 0
         totaal = sum(per_ronde.values()) + handicap
