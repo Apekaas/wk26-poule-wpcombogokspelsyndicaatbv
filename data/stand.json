@@ -51,8 +51,8 @@
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
       "positie": 1,
-      "delta": 10,
-      "positie_delta": 2
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Bas S.",
@@ -94,8 +94,8 @@
       "kampioen": "Spanje",
       "topscorer": "Erling Haaland",
       "positie": 2,
-      "delta": 10,
-      "positie_delta": 2
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Gino",
@@ -137,8 +137,8 @@
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
       "positie": 2,
-      "delta": 10,
-      "positie_delta": 2
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Jochem",
@@ -180,8 +180,8 @@
       "kampioen": "Nederland",
       "topscorer": "Kylian Mbappé",
       "positie": 2,
-      "delta": 10,
-      "positie_delta": 2
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Lex",
@@ -223,8 +223,8 @@
       "kampioen": "Frankrijk",
       "topscorer": "Harry Kane",
       "positie": 2,
-      "delta": 10,
-      "positie_delta": 2
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Liesbeth",
@@ -266,8 +266,8 @@
       "kampioen": "Argentinië",
       "topscorer": "Kylian Mbappé",
       "positie": 2,
-      "delta": 10,
-      "positie_delta": 2
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Marlies",
@@ -309,8 +309,8 @@
       "kampioen": "Brazilië",
       "topscorer": "Kylian Mbappé",
       "positie": 7,
-      "delta": 10,
-      "positie_delta": 2
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Thom \"Mythos\"",
@@ -352,8 +352,8 @@
       "kampioen": "Spanje",
       "topscorer": "Kylian Mbappé",
       "positie": 7,
-      "delta": 10,
-      "positie_delta": 2
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Rob",
@@ -396,7 +396,7 @@
       "topscorer": "Harry Kane",
       "positie": 9,
       "delta": 0,
-      "positie_delta": -8
+      "positie_delta": 0
     },
     {
       "naam": "Mart",
@@ -438,8 +438,8 @@
       "kampioen": "Spanje",
       "topscorer": "Kylian Mbappé",
       "positie": 10,
-      "delta": 10,
-      "positie_delta": 1
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "AukeB",
@@ -481,8 +481,8 @@
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
       "positie": 11,
-      "delta": 10,
-      "positie_delta": 1
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Mandy",
@@ -524,8 +524,8 @@
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
       "positie": 12,
-      "delta": 10,
-      "positie_delta": 1
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Simone S.",
@@ -568,7 +568,7 @@
       "topscorer": "Harry Kane",
       "positie": 12,
       "delta": 0,
-      "positie_delta": -10
+      "positie_delta": 0
     },
     {
       "naam": "Guus",
@@ -610,7 +610,7 @@
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
       "positie": 14,
-      "delta": 10,
+      "delta": 0,
       "positie_delta": 0
     },
     {
@@ -653,7 +653,7 @@
       "kampioen": "Spanje",
       "topscorer": "Mikel Oyarzabal",
       "positie": 15,
-      "delta": 10,
+      "delta": 0,
       "positie_delta": 0
     },
     {
@@ -696,8 +696,8 @@
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
       "positie": 16,
-      "delta": 10,
-      "positie_delta": 1
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Willie",
@@ -739,8 +739,8 @@
       "kampioen": "Portugal",
       "topscorer": "Oyarzabal",
       "positie": 17,
-      "delta": 10,
-      "positie_delta": 1
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Bas V.",
@@ -782,8 +782,8 @@
       "kampioen": "Argentinië",
       "topscorer": "Kylian Mbappé",
       "positie": 18,
-      "delta": 10,
-      "positie_delta": 1
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Emile",
@@ -825,8 +825,8 @@
       "kampioen": "Argentinië",
       "topscorer": "Álvaro Morata",
       "positie": 18,
-      "delta": 10,
-      "positie_delta": 1
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Art",
@@ -868,8 +868,8 @@
       "kampioen": "Argentinië",
       "topscorer": "Lionel Messi",
       "positie": 20,
-      "delta": 10,
-      "positie_delta": 1
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "AI (Copilot)",
@@ -911,8 +911,8 @@
       "kampioen": "Brazilië",
       "topscorer": "Kylian Mbappé",
       "positie": 21,
-      "delta": 10,
-      "positie_delta": 2
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Peter",
@@ -954,8 +954,8 @@
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
       "positie": 21,
-      "delta": 10,
-      "positie_delta": 2
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Chanika",
@@ -998,7 +998,7 @@
       "topscorer": "Kylian Mbappé",
       "positie": 23,
       "delta": 0,
-      "positie_delta": -8
+      "positie_delta": 0
     },
     {
       "naam": "Janine",
@@ -1040,8 +1040,8 @@
       "kampioen": "Spanje",
       "topscorer": "Kylian Mbappé",
       "positie": 23,
-      "delta": 10,
-      "positie_delta": 2
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Andy",
@@ -1083,8 +1083,8 @@
       "kampioen": "Duitsland",
       "topscorer": "Lautaro Martínez",
       "positie": 25,
-      "delta": 10,
-      "positie_delta": 1
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Hizel",
@@ -1126,8 +1126,8 @@
       "kampioen": "Argentinië",
       "topscorer": "Lionel Messi",
       "positie": 25,
-      "delta": 10,
-      "positie_delta": 1
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Bas de R",
@@ -1169,8 +1169,8 @@
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
       "positie": 27,
-      "delta": 10,
-      "positie_delta": 1
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Jasper",
@@ -1212,8 +1212,8 @@
       "kampioen": "Nederland",
       "topscorer": "Lamine Yamal",
       "positie": 27,
-      "delta": 10,
-      "positie_delta": 1
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Guido",
@@ -1255,8 +1255,8 @@
       "kampioen": "Noorwegen",
       "topscorer": "Erling Haaland",
       "positie": 29,
-      "delta": 10,
-      "positie_delta": 1
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Jan",
@@ -1298,8 +1298,8 @@
       "kampioen": "Spanje",
       "topscorer": "Lautaro Martínez",
       "positie": 30,
-      "delta": 10,
-      "positie_delta": 1
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "John",
@@ -1341,8 +1341,8 @@
       "kampioen": "Brazilië",
       "topscorer": "Cristiano Ronaldo",
       "positie": 31,
-      "delta": 10,
-      "positie_delta": 1
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Thijmen",
@@ -1384,8 +1384,8 @@
       "kampioen": "Nederland",
       "topscorer": "Kylian Mbappé",
       "positie": 31,
-      "delta": 10,
-      "positie_delta": 1
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Yuksel",
@@ -1428,7 +1428,7 @@
       "topscorer": "Arda Guler",
       "positie": 31,
       "delta": 0,
-      "positie_delta": -10
+      "positie_delta": 0
     },
     {
       "naam": "Joury",
@@ -1470,7 +1470,7 @@
       "kampioen": "Nederland",
       "topscorer": "Harry Kane",
       "positie": 34,
-      "delta": 10,
+      "delta": 0,
       "positie_delta": 0
     },
     {
@@ -1513,7 +1513,7 @@
       "kampioen": "Frankrijk",
       "topscorer": "Ferran Torres",
       "positie": 34,
-      "delta": 10,
+      "delta": 0,
       "positie_delta": 0
     },
     {
@@ -1556,8 +1556,8 @@
       "kampioen": "Spanje",
       "topscorer": "Lamine Yamal",
       "positie": 36,
-      "delta": 10,
-      "positie_delta": 2
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Sabrina",
@@ -1599,8 +1599,8 @@
       "kampioen": "Frankrijk",
       "topscorer": "Kylian Mbappé",
       "positie": 36,
-      "delta": 10,
-      "positie_delta": 2
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Annelies P.",
@@ -1643,7 +1643,7 @@
       "topscorer": "Kylian Mbappé",
       "positie": 38,
       "delta": 0,
-      "positie_delta": -2
+      "positie_delta": 0
     },
     {
       "naam": "Laura van S.",
@@ -1685,8 +1685,8 @@
       "kampioen": "Spanje",
       "topscorer": "Lamine Yamal",
       "positie": 38,
-      "delta": 10,
-      "positie_delta": 5
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Wendy N.",
@@ -1729,7 +1729,7 @@
       "topscorer": "Cristiano Ronaldo",
       "positie": 38,
       "delta": 0,
-      "positie_delta": -2
+      "positie_delta": 0
     },
     {
       "naam": "Angelique",
@@ -1771,8 +1771,8 @@
       "kampioen": "Spanje",
       "topscorer": "Erling Haaland",
       "positie": 41,
-      "delta": 10,
-      "positie_delta": 4
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Vincent",
@@ -1814,8 +1814,8 @@
       "kampioen": "Portugal",
       "topscorer": "Kylian Mbappé",
       "positie": 42,
-      "delta": 10,
-      "positie_delta": 4
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Frank",
@@ -1858,7 +1858,7 @@
       "topscorer": "Kylian Mbappé",
       "positie": 43,
       "delta": 0,
-      "positie_delta": -3
+      "positie_delta": 0
     },
     {
       "naam": "Barendjan",
@@ -1900,8 +1900,8 @@
       "kampioen": "Duitsland",
       "topscorer": "Kylian Mbappé",
       "positie": 44,
-      "delta": 10,
-      "positie_delta": 3
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "René 'zonder +50' Aan",
@@ -1944,7 +1944,7 @@
       "topscorer": "Donyell Malen",
       "positie": 45,
       "delta": 0,
-      "positie_delta": -4
+      "positie_delta": 0
     },
     {
       "naam": "Elize",
@@ -1987,7 +1987,7 @@
       "topscorer": "Kylian Mbappé",
       "positie": 46,
       "delta": 0,
-      "positie_delta": -4
+      "positie_delta": 0
     },
     {
       "naam": "Richard",
@@ -2029,8 +2029,8 @@
       "kampioen": "Engeland",
       "topscorer": "Harry Kane",
       "positie": 46,
-      "delta": 10,
-      "positie_delta": 2
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Menno",
@@ -2073,7 +2073,7 @@
       "topscorer": "Erling Haaland",
       "positie": 48,
       "delta": 0,
-      "positie_delta": -4
+      "positie_delta": 0
     },
     {
       "naam": "Rowan",
@@ -2115,8 +2115,8 @@
       "kampioen": "Nederland",
       "topscorer": "Miroslav Klose",
       "positie": 49,
-      "delta": 10,
-      "positie_delta": 1
+      "delta": 0,
+      "positie_delta": 0
     },
     {
       "naam": "Aruna",
@@ -2159,7 +2159,7 @@
       "topscorer": "Lautaro Martínez",
       "positie": 50,
       "delta": 0,
-      "positie_delta": -1
+      "positie_delta": 0
     }
   ]
 }
