@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-11T22:12:41+00:00",
+  "laatste_update": "2026-07-12T04:05:43+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -209,6 +209,8 @@
     "Zwitserland"
   ],
   "halvefinalisten": [
+    "Argentinië",
+    "Engeland",
     "Frankrijk",
     "Spanje"
   ],
@@ -243,6 +245,7 @@
     "Mexico",
     "Nederland",
     "Nieuw-Zeeland",
+    "Noorwegen",
     "Oezbekistan",
     "Oostenrijk",
     "Panama",
@@ -259,7 +262,8 @@
     "Verenigde Staten",
     "Zuid-Afrika",
     "Zuid-Korea",
-    "Zweden"
+    "Zweden",
+    "Zwitserland"
   ],
   "bonus": {
     "nl_doelpunten_voor": null,
@@ -273,8 +277,8 @@
     "nl_doelpunten_voor": 13,
     "nl_doelpunten_tegen": 8,
     "nl_geel": 3,
-    "toernooi_doelpunten": 305,
-    "toernooi_rood": 13,
+    "toernooi_doelpunten": 312,
+    "toernooi_rood": 14,
     "topscorer": "Kylian Mbappé (8) · Lionel Messi (8) · Erling Haaland (7)"
   },
   "wedstrijdschema": [
@@ -1702,28 +1706,40 @@
       "utcDate": "2026-07-11T21:00:00Z",
       "stage": "QUARTER_FINALS",
       "matchday": null,
-      "status": "PAUSED",
-      "duration": "REGULAR",
+      "status": "FINISHED",
+      "duration": "EXTRA_TIME",
       "thuis": "Noorwegen",
       "uit": "Engeland",
       "thuis_score": 1,
-      "uit_score": 1,
-      "regulier": null,
-      "verlenging": null,
+      "uit_score": 2,
+      "regulier": [
+        null,
+        null
+      ],
+      "verlenging": [
+        0,
+        1
+      ],
       "penalties": null
     },
     {
       "utcDate": "2026-07-12T01:00:00Z",
       "stage": "QUARTER_FINALS",
       "matchday": null,
-      "status": "TIMED",
-      "duration": "REGULAR",
+      "status": "FINISHED",
+      "duration": "EXTRA_TIME",
       "thuis": "Argentinië",
       "uit": "Zwitserland",
-      "thuis_score": null,
-      "uit_score": null,
-      "regulier": null,
-      "verlenging": null,
+      "thuis_score": 3,
+      "uit_score": 1,
+      "regulier": [
+        null,
+        null
+      ],
+      "verlenging": [
+        2,
+        0
+      ],
       "penalties": null
     },
     {
