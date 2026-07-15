@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-15T03:43:35+00:00",
+  "laatste_update": "2026-07-15T07:26:55+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -1779,7 +1779,7 @@
       "matchday": null,
       "status": "TIMED",
       "duration": "REGULAR",
-      "thuis": null,
+      "thuis": "Frankrijk",
       "uit": null,
       "thuis_score": null,
       "uit_score": null,
@@ -1793,7 +1793,7 @@
       "matchday": null,
       "status": "TIMED",
       "duration": "REGULAR",
-      "thuis": null,
+      "thuis": "Spanje",
       "uit": null,
       "thuis_score": null,
       "uit_score": null,
