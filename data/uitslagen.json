@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-15T07:26:55+00:00",
+  "laatste_update": "2026-07-15T22:28:13+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -215,6 +215,7 @@
     "Spanje"
   ],
   "finalisten": [
+    "Argentinië",
     "Spanje"
   ],
   "kampioen": null,
@@ -234,6 +235,7 @@
     "Duitsland",
     "Ecuador",
     "Egypte",
+    "Engeland",
     "Frankrijk",
     "Ghana",
     "Haïti",
@@ -280,7 +282,7 @@
     "nl_doelpunten_voor": 13,
     "nl_doelpunten_tegen": 8,
     "nl_geel": 3,
-    "toernooi_doelpunten": 319,
+    "toernooi_doelpunten": 322,
     "toernooi_rood": 14,
     "topscorer": "Kylian Mbappé (8) · Lionel Messi (8) · Erling Haaland (7)"
   },
@@ -1763,12 +1765,12 @@
       "utcDate": "2026-07-15T19:00:00Z",
       "stage": "SEMI_FINALS",
       "matchday": null,
-      "status": "TIMED",
+      "status": "FINISHED",
       "duration": "REGULAR",
       "thuis": "Engeland",
       "uit": "Argentinië",
-      "thuis_score": null,
-      "uit_score": null,
+      "thuis_score": 1,
+      "uit_score": 2,
       "regulier": null,
       "verlenging": null,
       "penalties": null
