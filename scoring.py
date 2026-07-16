@@ -171,13 +171,25 @@ def score_einduitslag(deelnemer, uitslagen, uitgeschakeld):
     halvefinalisten = {norm(l) for l in deelnemer["kwart_winnaars"].values() if l}
     finalisten = {norm(l) for l in deelnemer["halve_winnaars"].values() if l}
     verliezers = halvefinalisten - finalisten
+    # Semi-finaleverliezers staan in uitgeschakeld (terecht voor kampioen/2e),
+    # maar zij spelen de troostfinale nog → uitgeschakeld-check niet gebruiken
+    # voor 3e/4e potentieel; gebruik in plaats daarvan de werkelijke troostfinale-deelnemers.
+    werkelijk_halvefinalisten = {norm(l) for l in uitslagen.get("halvefinalisten", [])}
+    werkelijk_finalisten = {norm(l) for l in uitslagen.get("finalisten", [])}
+    troostfinale_deelnemers = werkelijk_halvefinalisten - werkelijk_finalisten
     for sleutel, pt in (("derde", PT_DERDE), ("vierde", PT_VIERDE)):
         act = uitslagen[sleutel]
         if act:
             if norm(act) in verliezers:
                 punten += pt
-        elif any(v not in uitgeschakeld for v in verliezers):
-            potentieel += pt
+        elif troostfinale_deelnemers:
+            # Troostfinale-deelnemers zijn bekend maar wedstrijd nog niet gespeeld
+            if any(v in troostfinale_deelnemers for v in verliezers):
+                potentieel += pt
+        else:
+            # Semi-finales nog niet afgerond: val terug op uitgeschakeld-check
+            if any(v not in uitgeschakeld for v in verliezers):
+                potentieel += pt
     return punten, potentieel
 
 

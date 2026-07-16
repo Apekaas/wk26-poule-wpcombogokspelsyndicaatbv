@@ -247,6 +247,9 @@ def main():
     #    programma-blok. Zelfde /matches-respons als hierboven, dus geen
     #    extra API-call. Aftraptijden staan in utcDate; nog niet bepaalde
     #    knock-outploegen komen als None binnen (placeholder overslaan).
+    # Bewaar handmatig ingestelde teamnamen als de API null teruggeeft
+    # (football-data.org vult knock-outploegen soms laat in na de halve finales).
+    oud_schema = {w["utcDate"]: w for w in uitslagen.get("wedstrijdschema", [])}
     schema = []
     for m in wedstrijden:
         score = m.get("score") or {}
@@ -256,14 +259,15 @@ def main():
         pen = score.get("penalties") or {}
         thuis = (m.get("homeTeam") or {}).get("name")
         uit = (m.get("awayTeam") or {}).get("name")
+        oud = oud_schema.get(m.get("utcDate"), {})
         schema.append({
             "utcDate": m.get("utcDate"),
             "stage": m.get("stage"),
             "matchday": m.get("matchday"),
             "status": m.get("status"),
             "duration": score.get("duration"),
-            "thuis": nl(thuis, onbekend) if thuis else None,
-            "uit": nl(uit, onbekend) if uit else None,
+            "thuis": nl(thuis, onbekend) if thuis else oud.get("thuis"),
+            "uit": nl(uit, onbekend) if uit else oud.get("uit"),
             "thuis_score": ft.get("home"),
             "uit_score": ft.get("away"),
             # Opsplitsing voor verlenging/strafschoppen (kan op de gratis tier
