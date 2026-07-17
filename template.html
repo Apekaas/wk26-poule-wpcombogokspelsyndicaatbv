@@ -348,6 +348,13 @@ function winnaarNaam(d){
   const w=(d.stand||[]).find(s=>s.positie===1)||(d.stand||[])[0];
   return w?w.naam:"";
 }
+// Korte naam voor de gravure: strip de bijnaam tussen aanhalingstekens
+// (bv. Thom "Mythos" -> Thom), zodat de naam op de beker leesbaar blijft.
+function graveerNaam(naam){
+  const kort=String(naam).replace(/[\"'‘’“”][^\"'‘’“”]*[\"'‘’“”]/g,"")
+    .replace(/\s+/g," ").trim();
+  return kort||String(naam).trim();
+}
 // Reveal actief? Live zodra het toernooi af is; ?onthulling=demo of ?onthulling=<naam>
 // forceert een preview (demo => de huidige koploper).
 function onthullingNaam(d){
@@ -359,14 +366,15 @@ function onthullingNaam(d){
   return d.toernooi_afgelopen?winnaarNaam(d):null;
 }
 function bouwNaam(naam){
+  const kort=graveerNaam(naam);
   const FS=96, pad=48, ctx=document.createElement("canvas").getContext("2d");
   ctx.font=`200 ${FS}px Inter, sans-serif`;
-  let w=ctx.measureText(naam).width - Math.max(0,naam.length-1)*0.04*FS;  // -.04em tracking
+  let w=ctx.measureText(kort).width - Math.max(0,kort.length-1)*0.04*FS;  // -.04em tracking
   const W=Math.max(140,Math.ceil(w)+pad), H=140, y=104;
   html("naamplaat",
     `<svg class="naam-svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet"`+
-    ` role="img" aria-label="Poulekampioen: ${esc(naam)}">`+
-    `<text x="${W/2}" y="${y}" text-anchor="middle" font-size="${FS}">${esc(naam)}</text>`+
+    ` role="img" aria-label="Poulekampioen: ${esc(kort)}">`+
+    `<text x="${W/2}" y="${y}" text-anchor="middle" font-size="${FS}">${esc(kort)}</text>`+
     `</svg><div class="lichtveeg"></div>`);
 }
 function strooiConfetti(){
@@ -684,16 +692,17 @@ function tekstPunten(tekst){
     if(img[(y*cw+x)*4+3]>128) pts.push([x/cw-0.5,-(y/ch-0.5)]);
   return pts.length?pts:null;
 }
-// Wereldbeker met de winnaarsnaam in de deeltjes gegraveerd op de voorkant.
-function vormBekerMetNaam(naam){
-  const basis=vormBeker(), pts=tekstPunten(String(naam).toUpperCase());
-  if(!pts) return basis;
-  const p=basis.p.slice(), c=basis.c.slice();
+// Graveer de (korte) winnaarsnaam op de VOET/sokkel van een bestaande beker-vorm.
+// Deelt de beker-deeltjes met de lege beker, zodat de morph puur de naam etst.
+function graveerOpBeker(cup, naam){
+  const p=cup.p.slice(), c=cup.c.slice();
+  const pts=tekstPunten(graveerNaam(naam).toUpperCase());
+  if(!pts) return {p,c};
   const Nnaam=Math.min(2100,Math.floor(N*0.4));
   const wit=new THREE.Color(0xffffff);
-  const bandB=2.6, bandH=bandB*(256/1024), yc=-0.9, zf=1.0;   // vóór en op de beker
+  const bandB=1.95, bandH=bandB*(256/1024), yc=-1.72, zf=0.92;  // op de sokkel, vóórkant
   for(let i=0;i<Nnaam;i++){
-    const q=pts[Math.floor(i*pts.length/Nnaam)], idx=N-1-i;   // overschrijf laatste beker-deeltjes
+    const q=pts[Math.floor(i*pts.length/Nnaam)], idx=N-1-i;    // overschrijf laatste beker-deeltjes
     p[idx*3]=q[0]*bandB; p[idx*3+1]=yc+q[1]*bandH; p[idx*3+2]=zf;
     c[idx*3]=wit.r; c[idx*3+1]=wit.g; c[idx*3+2]=wit.b;
   }
@@ -767,12 +776,19 @@ function podium3D(cv,FX){
     if(spaarstand) wek();
   }
   zetVorm("trump");
-  // Hook voor de winnaar-onthulling: registreer de beker-mét-naam en morph ernaartoe.
+  // Hook voor de winnaar-onthulling. Tweestaps: (1) Trump morpht naar de lege
+  // beker, gecentreerd en stil; (2) na een tel etst de naam zich op de voet.
+  // Beide vormen delen dezelfde beker-deeltjes, dus stap 2 verplaatst alleen de
+  // naam-deeltjes — een echte graveer-animatie op de sokkel.
   window.__onthulBeker=function(naam){
-    vormen.bekerNaam=vormBekerMetNaam(naam);
-    captie.bekerNaam="POULEKAMPIOEN — "+String(naam).toUpperCase();
+    const cup=vormBeker();
+    vormen.bekerLeeg={p:cup.p.slice(),c:cup.c.slice()};
+    vormen.bekerNaam=graveerOpBeker(cup,naam);
+    captie.bekerLeeg="DE WERELDBEKER. HET MOOISTE GOUD OOIT GEMAAKT.";
+    captie.bekerNaam="POULEKAMPIOEN — "+graveerNaam(naam).toUpperCase();
     const sb=el("scoreboard"); if(sb) sb.dataset.vorm="bekerNaam";
-    zetVorm("bekerNaam");
+    zetVorm("bekerLeeg");
+    setTimeout(()=>zetVorm("bekerNaam"),1300);
     return true;
   };
 
@@ -783,9 +799,11 @@ function podium3D(cv,FX){
   },{rootMargin:"-35% 0px -55% 0px"});
   secties.forEach(s=>waarnemer.observe(s));
 
-  // muis-repulsie (goedkoop, dus die blijft)
+  // muis-repulsie — alleen op apparaten met een fijne aanwijzer (muis/trackpad).
+  // Op touch/smartphone (coarse pointer) uitgeschakeld: voelt daar niet lekker.
   const muis=new THREE.Vector2(99,99), muisWereld=new THREE.Vector3();
-  if(!spaarstand){
+  const fijneAanwijzer=matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if(!spaarstand&&fijneAanwijzer){
     addEventListener("pointermove",e=>{
       muis.x=(e.clientX/innerWidth)*2-1;
       muis.y=-(e.clientY/innerHeight)*2+1;
@@ -799,7 +817,7 @@ function podium3D(cv,FX){
     camera.aspect=innerWidth/innerHeight; camera.updateProjectionMatrix();
     // op breed scherm staat de wolk rechts naast de contentkolom
     // (tijdens de onthulling niet verspringen: de beker blijft gecentreerd)
-    if(huidig!=="bekerNaam") mesh.position.x=innerWidth>980?1.5:0;
+    if(huidig!=="bekerNaam"&&huidig!=="bekerLeeg") mesh.position.x=innerWidth>980?1.5:0;
   }
   maat(); addEventListener("resize",maat);
 
@@ -827,10 +845,12 @@ function podium3D(cv,FX){
     // zachte slingering i.p.v. volle rotatie: de karikatuur blijft leesbaar.
     // Tijdens de winnaar-onthulling staat de beker stil, gecentreerd en iets groter,
     // zodat de gegraveerde naam face-on en leesbaar blijft.
-    const reveal=huidig==="bekerNaam";
+    const reveal=huidig==="bekerNaam"||huidig==="bekerLeeg";
     const rotY=reveal?0:Math.sin(t*0.00028)*0.42;
     const doelX=reveal?0:(innerWidth>980?1.5:0);
     mesh.position.x+=(doelX-mesh.position.x)*0.06*dt;
+    const doelY=reveal?0.35:0;                    // beker iets omhoog zodat de voet in beeld komt
+    mesh.position.y+=(doelY-mesh.position.y)*0.06*dt;
     const doelS=reveal?1.12:1, sc=mesh.scale.x+(doelS-mesh.scale.x)*0.06*dt;
     mesh.scale.setScalar(sc);
     for(let i=0;i<N;i++){
