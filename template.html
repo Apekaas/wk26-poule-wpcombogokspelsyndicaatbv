@@ -40,6 +40,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0
   letter-spacing:.05em;text-transform:uppercase}
 .hero{min-height:52vh;display:flex;flex-direction:column;justify-content:center;
   max-width:560px}
+.hero[hidden]{display:none}   /* respecteer hidden tijdens de onthulling */
 .eyebrow{font-weight:600;font-size:12px;letter-spacing:.05em;
   text-transform:uppercase;color:var(--plum);margin-bottom:12px}
 h1{font-weight:200;font-size:clamp(48px,9vw,113px);line-height:.85;
@@ -145,6 +146,7 @@ footer{border-top:1px solid var(--hairline);padding:24px 0 60px;margin-top:96px;
 /* ================= winnaar-onthulling (hero-takeover) ================= */
 .onthulling{min-height:72vh;display:flex;flex-direction:column;align-items:center;
   justify-content:flex-start;text-align:center;position:relative;padding:6vh 0 24px}
+.onthulling[hidden]{display:none}   /* respecteer het hidden-attribuut (author-CSS wint anders van [hidden]) */
 .onthul-eyebrow{color:var(--bone);font-size:13px;margin-bottom:18px}
 .onthul-eyebrow::before{content:"✦ ";color:var(--plum)}
 .onthul-fallback{margin-top:4vh}
