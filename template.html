@@ -559,7 +559,7 @@ function rnd(a,b){return a+Math.random()*(b-a)}
 function vormBeker(){
   // wereldbeker met ingebakken belichting (licht van linksvoor-boven),
   // rijker goud en een halve eenheid lager geplaatst
-  const p=new Float32Array(N*3), c=new Float32Array(N*3);
+  const p=new Float32Array(N*3), c=new Float32Array(N*3), s=new Float32Array(N);
   const schaduw=new THREE.Color(0x7a5200), goud=new THREE.Color(0xffb829),
         glans=new THREE.Color(0xffe9a8), plum=new THREE.Color(0x8052ff);
   const kl=new THREE.Color(), L={x:-0.45,y:0.5,z:0.74};
@@ -591,12 +591,13 @@ function vormBeker(){
     if(r>=0.80&&Math.random()<0.12) kl.copy(plum);
     p.set([x*1.15*SCHAAL,(y-0.5)*SCHAAL,z*1.15*SCHAAL],i*3);
     c.set([kl.r,kl.g,kl.b],i*3);
+    s[i]=(0.78+0.5*Math.min(1,shade*1.25))*rnd(0.9,1.1);   // verlicht groter -> reliëf
   }
-  return {p,c};
+  return {p,c,s};
 }
 function vormBal(){
   // multicolor bol naar Dala-voorbeeld: amber-clusters op een gemengd palet
-  const p=new Float32Array(N*3), c=new Float32Array(N*3);
+  const p=new Float32Array(N*3), c=new Float32Array(N*3), s=new Float32Array(N);
   const amber=new THREE.Color(0xffb829);
   const mix=[[new THREE.Color(0xffffff),30],[new THREE.Color(0x8052ff),22],
              [new THREE.Color(0x15846e),12],[new THREE.Color(0xbdbdbd),12],
@@ -623,11 +624,12 @@ function vormBal(){
     }
     const kl=cluster?amber:kies();
     p.set([x*R,y*R,z*R],i*3); c.set([kl.r,kl.g,kl.b],i*3);
+    s[i]=(cluster?1.25:0.85)*rnd(0.85,1.15);   // clusters groter -> textuur
   }
-  return {p,c};
+  return {p,c,s};
 }
 function vormTrump(){
-  const p=new Float32Array(N*3), c=new Float32Array(N*3);
+  const p=new Float32Array(N*3), c=new Float32Array(N*3), s=new Float32Array(N);
   const huid=new THREE.Color(0xffffff), kuif=new THREE.Color(0xffb829),
         das=new THREE.Color(0x8052ff), pak=new THREE.Color(0xbdbdbd);
   const wolk=Array.isArray(TRUMP_PUNTEN)?TRUMP_PUNTEN:null;
@@ -644,8 +646,9 @@ function vormTrump(){
       const rel=Math.min(1,Math.max(0,((q[2]??0)+0.275)/0.575));
       kl.copy(basis).multiplyScalar(0.4+0.65*rel);
       p.set([x,y,z],i*3); c.set([kl.r,kl.g,kl.b],i*3);
+      s[i]=(0.7+0.6*rel)*rnd(0.9,1.1);   // diepere partijen groter -> gezichtsreliëf
     }
-    return {p,c};
+    return {p,c,s};
   }
   for(let i=0;i<N;i++){
     const r=Math.random(); let x,y,z,kl=huid;
@@ -673,8 +676,9 @@ function vormTrump(){
       kl=das;
     }
     p.set([x*1.6,y*1.6,z*1.6],i*3); c.set([kl.r,kl.g,kl.b],i*3);
+    s[i]=rnd(0.8,1.2);
   }
-  return {p,c};
+  return {p,c,s};
 }
 
 // Rasteriseer tekst naar genormaliseerde punten [-0.5..0.5] (x rechts, y omhoog).
@@ -695,18 +699,24 @@ function tekstPunten(tekst){
 // Graveer de (korte) winnaarsnaam op de VOET/sokkel van een bestaande beker-vorm.
 // Deelt de beker-deeltjes met de lege beker, zodat de morph puur de naam etst.
 function graveerOpBeker(cup, naam){
-  const p=cup.p.slice(), c=cup.c.slice();
+  const p=cup.p.slice(), c=cup.c.slice(), s=cup.s.slice();
   const pts=tekstPunten(graveerNaam(naam).toUpperCase());
-  if(!pts) return {p,c};
-  const Nnaam=Math.min(2100,Math.floor(N*0.4));
+  if(!pts) return {p,c,s};
+  // Mobiel: minder + fijnere deeltjes en een iets grotere band, zodat de letters
+  // een leesbare constellatie vormen i.p.v. een witte massa.
+  const mobiel=innerWidth<=680;
+  const Nnaam=mobiel?700:Math.min(2100,Math.floor(N*0.4));
+  const naamGrootte=mobiel?0.42:0.5;                          // fijne kegeltjes
   const wit=new THREE.Color(0xffffff);
-  const bandB=1.95, bandH=bandB*(256/1024), yc=-1.72, zf=0.92;  // op de sokkel, vóórkant
+  const bandB=mobiel?1.8:1.95, bandH=bandB*(256/1024)*(mobiel?1.3:1),
+        yc=-1.72, zf=0.92;                                    // op de sokkel, vóórkant
   for(let i=0;i<Nnaam;i++){
-    const q=pts[Math.floor(i*pts.length/Nnaam)], idx=N-1-i;    // overschrijf laatste beker-deeltjes
+    const q=pts[Math.floor(i*pts.length/Nnaam)], idx=i;       // láge indices -> ook in spaarstand zichtbaar
     p[idx*3]=q[0]*bandB; p[idx*3+1]=yc+q[1]*bandH; p[idx*3+2]=zf;
     c[idx*3]=wit.r; c[idx*3+1]=wit.g; c[idx*3+2]=wit.b;
+    s[idx]=naamGrootte;
   }
-  return {p,c};
+  return {p,c,s};
 }
 
 function podium(){
@@ -760,7 +770,8 @@ function podium3D(cv,FX){
 
   const pos=new Float32Array(N*3), doel=new Float32Array(N*3),
         kleur=new Float32Array(N*3), doelkleur=new Float32Array(N*3),
-        fase=new Float32Array(N), tol=new Float32Array(N*2);
+        fase=new Float32Array(N), tol=new Float32Array(N*2),
+        grootte=new Float32Array(N).fill(1), doelgrootte=new Float32Array(N).fill(1);
   for(let i=0;i<N;i++){
     pos.set([rnd(-5,5),rnd(-4,4),rnd(-3,3)],i*3);
     fase[i]=rnd(0,6.283); tol[i*2]=rnd(0.5,1.4); tol[i*2+1]=rnd(0.0008,0.0022);
@@ -772,6 +783,7 @@ function podium3D(cv,FX){
     if(naam===huidig||!vormen[naam]) return;
     huidig=naam;
     doel.set(vormen[naam].p); doelkleur.set(vormen[naam].c);
+    if(vormen[naam].s) doelgrootte.set(vormen[naam].s);
     el("vormcaptie").textContent=captie[naam];
     if(spaarstand) wek();
   }
@@ -782,7 +794,7 @@ function podium3D(cv,FX){
   // naam-deeltjes — een echte graveer-animatie op de sokkel.
   window.__onthulBeker=function(naam){
     const cup=vormBeker();
-    vormen.bekerLeeg={p:cup.p.slice(),c:cup.c.slice()};
+    vormen.bekerLeeg={p:cup.p.slice(),c:cup.c.slice(),s:cup.s.slice()};
     vormen.bekerNaam=graveerOpBeker(cup,naam);
     captie.bekerLeeg="DE WERELDBEKER. HET MOOISTE GOUD OOIT GEMAAKT.";
     captie.bekerNaam="POULEKAMPIOEN — "+graveerNaam(naam).toUpperCase();
@@ -859,6 +871,7 @@ function podium3D(cv,FX){
         pos[i3+a]+=(doel[i3+a]-pos[i3+a])*0.045*dt;
         kleur[i3+a]+=(doelkleur[i3+a]-kleur[i3+a])*0.06*dt;
       }
+      grootte[i]+=(doelgrootte[i]-grootte[i])*0.06*dt;
       pos[i3]+=Math.sin(t*tol[i*2+1]+fase[i])*0.0014*tol[i*2];
       pos[i3+1]+=Math.cos(t*tol[i*2+1]*1.3+fase[i])*0.0014*tol[i*2];
       if(muis.x<50){
@@ -870,6 +883,7 @@ function podium3D(cv,FX){
       e3.set(fase[i]+t*0.0006*tol[i*2],fase[i]*1.7,fase[i]*0.6);
       q.setFromEuler(e3);
       v3.set(pos[i3],pos[i3+1],pos[i3+2]).applyAxisAngle(asY,rotY);
+      s3.setScalar(grootte[i]);
       m4.compose(v3,q,s3);
       mesh.setMatrixAt(i,m4);
       // dieptedemping: deeltjes aan de achterkant vervagen richting het zwart
