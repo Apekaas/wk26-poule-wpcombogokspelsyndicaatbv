@@ -141,6 +141,53 @@ footer{border-top:1px solid var(--hairline);padding:24px 0 60px;margin-top:96px;
   color:var(--smoke);font-size:12px;letter-spacing:.05em;text-align:center}
 .valwaarschuwing{border:1px solid var(--amber);border-radius:24px;padding:14px 24px;
   color:var(--amber);font-size:13px;margin:24px 0;background:var(--paneel)}
+
+/* ================= winnaar-onthulling (hero-takeover) ================= */
+.onthulling{min-height:64vh;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;position:relative;padding:24px 0}
+.onthulling .eyebrow{color:var(--plum);margin-bottom:18px}
+.onthulling .sub{color:var(--ash);margin-top:18px;max-width:44ch;font-size:14px}
+/* gouden line-art beker, eerst "gegraveerd" (draw-on) */
+.beker-svg{width:clamp(84px,12vw,132px);height:auto;color:var(--amber);
+  filter:drop-shadow(0 0 1px rgba(255,184,41,.25))}
+.beker-svg .ster{color:var(--plum)}
+.beker-svg path{stroke-dasharray:340;stroke-dashoffset:340;
+  animation:graveer 1.2s ease forwards}
+.beker-svg .ster{stroke-dashoffset:0;opacity:0;animation:opkomen .5s ease 1.1s forwards}
+/* de naamplaat: naam als SVG-tekst die zich in het metaal graveert */
+.naamplaat{position:relative;margin-top:30px;width:100%;max-width:900px;padding:0 12px}
+.naam-svg{display:block;margin:0 auto;height:clamp(52px,9.5vw,110px);
+  max-width:100%;overflow:visible}
+.naam-svg text{font-family:var(--font);font-weight:200;letter-spacing:-.04em;
+  fill:var(--bone);fill-opacity:0;stroke:var(--bone);stroke-width:.7;
+  stroke-dasharray:1400;stroke-dashoffset:1400;
+  animation:graveer 1.5s ease 1.2s forwards, vullen .7s ease 2.5s forwards}
+.naamplaat::after{content:"";position:absolute;left:12%;right:12%;bottom:-2px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--amber),transparent);
+  opacity:0;animation:opkomen .6s ease 2.4s forwards}
+/* eenmalige lichtveeg over de naam (violet->amber), geen blijvende glow */
+.lichtveeg{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:24px}
+.lichtveeg::before{content:"";position:absolute;top:0;bottom:0;width:45%;
+  left:-60%;transform:skewX(-18deg);mix-blend-mode:screen;opacity:0;
+  background:linear-gradient(90deg,transparent,rgba(128,82,255,.55),rgba(255,184,41,.55),transparent);
+  animation:veeg 1.1s ease 2.6s 1}
+/* spaarzame confetti (violet/amber), dwarrelt eenmalig uit */
+.confetti{position:absolute;inset:0 0 auto 0;height:0;pointer-events:none;z-index:2}
+.confetti i{position:absolute;top:0;width:6px;height:6px;opacity:0;
+  animation:confettival var(--dur,2.8s) ease-in var(--del,0s) 1 forwards}
+@keyframes graveer{to{stroke-dashoffset:0}}
+@keyframes vullen{to{fill-opacity:1}}
+@keyframes opkomen{to{opacity:1}}
+@keyframes veeg{0%{left:-60%;opacity:0}15%{opacity:1}100%{left:120%;opacity:0}}
+@keyframes confettival{0%{opacity:0;transform:translateY(-10px) rotate(0)}
+  12%{opacity:1}100%{opacity:0;transform:translateY(46vh) rotate(320deg)}}
+@media(prefers-reduced-motion:reduce){
+  .beker-svg path,.naam-svg text,.beker-svg .ster,.naamplaat::after{animation:none}
+  .beker-svg path{stroke-dashoffset:0}
+  .naam-svg text{stroke-dashoffset:0;fill-opacity:1}
+  .beker-svg .ster,.naamplaat::after{opacity:1}
+  .lichtveeg,.confetti{display:none}
+}
 </style>
 </head>
 <body>
@@ -156,10 +203,29 @@ footer{border-top:1px solid var(--hairline);padding:24px 0 60px;margin-top:96px;
   </div>
 </nav>
 
-<header class="hero">
+<header class="hero" id="hero">
   <div class="eyebrow">De beste poule ooit. Iedereen zegt het.</div>
   <h1>Het scorebord.</h1>
   <p id="herotekst"></p>
+</header>
+
+<header class="onthulling" id="onthulling" hidden>
+  <div class="eyebrow" id="onthulling-eyebrow">Poulekampioen 2026</div>
+  <svg class="beker-svg" viewBox="0 0 120 148" fill="none" stroke="currentColor"
+       stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+    <path d="M33 40 C13 40 13 68 35 72"/>
+    <path d="M87 40 C107 40 107 68 85 72"/>
+    <path d="M31 34 H89 V54 C89 77 76 92 60 92 C44 92 31 77 31 54 Z"/>
+    <path d="M28 34 H92"/>
+    <path d="M60 92 V108"/>
+    <path d="M43 108 H77"/>
+    <path d="M39 122 H81 L85 133 H35 Z"/>
+    <path class="ster" stroke="none" fill="currentColor"
+          d="M60 50 l2.6 5.3 5.8.8 -4.2 4.1 1 5.8 -5.2-2.7 -5.2 2.7 1-5.8 -4.2-4.1 5.8-.8 Z"/>
+  </svg>
+  <div class="naamplaat" id="naamplaat"></div>
+  <p class="sub" id="onthulling-sub"></p>
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
 </header>
 
 <div class="topgrid">
@@ -267,7 +333,63 @@ function init(){
   try{scoreboard(d); rondetabs(d); verloop(d); balken(d);
       kampioenen(d); bonus(d); programma(d); verrassing(d); validatie(d);}
   catch(e){console.error("Sectie-fout:",e);}
+  try{onthulling(d);}catch(e){console.error("Onthulling-fout:",e);}
   podium();
+}
+
+/* ================= winnaar-onthulling ================= */
+// Naam van de poulewinnaar (positie 1), of null als er nog niets te vieren is.
+function winnaarNaam(d){
+  const w=(d.stand||[]).find(s=>s.positie===1)||(d.stand||[])[0];
+  return w?w.naam:"";
+}
+// Reveal actief? Live zodra het toernooi af is; ?onthulling=demo of ?onthulling=<naam>
+// forceert een preview (demo => de huidige koploper).
+function onthullingNaam(d){
+  const q=new URLSearchParams(location.search).get("onthulling");
+  if(q!==null){
+    const v=decodeURIComponent(q);
+    return (v===""||v.toLowerCase()==="demo"||v==="1")?winnaarNaam(d):v;
+  }
+  return d.toernooi_afgelopen?winnaarNaam(d):null;
+}
+function bouwNaam(naam){
+  const FS=96, pad=48, ctx=document.createElement("canvas").getContext("2d");
+  ctx.font=`200 ${FS}px Inter, sans-serif`;
+  let w=ctx.measureText(naam).width - Math.max(0,naam.length-1)*0.04*FS;  // -.04em tracking
+  const W=Math.max(140,Math.ceil(w)+pad), H=140, y=104;
+  html("naamplaat",
+    `<svg class="naam-svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet"`+
+    ` role="img" aria-label="Poulekampioen: ${esc(naam)}">`+
+    `<text x="${W/2}" y="${y}" text-anchor="middle" font-size="${FS}">${esc(naam)}</text>`+
+    `</svg><div class="lichtveeg"></div>`);
+}
+function strooiConfetti(){
+  const box=el("confetti"); if(!box) return;
+  const kl=["#8052ff","#ffb829","#ffffff"]; let s="";
+  for(let i=0;i<26;i++){
+    const left=Math.round(Math.random()*100), c=kl[i%kl.length];
+    const del=(2.5+Math.random()*0.9).toFixed(2), dur=(2.4+Math.random()*1.7).toFixed(2);
+    const rad=Math.random()<0.5?"50%":"1px";
+    s+=`<i style="left:${left}%;background:${c};border-radius:${rad};--del:${del}s;--dur:${dur}s"></i>`;
+  }
+  box.innerHTML=s;
+}
+function onthulling(d){
+  const naam=onthullingNaam(d);
+  if(!naam) return;
+  el("hero").hidden=true;
+  el("onthulling").hidden=false;
+  bouwNaam(naam);
+  el("onthulling-sub").textContent=
+    "Bekroond na de finale — de grootste voetbalkenner van de poule. Echt waar.";
+  const rustig=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const naarBeker=()=>{ const sb=el("scoreboard"); if(sb) sb.dataset.vorm="beker";
+    if(window.__zetVorm) window.__zetVorm("beker"); };
+  if(rustig){ naarBeker(); return; }
+  strooiConfetti();
+  // Trump-karikatuur even laten staan, dan de deeltjes tot de beker "graveren".
+  setTimeout(naarBeker,1300);
 }
 
 /* ================= dashboard-secties ================= */
@@ -601,6 +723,7 @@ function podium3D(cv,FX){
     if(spaarstand) wek();
   }
   zetVorm("trump");
+  window.__zetVorm=zetVorm;   // hook voor de winnaar-onthulling (Trump->beker morph)
 
   // scroll-gestuurde morphing: sectie in beeld bepaalt de vorm
   const secties=[...document.querySelectorAll("section[data-vorm]")];

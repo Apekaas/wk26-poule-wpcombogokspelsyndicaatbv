@@ -22,6 +22,12 @@ import scoring
 
 HIER = Path(__file__).resolve().parent
 
+
+def toernooi_afgelopen(uitslagen):
+    """True zodra de WK-kampioen bekend is (finale verwerkt). Trigger voor de
+    winnaar-onthulling bovenaan het dashboard."""
+    return uitslagen.get("kampioen") is not None
+
 # Stages op chronologische volgorde (football-data.org v4).
 STAGE_VOLGORDE = ["GROUP_STAGE", "LAST_32", "LAST_16", "QUARTER_FINALS",
                   "SEMI_FINALS", "THIRD_PLACE", "FINAL"]
@@ -344,6 +350,8 @@ def main(deelnemers_pad, uitslagen_pad, outmap):
         "verrassing": verrassing(data, uitslagen),
         "groepswedstrijden": uitslagen["groepswedstrijden"],
         "validatie": [v for v in data.get("validatie", []) if v["fouten"]],
+        # Trigger voor de winnaar-onthulling bovenaan het dashboard.
+        "toernooi_afgelopen": toernooi_afgelopen(uitslagen),
     }
 
     standpad.parent.mkdir(parents=True, exist_ok=True)
