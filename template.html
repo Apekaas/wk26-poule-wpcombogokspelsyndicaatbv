@@ -143,10 +143,11 @@ footer{border-top:1px solid var(--hairline);padding:24px 0 60px;margin-top:96px;
   color:var(--amber);font-size:13px;margin:24px 0;background:var(--paneel)}
 
 /* ================= winnaar-onthulling (hero-takeover) ================= */
-.onthulling{min-height:64vh;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;text-align:center;position:relative;padding:24px 0}
-.onthulling .eyebrow{color:var(--plum);margin-bottom:18px}
-.onthulling .sub{color:var(--ash);margin-top:18px;max-width:44ch;font-size:14px}
+.onthulling{min-height:72vh;display:flex;flex-direction:column;align-items:center;
+  justify-content:flex-start;text-align:center;position:relative;padding:6vh 0 24px}
+.onthul-eyebrow{color:var(--bone);font-size:13px;margin-bottom:18px}
+.onthul-eyebrow::before{content:"✦ ";color:var(--plum)}
+.onthul-fallback{margin-top:4vh}
 /* gouden line-art beker, eerst "gegraveerd" (draw-on) */
 .beker-svg{width:clamp(84px,12vw,132px);height:auto;color:var(--amber);
   filter:drop-shadow(0 0 1px rgba(255,184,41,.25))}
@@ -158,10 +159,10 @@ footer{border-top:1px solid var(--hairline);padding:24px 0 60px;margin-top:96px;
 .naamplaat{position:relative;margin-top:30px;width:100%;max-width:900px;padding:0 12px}
 .naam-svg{display:block;margin:0 auto;height:clamp(52px,9.5vw,110px);
   max-width:100%;overflow:visible}
-.naam-svg text{font-family:var(--font);font-weight:200;letter-spacing:-.04em;
-  fill:var(--bone);fill-opacity:0;stroke:var(--bone);stroke-width:.7;
+.naam-svg text{font-family:var(--font);font-weight:400;letter-spacing:-.03em;
+  fill:var(--bone);fill-opacity:0;stroke:var(--bone);stroke-width:1;
   stroke-dasharray:1400;stroke-dashoffset:1400;
-  animation:graveer 1.5s ease 1.2s forwards, vullen .7s ease 2.5s forwards}
+  animation:graveer 1.5s ease .3s forwards, vullen .7s ease 1.6s forwards}
 .naamplaat::after{content:"";position:absolute;left:12%;right:12%;bottom:-2px;height:1px;
   background:linear-gradient(90deg,transparent,var(--amber),transparent);
   opacity:0;animation:opkomen .6s ease 2.4s forwards}
@@ -210,21 +211,25 @@ footer{border-top:1px solid var(--hairline);padding:24px 0 60px;margin-top:96px;
 </header>
 
 <header class="onthulling" id="onthulling" hidden>
-  <div class="eyebrow" id="onthulling-eyebrow">Poulekampioen 2026</div>
-  <svg class="beker-svg" viewBox="0 0 120 148" fill="none" stroke="currentColor"
-       stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
-    <path d="M33 40 C13 40 13 68 35 72"/>
-    <path d="M87 40 C107 40 107 68 85 72"/>
-    <path d="M31 34 H89 V54 C89 77 76 92 60 92 C44 92 31 77 31 54 Z"/>
-    <path d="M28 34 H92"/>
-    <path d="M60 92 V108"/>
-    <path d="M43 108 H77"/>
-    <path d="M39 122 H81 L85 133 H35 Z"/>
-    <path class="ster" stroke="none" fill="currentColor"
-          d="M60 50 l2.6 5.3 5.8.8 -4.2 4.1 1 5.8 -5.2-2.7 -5.2 2.7 1-5.8 -4.2-4.1 5.8-.8 Z"/>
-  </svg>
-  <div class="naamplaat" id="naamplaat"></div>
-  <p class="sub" id="onthulling-sub"></p>
+  <div class="eyebrow onthul-eyebrow" id="onthulling-eyebrow">Poulekampioen 2026</div>
+  <!-- De naam wordt in de deeltjes-beker gegraveerd (zie __onthulBeker).
+       Deze SVG-beker + naamplaat is de fallback als de deeltjes uitstaan
+       (reduced-motion / geen WebGL). -->
+  <div class="onthul-fallback" id="onthul-fallback" hidden>
+    <svg class="beker-svg" viewBox="0 0 120 148" fill="none" stroke="currentColor"
+         stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+      <path d="M33 40 C13 40 13 68 35 72"/>
+      <path d="M87 40 C107 40 107 68 85 72"/>
+      <path d="M31 34 H89 V54 C89 77 76 92 60 92 C44 92 31 77 31 54 Z"/>
+      <path d="M28 34 H92"/>
+      <path d="M60 92 V108"/>
+      <path d="M43 108 H77"/>
+      <path d="M39 122 H81 L85 133 H35 Z"/>
+      <path class="ster" stroke="none" fill="currentColor"
+            d="M60 50 l2.6 5.3 5.8.8 -4.2 4.1 1 5.8 -5.2-2.7 -5.2 2.7 1-5.8 -4.2-4.1 5.8-.8 Z"/>
+    </svg>
+    <div class="naamplaat" id="naamplaat"></div>
+  </div>
   <div class="confetti" id="confetti" aria-hidden="true"></div>
 </header>
 
@@ -375,21 +380,29 @@ function strooiConfetti(){
   }
   box.innerHTML=s;
 }
+// Fallback voor als de deeltjes uitstaan: SVG-beker + naamplaat tonen.
+function toonFallbackBeker(naam){
+  el("onthul-fallback").hidden=false;
+  bouwNaam(naam);
+  const sb=el("scoreboard"); if(sb) sb.dataset.vorm="beker";
+}
 function onthulling(d){
   const naam=onthullingNaam(d);
   if(!naam) return;
   el("hero").hidden=true;
   el("onthulling").hidden=false;
-  bouwNaam(naam);
-  el("onthulling-sub").textContent=
-    "Bekroond na de finale — de grootste voetbalkenner van de poule. Echt waar.";
   const rustig=matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const naarBeker=()=>{ const sb=el("scoreboard"); if(sb) sb.dataset.vorm="beker";
-    if(window.__zetVorm) window.__zetVorm("beker"); };
-  if(rustig){ naarBeker(); return; }
+  const FX=new URLSearchParams(location.search).get("fx")||"auto";
+  const partikels=!rustig && FX!=="uit" && typeof THREE!=="undefined";
+  if(!partikels){ toonFallbackBeker(naam); return; }   // geen animatie -> statische beker
   strooiConfetti();
-  // Trump-karikatuur even laten staan, dan de deeltjes tot de beker "graveren".
-  setTimeout(naarBeker,1300);
+  // Trump-karikatuur even laten staan, dan de deeltjes tot de beker-mét-naam
+  // "graveren". Lukt dat niet (geen WebGL), val terug op de SVG-beker.
+  setTimeout(()=>{
+    let ok=false;
+    try{ ok=!!(window.__onthulBeker && window.__onthulBeker(naam)); }catch(e){ ok=false; }
+    if(!ok) toonFallbackBeker(naam);
+  },1300);
 }
 
 /* ================= dashboard-secties ================= */
@@ -656,6 +669,37 @@ function vormTrump(){
   return {p,c};
 }
 
+// Rasteriseer tekst naar genormaliseerde punten [-0.5..0.5] (x rechts, y omhoog).
+function tekstPunten(tekst){
+  const cw=1024, ch=256, cv=document.createElement("canvas");
+  cv.width=cw; cv.height=ch;
+  const ctx=cv.getContext("2d"); if(!ctx) return null;
+  ctx.fillStyle="#fff"; ctx.textAlign="center"; ctx.textBaseline="middle";
+  let fs=190; ctx.font=`700 ${fs}px Inter, sans-serif`;
+  while(ctx.measureText(tekst).width>cw-70 && fs>28){ fs-=6; ctx.font=`700 ${fs}px Inter, sans-serif`; }
+  ctx.fillText(tekst, cw/2, ch/2);
+  let img; try{ img=ctx.getImageData(0,0,cw,ch).data; }catch(e){ return null; }
+  const pts=[];
+  for(let y=0;y<ch;y+=2) for(let x=0;x<cw;x+=2)
+    if(img[(y*cw+x)*4+3]>128) pts.push([x/cw-0.5,-(y/ch-0.5)]);
+  return pts.length?pts:null;
+}
+// Wereldbeker met de winnaarsnaam in de deeltjes gegraveerd op de voorkant.
+function vormBekerMetNaam(naam){
+  const basis=vormBeker(), pts=tekstPunten(String(naam).toUpperCase());
+  if(!pts) return basis;
+  const p=basis.p.slice(), c=basis.c.slice();
+  const Nnaam=Math.min(2100,Math.floor(N*0.4));
+  const wit=new THREE.Color(0xffffff);
+  const bandB=2.6, bandH=bandB*(256/1024), yc=-0.9, zf=1.0;   // vóór en op de beker
+  for(let i=0;i<Nnaam;i++){
+    const q=pts[Math.floor(i*pts.length/Nnaam)], idx=N-1-i;   // overschrijf laatste beker-deeltjes
+    p[idx*3]=q[0]*bandB; p[idx*3+1]=yc+q[1]*bandH; p[idx*3+2]=zf;
+    c[idx*3]=wit.r; c[idx*3+1]=wit.g; c[idx*3+2]=wit.b;
+  }
+  return {p,c};
+}
+
 function podium(){
   const cv=el("podium");
   // ?fx=uit (geen animatie), ?fx=spaar (zuinige modus), ?fx=aan (forceer vol).
@@ -723,7 +767,14 @@ function podium3D(cv,FX){
     if(spaarstand) wek();
   }
   zetVorm("trump");
-  window.__zetVorm=zetVorm;   // hook voor de winnaar-onthulling (Trump->beker morph)
+  // Hook voor de winnaar-onthulling: registreer de beker-mét-naam en morph ernaartoe.
+  window.__onthulBeker=function(naam){
+    vormen.bekerNaam=vormBekerMetNaam(naam);
+    captie.bekerNaam="POULEKAMPIOEN — "+String(naam).toUpperCase();
+    const sb=el("scoreboard"); if(sb) sb.dataset.vorm="bekerNaam";
+    zetVorm("bekerNaam");
+    return true;
+  };
 
   // scroll-gestuurde morphing: sectie in beeld bepaalt de vorm
   const secties=[...document.querySelectorAll("section[data-vorm]")];
@@ -747,7 +798,8 @@ function podium3D(cv,FX){
     renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
     camera.aspect=innerWidth/innerHeight; camera.updateProjectionMatrix();
     // op breed scherm staat de wolk rechts naast de contentkolom
-    mesh.position.x=innerWidth>980?1.5:0;
+    // (tijdens de onthulling niet verspringen: de beker blijft gecentreerd)
+    if(huidig!=="bekerNaam") mesh.position.x=innerWidth>980?1.5:0;
   }
   maat(); addEventListener("resize",maat);
 
@@ -772,8 +824,15 @@ function podium3D(cv,FX){
       muisWereld.multiplyScalar(-camera.position.z/muisWereld.z).add(camera.position);
       muisWereld.x-=mesh.position.x;
     }
-    // zachte slingering i.p.v. volle rotatie: de karikatuur blijft leesbaar
-    const rotY=Math.sin(t*0.00028)*0.42;
+    // zachte slingering i.p.v. volle rotatie: de karikatuur blijft leesbaar.
+    // Tijdens de winnaar-onthulling staat de beker stil, gecentreerd en iets groter,
+    // zodat de gegraveerde naam face-on en leesbaar blijft.
+    const reveal=huidig==="bekerNaam";
+    const rotY=reveal?0:Math.sin(t*0.00028)*0.42;
+    const doelX=reveal?0:(innerWidth>980?1.5:0);
+    mesh.position.x+=(doelX-mesh.position.x)*0.06*dt;
+    const doelS=reveal?1.12:1, sc=mesh.scale.x+(doelS-mesh.scale.x)*0.06*dt;
+    mesh.scale.setScalar(sc);
     for(let i=0;i<N;i++){
       const i3=i*3;
       for(let a=0;a<3;a++){
