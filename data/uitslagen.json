@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-18T22:13:10+00:00",
+  "laatste_update": "2026-07-19T04:02:37+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -220,8 +220,8 @@
   ],
   "kampioen": null,
   "tweede": null,
-  "derde": null,
-  "vierde": null,
+  "derde": "Engeland",
+  "vierde": "Frankrijk",
   "uitgeschakeld": [
     "Algerije",
     "Australië",
@@ -282,9 +282,9 @@
     "nl_doelpunten_voor": 13,
     "nl_doelpunten_tegen": 8,
     "nl_geel": 3,
-    "toernooi_doelpunten": 322,
+    "toernooi_doelpunten": 332,
     "toernooi_rood": 14,
-    "topscorer": "Kylian Mbappé (9) · Lionel Messi (8) · Erling Haaland (7)"
+    "topscorer": "Kylian Mbappé (10) · Lionel Messi (8) · Erling Haaland (7)"
   },
   "wedstrijdschema": [
     {
@@ -1779,12 +1779,12 @@
       "utcDate": "2026-07-18T21:00:00Z",
       "stage": "THIRD_PLACE",
       "matchday": null,
-      "status": "PAUSED",
+      "status": "FINISHED",
       "duration": "REGULAR",
       "thuis": "Frankrijk",
       "uit": "Engeland",
-      "thuis_score": 0,
-      "uit_score": 4,
+      "thuis_score": 4,
+      "uit_score": 6,
       "regulier": null,
       "verlenging": null,
       "penalties": null
