@@ -295,14 +295,16 @@ def programma(data, uitslagen):
         }
         if gespeeld:
             reg, ver, pen = m.get("regulier"), m.get("verlenging"), m.get("penalties")
-            if reg and ver:
+            reg_compleet = reg and None not in reg
+            ver_compleet = ver and None not in ver
+            if reg_compleet and ver_compleet:
                 hoofd = [reg[0] + ver[0], reg[1] + ver[1]]  # stand na verlenging
-            elif reg:
+            elif reg_compleet:
                 hoofd = reg
             else:
                 hoofd = [ts, us]                             # reguliere speeltijd
             rij["uitslag"] = f'{hoofd[0]}–{hoofd[1]}' if ts is not None else None
-            if m.get("duration") == "PENALTY_SHOOTOUT" and pen:
+            if m.get("duration") == "PENALTY_SHOOTOUT" and pen and None not in pen:
                 rij["penalties"] = f'{pen[0]}–{pen[1]}'       # los, in het paars
             elif m.get("duration") == "EXTRA_TIME":
                 rij["scorelabel"] = "na verlenging"
