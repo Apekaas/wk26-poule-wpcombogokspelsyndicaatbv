@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-20T04:12:13+00:00",
+  "laatste_update": "2026-07-20T08:14:23+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -280,10 +280,10 @@
     "topscorer": "Kylian Mbappé"
   },
   "bonus_tussenstand": {
-    "nl_doelpunten_voor": 13,
-    "nl_doelpunten_tegen": 8,
+    "nl_doelpunten_voor": 11,
+    "nl_doelpunten_tegen": 5,
     "nl_geel": 3,
-    "toernooi_doelpunten": 333,
+    "toernooi_doelpunten": 308,
     "toernooi_rood": 15,
     "topscorer": "Kylian Mbappé (10) · Lionel Messi (8) · Erling Haaland (7)"
   },
@@ -1801,8 +1801,8 @@
       "thuis_score": 1,
       "uit_score": 0,
       "regulier": [
-        null,
-        null
+        0,
+        0
       ],
       "verlenging": [
         1,
