@@ -272,12 +272,12 @@
     "Zwitserland"
   ],
   "bonus": {
-    "nl_doelpunten_voor": null,
-    "nl_doelpunten_tegen": null,
-    "nl_geel": null,
-    "toernooi_doelpunten": null,
-    "toernooi_rood": null,
-    "topscorer": null
+    "nl_doelpunten_voor": 11,
+    "nl_doelpunten_tegen": 5,
+    "nl_geel": 3,
+    "toernooi_doelpunten": 308,
+    "toernooi_rood": 15,
+    "topscorer": "Kylian Mbappé"
   },
   "bonus_tussenstand": {
     "nl_doelpunten_voor": 13,

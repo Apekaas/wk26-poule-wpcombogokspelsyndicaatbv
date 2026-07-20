@@ -214,12 +214,23 @@ def main():
     # 6. Doelpunten-tussenstand (uit de wedstrijdenlijst zelf)
     nl_voor = nl_tegen = tot_doelpunten = 0
     for m in klaar:
-        ft = m["score"]["fullTime"]
+        score = m["score"]
+        ft = score["fullTime"]
         if ft["home"] is None:
             continue
-        tot_doelpunten += ft["home"] + ft["away"]
-        namen = {nl(m["homeTeam"]["name"], onbekend): ft["home"],
-                 nl(m["awayTeam"]["name"], onbekend): ft["away"]}
+        thuis, uit = ft["home"], ft["away"]
+        if score.get("duration") == "PENALTY_SHOOTOUT":
+            # football-data.org telt bij strafschoppenreeksen de PK-uitslag
+            # bovenop fullTime op (bv. regulier 1-1, PK 2-3 -> fullTime 3-4).
+            # Corrigeer naar de daadwerkelijk gescoorde doelpunten (regulier +
+            # verlenging), zoals ook de officiële FIFA-uitslag telt.
+            rt, et = score.get("regularTime") or {}, score.get("extraTime") or {}
+            if rt.get("home") is not None and et.get("home") is not None:
+                thuis = rt["home"] + et["home"]
+                uit = rt["away"] + et["away"]
+        tot_doelpunten += thuis + uit
+        namen = {nl(m["homeTeam"]["name"], onbekend): thuis,
+                 nl(m["awayTeam"]["name"], onbekend): uit}
         if "Nederland" in namen:
             nl_voor += namen.pop("Nederland")
             nl_tegen += next(iter(namen.values()))
