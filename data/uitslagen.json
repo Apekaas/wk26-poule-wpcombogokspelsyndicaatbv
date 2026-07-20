@@ -1,5 +1,5 @@
 {
-  "laatste_update": "2026-07-19T07:38:13+00:00",
+  "laatste_update": "2026-07-20T02:53:03+00:00",
   "groepswedstrijden": [
     {
       "datum": "2026-06-11",
@@ -218,12 +218,13 @@
     "Argentinië",
     "Spanje"
   ],
-  "kampioen": null,
-  "tweede": null,
+  "kampioen": "Spanje",
+  "tweede": "Argentinië",
   "derde": "Engeland",
   "vierde": "Frankrijk",
   "uitgeschakeld": [
     "Algerije",
+    "Argentinië",
     "Australië",
     "België",
     "Bosnië-Herzegovina",
@@ -282,8 +283,8 @@
     "nl_doelpunten_voor": 13,
     "nl_doelpunten_tegen": 8,
     "nl_geel": 3,
-    "toernooi_doelpunten": 332,
-    "toernooi_rood": 14,
+    "toernooi_doelpunten": 333,
+    "toernooi_rood": 15,
     "topscorer": "Kylian Mbappé (10) · Lionel Messi (8) · Erling Haaland (7)"
   },
   "wedstrijdschema": [
@@ -1793,14 +1794,20 @@
       "utcDate": "2026-07-19T19:00:00Z",
       "stage": "FINAL",
       "matchday": null,
-      "status": "TIMED",
-      "duration": "REGULAR",
+      "status": "FINISHED",
+      "duration": "EXTRA_TIME",
       "thuis": "Spanje",
       "uit": "Argentinië",
-      "thuis_score": null,
-      "uit_score": null,
-      "regulier": null,
-      "verlenging": null,
+      "thuis_score": 1,
+      "uit_score": 0,
+      "regulier": [
+        null,
+        null
+      ],
+      "verlenging": [
+        1,
+        0
+      ],
       "penalties": null
     }
   ]
