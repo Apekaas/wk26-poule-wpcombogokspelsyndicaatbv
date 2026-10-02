@@ -163,28 +163,20 @@ class TestEinduitslag(unittest.TestCase):
         pt, _ = scoring.score_einduitslag(self.base(), u, set())
         self.assertEqual(pt, 60)
 
-    def test_huisregel_derde_15(self):
-        u = uitslagen(kampioen="X", tweede="Y", derde="Frankrijk", vierde="Z")
-        pt, _ = scoring.score_einduitslag(self.base(), u, set())
-        self.assertEqual(pt, 15)  # Frankrijk = voorspelde halve-finale-verliezer
-
-    def test_huisregel_dubbele_treffer_25(self):
+    def test_derde_en_vierde_tellen_niet_mee(self):
+        # Besluit 2026-07-22: de 3e/4e-huisregel (15+10) is vervallen.
         u = uitslagen(kampioen="X", tweede="Y",
                       derde="Frankrijk", vierde="Engeland")
-        pt, _ = scoring.score_einduitslag(self.base(), u, set())
-        self.assertEqual(pt, 25)  # 15 + 10, beide verliezers in top 3/4
-
-    def test_finalist_telt_niet_als_derde(self):
-        u = uitslagen(kampioen="X", tweede="Y", derde="Spanje", vierde="Z")
-        pt, _ = scoring.score_einduitslag(self.base(), u, set())
-        self.assertEqual(pt, 0)  # Spanje was voorspeld als finalist, niet verliezer
+        pt, pot = scoring.score_einduitslag(self.base(), u, set())
+        self.assertEqual(pt, 0)  # Frankrijk en Engeland waren voorspelde halve-finaleverliezers
+        self.assertEqual(pot, 0)
 
     def test_potentieel_vervalt_bij_uitschakeling(self):
         u = uitslagen()  # niets beslist
         pt, pot = scoring.score_einduitslag(
             self.base(), u, {scoring.norm("Spanje")})
         self.assertEqual(pt, 0)
-        self.assertEqual(pot, 20 + 15 + 10)  # kampioen (Spanje) vervalt
+        self.assertEqual(pot, 20)  # kampioen (Spanje) vervalt, alleen tweede blijft over
 
 
 class TestBonus(unittest.TestCase):

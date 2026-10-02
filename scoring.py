@@ -35,7 +35,7 @@ HANDICAP_ONTHULLING = {
 PT_UITSLAG, PT_TOTO = 3, 1
 PT_PLEK_JUIST, PT_TOP2 = 3, 2
 PT_ACHTSTE, PT_KWART, PT_HALVE, PT_FINALE = 3, 5, 10, 15
-PT_KAMPIOEN, PT_TWEEDE, PT_DERDE, PT_VIERDE = 40, 20, 15, 10
+PT_KAMPIOEN, PT_TWEEDE = 40, 20  # 3e/4e-huisregel vervallen (besluit 2026-07-22)
 PT_TOPSCORER = 5
 MAX_BONUS = 3 + 3 + 3 + 3 + 5 + 5  # alle bonusvragen exact
 
@@ -157,8 +157,8 @@ def _score_plaatsing(voorspeld_landen, werkelijk_landen, verwacht_aantal,
 
 
 def score_einduitslag(deelnemer, uitslagen, uitgeschakeld):
-    """Cat. D: kampioen 40, tweede 20; 3e/4e via huisregel (voorspelde
-    verliezers halve finales, zonder volgorde)."""
+    """Cat. D: kampioen 40, tweede 20. De 3e/4e-huisregel (15+10) is
+    vervallen (besluit 2026-07-22): derde en vierde tellen niet meer mee."""
     punten, potentieel = 0, 0
     for sleutel, pt in (("kampioen", PT_KAMPIOEN), ("tweede", PT_TWEEDE)):
         pred, act = deelnemer[sleutel], uitslagen[sleutel]
@@ -167,29 +167,6 @@ def score_einduitslag(deelnemer, uitslagen, uitgeschakeld):
                 punten += pt
         elif pred and norm(pred) not in uitgeschakeld:
             potentieel += pt
-    # Huisregel 3e/4e: voorspelde halvefinalisten minus voorspelde finalisten
-    halvefinalisten = {norm(l) for l in deelnemer["kwart_winnaars"].values() if l}
-    finalisten = {norm(l) for l in deelnemer["halve_winnaars"].values() if l}
-    verliezers = halvefinalisten - finalisten
-    # Semi-finaleverliezers staan in uitgeschakeld (terecht voor kampioen/2e),
-    # maar zij spelen de troostfinale nog → uitgeschakeld-check niet gebruiken
-    # voor 3e/4e potentieel; gebruik in plaats daarvan de werkelijke troostfinale-deelnemers.
-    werkelijk_halvefinalisten = {norm(l) for l in uitslagen.get("halvefinalisten", [])}
-    werkelijk_finalisten = {norm(l) for l in uitslagen.get("finalisten", [])}
-    troostfinale_deelnemers = werkelijk_halvefinalisten - werkelijk_finalisten
-    for sleutel, pt in (("derde", PT_DERDE), ("vierde", PT_VIERDE)):
-        act = uitslagen[sleutel]
-        if act:
-            if norm(act) in verliezers:
-                punten += pt
-        elif troostfinale_deelnemers:
-            # Troostfinale-deelnemers zijn bekend maar wedstrijd nog niet gespeeld
-            if any(v in troostfinale_deelnemers for v in verliezers):
-                potentieel += pt
-        else:
-            # Semi-finales nog niet afgerond: val terug op uitgeschakeld-check
-            if any(v not in uitgeschakeld for v in verliezers):
-                potentieel += pt
     return punten, potentieel
 
 

@@ -10,10 +10,11 @@
 name: Update dashboard
 
 on:
-  schedule:
-    - cron: "30 21 * * *"
-    - cron: "30 0 * * *"
-    - cron: "30 5 * * *"
+  # Dagelijkse schedule uit sinds 2026-10-02: het toernooi is afgelopen.
+  # Terugzetten: een `schedule:`-blok met deze drie cron-regels toevoegen:
+  #   - cron: "30 21 * * *"
+  #   - cron: "30 0 * * *"
+  #   - cron: "30 5 * * *"
   workflow_dispatch: {}        # handmatige trigger via de Actions-tab
   push:
     paths:

@@ -38,7 +38,7 @@ KO_STAGE = {
     "LAST_16": ("Achtste finales", "achtste_winnaars", "5 pt"),
     "QUARTER_FINALS": ("Kwartfinales", "kwart_winnaars", "10 pt"),
     "SEMI_FINALS": ("Halve finales", "halve_winnaars", "15 pt"),
-    "THIRD_PLACE": ("Troostfinale", None, "15 / 10 pt"),
+    "THIRD_PLACE": ("Troostfinale", None, "0 pt"),
     "FINAL": ("Finale", "kampioen", "40 / 20 pt"),
 }
 
